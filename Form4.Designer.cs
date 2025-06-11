@@ -30,9 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReservationManagementForm));
-            CustomerTimer = new System.Windows.Forms.Timer(components);
             sidebarTimer = new System.Windows.Forms.Timer(components);
-            imageList1 = new ImageList(components);
             label2 = new Label();
             SignOut = new Button();
             panel9 = new Panel();
@@ -40,10 +38,8 @@
             panel6 = new Panel();
             SukiCard = new Button();
             panel5 = new Panel();
-            CustomerArrow = new PictureBox();
             Customer = new Button();
             panel13 = new Panel();
-            ReservationsTimer = new System.Windows.Forms.Timer(components);
             CustomerDetails = new Button();
             CustomerContainer_1 = new Panel();
             panel12 = new Panel();
@@ -57,12 +53,25 @@
             panel10 = new Panel();
             ReservationsDetails = new Button();
             panel3 = new Panel();
-            ReservationsArrow = new PictureBox();
             Reservations = new Button();
+            lblTotalReservationsCount = new Label();
+            txtReservationSearch = new TextBox();
+            btnSearch = new Button();
+            btnRefresh = new Button();
+            btnAddNewReservation = new Button();
+            label3 = new Label();
+            sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
+            cboReservationStatus = new ComboBox();
+            dgvReservations = new DataGridView();
+            colResID = new DataGridViewTextBoxColumn();
+            colCustomerName = new DataGridViewTextBoxColumn();
+            colCheckIn = new DataGridViewTextBoxColumn();
+            colStatus = new DataGridViewTextBoxColumn();
+            colViewEdit = new DataGridViewButtonColumn();
+            colCancel = new DataGridViewButtonColumn();
             panel9.SuspendLayout();
             panel6.SuspendLayout();
             panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)CustomerArrow).BeginInit();
             panel13.SuspendLayout();
             CustomerContainer_1.SuspendLayout();
             panel12.SuspendLayout();
@@ -73,26 +82,13 @@
             ReservationsContainer_1.SuspendLayout();
             panel10.SuspendLayout();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)ReservationsArrow).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvReservations).BeginInit();
             SuspendLayout();
-            // 
-            // CustomerTimer
-            // 
-            CustomerTimer.Interval = 10;
-            CustomerTimer.Tick += CustomerTimer_Tick_1;
             // 
             // sidebarTimer
             // 
             sidebarTimer.Interval = 10;
             sidebarTimer.Tick += sidebarTimer_Tick_1;
-            // 
-            // imageList1
-            // 
-            imageList1.ColorDepth = ColorDepth.Depth32Bit;
-            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
-            imageList1.TransparentColor = Color.Transparent;
-            imageList1.Images.SetKeyName(0, "down arrow");
-            imageList1.Images.SetKeyName(1, "up arrow");
             // 
             // label2
             // 
@@ -100,9 +96,8 @@
             label2.Font = new Font("Sitka Small", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(439, 209);
             label2.Name = "label2";
-            label2.Size = new Size(516, 52);
+            label2.Size = new Size(0, 52);
             label2.TabIndex = 9;
-            label2.Text = "Reservations Management";
             // 
             // SignOut
             // 
@@ -119,6 +114,7 @@
             SignOut.Text = "              Sign Out";
             SignOut.TextAlign = ContentAlignment.MiddleLeft;
             SignOut.UseVisualStyleBackColor = true;
+            SignOut.Click += SignOut_Click;
             // 
             // panel9
             // 
@@ -178,17 +174,6 @@
             panel5.Size = new Size(242, 44);
             panel5.TabIndex = 4;
             // 
-            // CustomerArrow
-            // 
-            CustomerArrow.Image = (Image)resources.GetObject("CustomerArrow.Image");
-            CustomerArrow.Location = new Point(200, 11);
-            CustomerArrow.Name = "CustomerArrow";
-            CustomerArrow.Size = new Size(28, 26);
-            CustomerArrow.SizeMode = PictureBoxSizeMode.CenterImage;
-            CustomerArrow.TabIndex = 3;
-            CustomerArrow.TabStop = false;
-            CustomerArrow.Click += CustomerArrow_Click;
-            // 
             // Customer
             // 
             Customer.FlatStyle = FlatStyle.Flat;
@@ -208,17 +193,11 @@
             // 
             // panel13
             // 
-            panel13.Controls.Add(CustomerArrow);
             panel13.Controls.Add(Customer);
             panel13.Location = new Point(0, 3);
             panel13.Name = "panel13";
             panel13.Size = new Size(242, 44);
             panel13.TabIndex = 2;
-            // 
-            // ReservationsTimer
-            // 
-            ReservationsTimer.Interval = 10;
-            ReservationsTimer.Tick += ReservationsTimer_Tick_1;
             // 
             // CustomerDetails
             // 
@@ -236,7 +215,6 @@
             CustomerDetails.Text = "              Customer Details";
             CustomerDetails.TextAlign = ContentAlignment.MiddleLeft;
             CustomerDetails.UseVisualStyleBackColor = false;
-            CustomerDetails.Click += CustomerDetails_Click;
             // 
             // CustomerContainer_1
             // 
@@ -368,27 +346,14 @@
             ReservationsDetails.Text = "              Reservations Details";
             ReservationsDetails.TextAlign = ContentAlignment.MiddleLeft;
             ReservationsDetails.UseVisualStyleBackColor = false;
-            ReservationsDetails.Click += ReservationsDetails_Click_1;
             // 
             // panel3
             // 
-            panel3.Controls.Add(ReservationsArrow);
             panel3.Controls.Add(Reservations);
             panel3.Location = new Point(0, 3);
             panel3.Name = "panel3";
             panel3.Size = new Size(242, 44);
             panel3.TabIndex = 2;
-            // 
-            // ReservationsArrow
-            // 
-            ReservationsArrow.Image = (Image)resources.GetObject("ReservationsArrow.Image");
-            ReservationsArrow.Location = new Point(200, 10);
-            ReservationsArrow.Name = "ReservationsArrow";
-            ReservationsArrow.Size = new Size(28, 26);
-            ReservationsArrow.SizeMode = PictureBoxSizeMode.CenterImage;
-            ReservationsArrow.TabIndex = 2;
-            ReservationsArrow.TabStop = false;
-            ReservationsArrow.Click += ReservationsArrow_Click_1;
             // 
             // Reservations
             // 
@@ -407,13 +372,142 @@
             Reservations.UseVisualStyleBackColor = true;
             Reservations.Click += Reservations_Click;
             // 
+            // lblTotalReservationsCount
+            // 
+            lblTotalReservationsCount.AutoSize = true;
+            lblTotalReservationsCount.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTotalReservationsCount.Location = new Point(153, 35);
+            lblTotalReservationsCount.Name = "lblTotalReservationsCount";
+            lblTotalReservationsCount.Size = new Size(56, 20);
+            lblTotalReservationsCount.TabIndex = 10;
+            lblTotalReservationsCount.Text = "Search:";
+            // 
+            // txtReservationSearch
+            // 
+            txtReservationSearch.Location = new Point(215, 33);
+            txtReservationSearch.Name = "txtReservationSearch";
+            txtReservationSearch.Size = new Size(193, 23);
+            txtReservationSearch.TabIndex = 11;
+            // 
+            // btnSearch
+            // 
+            btnSearch.Location = new Point(449, 33);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(75, 23);
+            btnSearch.TabIndex = 12;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = true;
+            // 
+            // btnRefresh
+            // 
+            btnRefresh.Location = new Point(546, 33);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(75, 23);
+            btnRefresh.TabIndex = 13;
+            btnRefresh.Text = "Refresh";
+            btnRefresh.UseVisualStyleBackColor = true;
+            // 
+            // btnAddNewReservation
+            // 
+            btnAddNewReservation.Location = new Point(642, 33);
+            btnAddNewReservation.Name = "btnAddNewReservation";
+            btnAddNewReservation.Size = new Size(143, 23);
+            btnAddNewReservation.TabIndex = 14;
+            btnAddNewReservation.Text = "Add New Reservation";
+            btnAddNewReservation.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(153, 77);
+            label3.Name = "label3";
+            label3.Size = new Size(52, 20);
+            label3.TabIndex = 15;
+            label3.Text = "Status:";
+            // 
+            // sqlCommand1
+            // 
+            sqlCommand1.CommandTimeout = 30;
+            sqlCommand1.Connection = null;
+            sqlCommand1.Notification = null;
+            sqlCommand1.Transaction = null;
+            // 
+            // cboReservationStatus
+            // 
+            cboReservationStatus.FormattingEnabled = true;
+            cboReservationStatus.Location = new Point(215, 77);
+            cboReservationStatus.Name = "cboReservationStatus";
+            cboReservationStatus.Size = new Size(193, 23);
+            cboReservationStatus.TabIndex = 16;
+            // 
+            // dgvReservations
+            // 
+            dgvReservations.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvReservations.Columns.AddRange(new DataGridViewColumn[] { colResID, colCustomerName, colCheckIn, colStatus, colViewEdit, colCancel });
+            dgvReservations.Location = new Point(98, 151);
+            dgvReservations.Name = "dgvReservations";
+            dgvReservations.Size = new Size(943, 324);
+            dgvReservations.TabIndex = 17;
+            dgvReservations.CellContentClick += dgvReservations_CellContentClick;
+            // 
+            // colResID
+            // 
+            colResID.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colResID.HeaderText = "Res ID";
+            colResID.Name = "colResID";
+            // 
+            // colCustomerName
+            // 
+            colCustomerName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colCustomerName.HeaderText = "Customer Name";
+            colCustomerName.Name = "colCustomerName";
+            // 
+            // colCheckIn
+            // 
+            colCheckIn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colCheckIn.HeaderText = "Check-in";
+            colCheckIn.Name = "colCheckIn";
+            // 
+            // colStatus
+            // 
+            colStatus.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colStatus.HeaderText = "Status";
+            colStatus.Name = "colStatus";
+            // 
+            // colViewEdit
+            // 
+            colViewEdit.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colViewEdit.HeaderText = "Action";
+            colViewEdit.Name = "colViewEdit";
+            colViewEdit.Resizable = DataGridViewTriState.True;
+            colViewEdit.SortMode = DataGridViewColumnSortMode.Automatic;
+            colViewEdit.Text = "View/Edit";
+            colViewEdit.UseColumnTextForButtonValue = true;
+            // 
+            // colCancel
+            // 
+            colCancel.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colCancel.HeaderText = "";
+            colCancel.Name = "colCancel";
+            colCancel.Text = "Cancel";
+            colCancel.UseColumnTextForButtonValue = true;
+            // 
             // ReservationManagementForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1070, 533);
-            Controls.Add(label2);
             Controls.Add(sidebar);
+            Controls.Add(dgvReservations);
+            Controls.Add(cboReservationStatus);
+            Controls.Add(label3);
+            Controls.Add(btnAddNewReservation);
+            Controls.Add(btnRefresh);
+            Controls.Add(btnSearch);
+            Controls.Add(txtReservationSearch);
+            Controls.Add(lblTotalReservationsCount);
+            Controls.Add(label2);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ReservationManagementForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -422,7 +516,6 @@
             panel9.ResumeLayout(false);
             panel6.ResumeLayout(false);
             panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)CustomerArrow).EndInit();
             panel13.ResumeLayout(false);
             CustomerContainer_1.ResumeLayout(false);
             panel12.ResumeLayout(false);
@@ -434,16 +527,13 @@
             ReservationsContainer_1.ResumeLayout(false);
             panel10.ResumeLayout(false);
             panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)ReservationsArrow).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvReservations).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private System.Windows.Forms.Timer CustomerTimer;
         private System.Windows.Forms.Timer sidebarTimer;
-        private ImageList imageList1;
         private Label label2;
         private Button SignOut;
         private Panel panel9;
@@ -451,10 +541,8 @@
         private Panel panel6;
         private Button SukiCard;
         private Panel panel5;
-        private PictureBox CustomerArrow;
         private Button Customer;
         private Panel panel13;
-        private System.Windows.Forms.Timer ReservationsTimer;
         private Button CustomerDetails;
         private Panel CustomerContainer_1;
         private Panel panel12;
@@ -468,7 +556,21 @@
         private Panel panel10;
         private Button ReservationsDetails;
         private Panel panel3;
-        private PictureBox ReservationsArrow;
         private Button Reservations;
+        private Label lblTotalReservationsCount;
+        private TextBox txtReservationSearch;
+        private Button btnSearch;
+        private Button btnRefresh;
+        private Button btnAddNewReservation;
+        private Label label3;
+        private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
+        private ComboBox cboReservationStatus;
+        private DataGridView dgvReservations;
+        private DataGridViewTextBoxColumn colResID;
+        private DataGridViewTextBoxColumn colCustomerName;
+        private DataGridViewTextBoxColumn colCheckIn;
+        private DataGridViewTextBoxColumn colStatus;
+        private DataGridViewButtonColumn colViewEdit;
+        private DataGridViewButtonColumn colCancel;
     }
 }

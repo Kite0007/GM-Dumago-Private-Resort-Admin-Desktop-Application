@@ -23,20 +23,8 @@ namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
             homeCollapse = true;
             CustomerContainer.Height = CustomerContainer.MinimumSize.Height;
             customerCollapse = true;
-
-            // Set initial images for both arrows
-            if (imageList1 != null && imageList1.Images.Count > 1)
-            {
-                if (ReservationsArrow != null)
-                {
-                    ReservationsArrow.Image = imageList1.Images[0]; // Down arrow
-                }
-                if (CustomerArrow != null)
-                {
-                    CustomerArrow.Image = imageList1.Images[0]; // Down arrow
-                }
-            }
         }
+
 
         private void sidebarTimer_Tick_1(object sender, EventArgs e)
         {
@@ -72,93 +60,13 @@ namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
             }
         }
 
-        private void ReservationsTimer_Tick_1(object sender, EventArgs e)
-        {
-            if (ReservationsContainer == null || ReservationsTimer == null) return;
-
-            if (homeCollapse)
-            {
-                ReservationsContainer.Height += 10;
-                if (ReservationsContainer.Height >= ReservationsContainer.MaximumSize.Height)
-                {
-                    ReservationsContainer.Height = ReservationsContainer.MaximumSize.Height;
-                    homeCollapse = false;
-                    ReservationsTimer.Stop();
-                }
-            }
-            else
-            {
-                ReservationsContainer.Height -= 10;
-                if (ReservationsContainer.Height <= ReservationsContainer.MinimumSize.Height)
-                {
-                    ReservationsContainer.Height = ReservationsContainer.MinimumSize.Height;
-                    homeCollapse = true;
-                    ReservationsTimer.Stop();
-                }
-            }
-        }
-
-        private void CustomerTimer_Tick_1(object sender, EventArgs e)
-        {
-            if (CustomerContainer == null || CustomerTimer == null) return;
-
-            if (customerCollapse)
-            {
-                CustomerContainer.Height += 10;
-                if (CustomerContainer.Height >= CustomerContainer.MaximumSize.Height)
-                {
-                    CustomerContainer.Height = CustomerContainer.MaximumSize.Height;
-                    customerCollapse = false;
-                    CustomerTimer.Stop();
-                }
-            }
-            else
-            {
-                CustomerContainer.Height -= 10;
-                if (CustomerContainer.Height <= CustomerContainer.MinimumSize.Height)
-                {
-                    CustomerContainer.Height = CustomerContainer.MinimumSize.Height;
-                    customerCollapse = true;
-                    CustomerTimer.Stop();
-                }
-            }
-        }
-
-        private void ReservationsArrow_Click_1(object sender, EventArgs e)
-        {
-            if (ReservationsTimer != null)
-            {
-                if (homeCollapse)
-                {
-                    ReservationsArrow.Image = imageList1.Images[1]; // Set to 'Up' arrow
-                }
-                else
-                {
-                    ReservationsArrow.Image = imageList1.Images[0]; // Set to 'Down' arrow
-                }
-                ReservationsTimer.Start();
-            }
-        }
-
-        private void CustomerArrow_Click_1(object sender, EventArgs e)
-        {
-            if (CustomerTimer != null)
-            {
-                if (customerCollapse)
-                {
-                    CustomerArrow.Image = imageList1.Images[1]; // Set to 'Up' arrow
-                }
-                else
-                {
-                    CustomerArrow.Image = imageList1.Images[0]; // Set to 'Down' arrow
-                }
-                CustomerTimer.Start();
-            }
-        }
-
         private void SukiCardForm_Load(object sender, EventArgs e)
         {
-            // You can add any code you need to run when the form loads here.
+            {
+                dgvPointsHistory.Rows.Clear();
+                dgvPointsHistory.Rows.Add("2023-10-20", "Earn", "+100", "Reservation #RES-001");
+                dgvPointsHistory.Rows.Add("2023-09-15", "Redeem", "-50", "Discount usage");
+            }
         }
 
         // --- Sidebar Navigation Click Events ---
@@ -178,27 +86,11 @@ namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
             this.Hide();
         }
 
-        private void ReservationsDetails_Click_1(object sender, EventArgs e)
-        {
-            ReservationDetailsForm resevationdetails = new ReservationDetailsForm();
-            resevationdetails.FormClosed += (s, args) => this.Close();
-            resevationdetails.Show();
-            this.Hide();
-        }
-
         private void Customer_Click_1(object sender, EventArgs e)
         {
             CustomerManagenentForm customermanagement = new CustomerManagenentForm();
             customermanagement.FormClosed += (s, args) => this.Close();
             customermanagement.Show();
-            this.Hide();
-        }
-
-        private void CustomerDetails_Click(object sender, EventArgs e)
-        {
-            CustomerDetailsForm customerdetails = new CustomerDetailsForm();
-            customerdetails.FormClosed += (s, args) => this.Close();
-            customerdetails.Show();
             this.Hide();
         }
 
@@ -216,6 +108,28 @@ namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
             reports.FormClosed += (s, args) => this.Close();
             reports.Show();
             this.Hide();
+        }
+
+        private void dgvPointsHistory_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void SignOut_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Are you sure you want to sign out?",
+                "Confirm Sign Out",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+            if (result == DialogResult.Yes)
+            {
+                LoginForm login = new LoginForm();
+                login.FormClosed += (s, args) => this.Close();
+                login.Show();
+                this.Hide();
+            }
         }
     }
 }

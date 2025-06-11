@@ -10,18 +10,18 @@ using System.Windows.Forms;
 
 namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
 {
-    public partial class ReservationManagementForm : Form
+    public partial class ReservationDetailsForm : Form
     {
         bool sidebarExpand;
         bool homeCollapse;
         bool customerCollapse;
 
-        public ReservationManagementForm()
+        public ReservationDetailsForm()
         {
             InitializeComponent();
-            ReservationsContainer_1.Height = ReservationsContainer_1.MinimumSize.Height;
+            ReservationsContainer.Height = ReservationsContainer.MinimumSize.Height;
             homeCollapse = true;
-            CustomerContainer_1.Height = CustomerContainer_1.MinimumSize.Height;
+            CustomerContainer.Height = CustomerContainer.MinimumSize.Height;
             customerCollapse = true;
         }
 
@@ -59,15 +59,12 @@ namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
             }
         }
 
-        private void ReservationManagementForm_Load(object sender, EventArgs e)
+        private void ReservationDetailsForm_Load(object sender, EventArgs e)
         {
-            dgvReservations.Rows.Clear();
-            dgvReservations.Rows.Add("RES-001", "John Doe", "2023-10-26", "Confirmed");
-            dgvReservations.Rows.Add("RES-002", "Jane Smith", "2023-11-01", "Pending");
-            dgvReservations.Rows.Add("RES-003", "Bob Johnson", "2023-09-15", "Cancelled");
-            dgvReservations.Rows.Add("RES-004", "Alice Brown", "2023-10-29", "Paid");
+            // You can add any code you need to run when the form loads here.
         }
 
+        // --- Sidebar Navigation Click Events ---
         private void Dashboard_Click(object sender, EventArgs e)
         {
             DashboardForm dashboard = new DashboardForm();
@@ -76,7 +73,7 @@ namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
             this.Hide();
         }
 
-        private void Reservations_Click(object sender, EventArgs e)
+        private void Reservations_Click_1(object sender, EventArgs e)
         {
             ReservationManagementForm reservationmanagement = new ReservationManagementForm();
             reservationmanagement.FormClosed += (s, args) => this.Close();
@@ -106,26 +103,6 @@ namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
             reports.FormClosed += (s, args) => this.Close();
             reports.Show();
             this.Hide();
-        }
-
-        private void dgvReservations_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0)
-            {
-                return;
-            }
-
-            if (dgvReservations.Columns[e.ColumnIndex].Name == "colViewEdit")
-            {
-                string reservationId = dgvReservations.Rows[e.RowIndex].Cells["colResID"].Value.ToString();
-                MessageBox.Show("You clicked 'View/Edit' for Reservation ID: " + reservationId);
-            }
-
-            if (dgvReservations.Columns[e.ColumnIndex].Name == "colCancel")
-            {
-                string reservationId = dgvReservations.Rows[e.RowIndex].Cells["colResID"].Value.ToString();
-                MessageBox.Show("You clicked 'Cancel' for Reservation ID: " + reservationId);
-            }
         }
 
         private void SignOut_Click(object sender, EventArgs e)

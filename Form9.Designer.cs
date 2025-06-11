@@ -30,20 +30,15 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportsForm));
-            CustomerTimer = new System.Windows.Forms.Timer(components);
             sidebarTimer = new System.Windows.Forms.Timer(components);
-            imageList1 = new ImageList(components);
-            label2 = new Label();
             SignOut = new Button();
             panel9 = new Panel();
             Reports = new Button();
             panel6 = new Panel();
             SukiCard = new Button();
             panel5 = new Panel();
-            CustomerArrow = new PictureBox();
             Customer = new Button();
             panel13 = new Panel();
-            ReservationsTimer = new System.Windows.Forms.Timer(components);
             CustomerDetails = new Button();
             CustomerContainer = new Panel();
             panel12 = new Panel();
@@ -57,12 +52,23 @@
             panel10 = new Panel();
             ReservationsDetails = new Button();
             panel3 = new Panel();
-            ReservationsArrow = new PictureBox();
             Reservations = new Button();
+            sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
+            lblTotalReservationsCount = new Label();
+            label2 = new Label();
+            cboReportYear = new ComboBox();
+            cboReportType = new ComboBox();
+            btnGenerateReport = new Button();
+            dgvReportDetails = new DataGridView();
+            colMonth = new DataGridViewTextBoxColumn();
+            colReservations = new DataGridViewTextBoxColumn();
+            colRevenue = new DataGridViewTextBoxColumn();
+            colOccupancy = new DataGridViewTextBoxColumn();
+            sqlCommand2 = new Microsoft.Data.SqlClient.SqlCommand();
+            pnlChartHost = new Panel();
             panel9.SuspendLayout();
             panel6.SuspendLayout();
             panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)CustomerArrow).BeginInit();
             panel13.SuspendLayout();
             CustomerContainer.SuspendLayout();
             panel12.SuspendLayout();
@@ -73,36 +79,13 @@
             ReservationsContainer.SuspendLayout();
             panel10.SuspendLayout();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)ReservationsArrow).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvReportDetails).BeginInit();
             SuspendLayout();
-            // 
-            // CustomerTimer
-            // 
-            CustomerTimer.Interval = 10;
-            CustomerTimer.Tick += CustomerTimer_Tick_1;
             // 
             // sidebarTimer
             // 
             sidebarTimer.Interval = 10;
             sidebarTimer.Tick += sidebarTimer_Tick_1;
-            // 
-            // imageList1
-            // 
-            imageList1.ColorDepth = ColorDepth.Depth32Bit;
-            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
-            imageList1.TransparentColor = Color.Transparent;
-            imageList1.Images.SetKeyName(0, "down arrow");
-            imageList1.Images.SetKeyName(1, "up arrow");
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Sitka Small", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(534, 206);
-            label2.Name = "label2";
-            label2.Size = new Size(361, 52);
-            label2.TabIndex = 9;
-            label2.Text = "Reports & Analytics";
             // 
             // SignOut
             // 
@@ -119,6 +102,7 @@
             SignOut.Text = "              Sign Out";
             SignOut.TextAlign = ContentAlignment.MiddleLeft;
             SignOut.UseVisualStyleBackColor = true;
+            SignOut.Click += SignOut_Click;
             // 
             // panel9
             // 
@@ -165,7 +149,7 @@
             SukiCard.Padding = new Padding(30, 0, 0, 0);
             SukiCard.Size = new Size(274, 60);
             SukiCard.TabIndex = 2;
-            SukiCard.Text = "              Suki Card";
+            SukiCard.Text = "              Suki Cards";
             SukiCard.TextAlign = ContentAlignment.MiddleLeft;
             SukiCard.UseVisualStyleBackColor = true;
             SukiCard.Click += SukiCard_Click_1;
@@ -177,17 +161,6 @@
             panel5.Name = "panel5";
             panel5.Size = new Size(242, 44);
             panel5.TabIndex = 4;
-            // 
-            // CustomerArrow
-            // 
-            CustomerArrow.Image = (Image)resources.GetObject("CustomerArrow.Image");
-            CustomerArrow.Location = new Point(200, 11);
-            CustomerArrow.Name = "CustomerArrow";
-            CustomerArrow.Size = new Size(28, 26);
-            CustomerArrow.SizeMode = PictureBoxSizeMode.CenterImage;
-            CustomerArrow.TabIndex = 3;
-            CustomerArrow.TabStop = false;
-            CustomerArrow.Click += CustomerArrow_Click;
             // 
             // Customer
             // 
@@ -201,24 +174,18 @@
             Customer.Padding = new Padding(30, 0, 0, 0);
             Customer.Size = new Size(274, 60);
             Customer.TabIndex = 2;
-            Customer.Text = "              Customer";
+            Customer.Text = "              Customers";
             Customer.TextAlign = ContentAlignment.MiddleLeft;
             Customer.UseVisualStyleBackColor = true;
             Customer.Click += Customer_Click_1;
             // 
             // panel13
             // 
-            panel13.Controls.Add(CustomerArrow);
             panel13.Controls.Add(Customer);
             panel13.Location = new Point(0, 3);
             panel13.Name = "panel13";
             panel13.Size = new Size(242, 44);
             panel13.TabIndex = 2;
-            // 
-            // ReservationsTimer
-            // 
-            ReservationsTimer.Interval = 10;
-            ReservationsTimer.Tick += ReservationsTimer_Tick_1;
             // 
             // CustomerDetails
             // 
@@ -236,7 +203,6 @@
             CustomerDetails.Text = "              Customer Details";
             CustomerDetails.TextAlign = ContentAlignment.MiddleLeft;
             CustomerDetails.UseVisualStyleBackColor = false;
-            CustomerDetails.Click += CustomerDetails_Click;
             // 
             // CustomerContainer
             // 
@@ -368,27 +334,14 @@
             ReservationsDetails.Text = "              Reservations Details";
             ReservationsDetails.TextAlign = ContentAlignment.MiddleLeft;
             ReservationsDetails.UseVisualStyleBackColor = false;
-            ReservationsDetails.Click += ReservationsDetails_Click_1;
             // 
             // panel3
             // 
-            panel3.Controls.Add(ReservationsArrow);
             panel3.Controls.Add(Reservations);
             panel3.Location = new Point(0, 3);
             panel3.Name = "panel3";
             panel3.Size = new Size(242, 44);
             panel3.TabIndex = 2;
-            // 
-            // ReservationsArrow
-            // 
-            ReservationsArrow.Image = (Image)resources.GetObject("ReservationsArrow.Image");
-            ReservationsArrow.Location = new Point(200, 10);
-            ReservationsArrow.Name = "ReservationsArrow";
-            ReservationsArrow.Size = new Size(28, 26);
-            ReservationsArrow.SizeMode = PictureBoxSizeMode.CenterImage;
-            ReservationsArrow.TabIndex = 2;
-            ReservationsArrow.TabStop = false;
-            ReservationsArrow.Click += ReservationsArrow_Click;
             // 
             // Reservations
             // 
@@ -407,21 +360,134 @@
             Reservations.UseVisualStyleBackColor = true;
             Reservations.Click += Reservations_Click_1;
             // 
+            // sqlCommand1
+            // 
+            sqlCommand1.CommandTimeout = 30;
+            sqlCommand1.Connection = null;
+            sqlCommand1.Notification = null;
+            sqlCommand1.Transaction = null;
+            // 
+            // lblTotalReservationsCount
+            // 
+            lblTotalReservationsCount.AutoSize = true;
+            lblTotalReservationsCount.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTotalReservationsCount.Location = new Point(145, 39);
+            lblTotalReservationsCount.Name = "lblTotalReservationsCount";
+            lblTotalReservationsCount.Size = new Size(84, 20);
+            lblTotalReservationsCount.TabIndex = 17;
+            lblTotalReservationsCount.Text = "Select Year:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(548, 40);
+            label2.Name = "label2";
+            label2.Size = new Size(92, 20);
+            label2.TabIndex = 19;
+            label2.Text = "Report Type:";
+            // 
+            // cboReportYear
+            // 
+            cboReportYear.FormattingEnabled = true;
+            cboReportYear.Location = new Point(234, 39);
+            cboReportYear.Name = "cboReportYear";
+            cboReportYear.Size = new Size(249, 23);
+            cboReportYear.TabIndex = 20;
+            // 
+            // cboReportType
+            // 
+            cboReportType.FormattingEnabled = true;
+            cboReportType.Location = new Point(647, 39);
+            cboReportType.Name = "cboReportType";
+            cboReportType.Size = new Size(249, 23);
+            cboReportType.TabIndex = 21;
+            // 
+            // btnGenerateReport
+            // 
+            btnGenerateReport.BackColor = Color.FromArgb(20, 200, 120);
+            btnGenerateReport.FlatAppearance.BorderSize = 0;
+            btnGenerateReport.FlatStyle = FlatStyle.Flat;
+            btnGenerateReport.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnGenerateReport.ForeColor = Color.White;
+            btnGenerateReport.Location = new Point(145, 82);
+            btnGenerateReport.Name = "btnGenerateReport";
+            btnGenerateReport.Size = new Size(153, 32);
+            btnGenerateReport.TabIndex = 38;
+            btnGenerateReport.Text = "Generate Report";
+            btnGenerateReport.UseVisualStyleBackColor = false;
+            // 
+            // dgvReportDetails
+            // 
+            dgvReportDetails.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvReportDetails.Columns.AddRange(new DataGridViewColumn[] { colMonth, colReservations, colRevenue, colOccupancy });
+            dgvReportDetails.Location = new Point(145, 414);
+            dgvReportDetails.Name = "dgvReportDetails";
+            dgvReportDetails.Size = new Size(832, 109);
+            dgvReportDetails.TabIndex = 50;
+            dgvReportDetails.CellContentClick += dgvReportDetails_CellContentClick;
+            // 
+            // colMonth
+            // 
+            colMonth.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colMonth.HeaderText = "Month";
+            colMonth.Name = "colMonth";
+            // 
+            // colReservations
+            // 
+            colReservations.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colReservations.HeaderText = "Reservations";
+            colReservations.Name = "colReservations";
+            // 
+            // colRevenue
+            // 
+            colRevenue.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colRevenue.HeaderText = "Revenue (₱)";
+            colRevenue.Name = "colRevenue";
+            // 
+            // colOccupancy
+            // 
+            colOccupancy.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colOccupancy.HeaderText = "Occupancy (%)";
+            colOccupancy.Name = "colOccupancy";
+            // 
+            // sqlCommand2
+            // 
+            sqlCommand2.CommandTimeout = 30;
+            sqlCommand2.Connection = null;
+            sqlCommand2.Notification = null;
+            sqlCommand2.Transaction = null;
+            // 
+            // pnlChartHost
+            // 
+            pnlChartHost.AutoSize = true;
+            pnlChartHost.Location = new Point(145, 120);
+            pnlChartHost.Name = "pnlChartHost";
+            pnlChartHost.Size = new Size(832, 288);
+            pnlChartHost.TabIndex = 51;
+            pnlChartHost.Paint += pnlChartHost_Paint;
+            // 
             // ReportsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1070, 533);
+            Controls.Add(pnlChartHost);
+            Controls.Add(dgvReportDetails);
+            Controls.Add(btnGenerateReport);
+            Controls.Add(cboReportType);
+            Controls.Add(cboReportYear);
             Controls.Add(label2);
+            Controls.Add(lblTotalReservationsCount);
             Controls.Add(sidebar);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ReportsForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form9";
+            Load += ReportsForm_Load;
             panel9.ResumeLayout(false);
             panel6.ResumeLayout(false);
             panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)CustomerArrow).EndInit();
             panel13.ResumeLayout(false);
             CustomerContainer.ResumeLayout(false);
             panel12.ResumeLayout(false);
@@ -433,27 +499,21 @@
             ReservationsContainer.ResumeLayout(false);
             panel10.ResumeLayout(false);
             panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)ReservationsArrow).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvReportDetails).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private System.Windows.Forms.Timer CustomerTimer;
         private System.Windows.Forms.Timer sidebarTimer;
-        private ImageList imageList1;
-        private Label label2;
         private Button SignOut;
         private Panel panel9;
         private Button Reports;
         private Panel panel6;
         private Button SukiCard;
         private Panel panel5;
-        private PictureBox CustomerArrow;
         private Button Customer;
         private Panel panel13;
-        private System.Windows.Forms.Timer ReservationsTimer;
         private Button CustomerDetails;
         private Panel CustomerContainer;
         private Panel panel12;
@@ -467,7 +527,19 @@
         private Panel panel10;
         private Button ReservationsDetails;
         private Panel panel3;
-        private PictureBox ReservationsArrow;
         private Button Reservations;
+        private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
+        private Label lblTotalReservationsCount;
+        private Label label2;
+        private ComboBox cboReportYear;
+        private ComboBox cboReportType;
+        private Button btnGenerateReport;
+        private DataGridView dgvReportDetails;
+        private Microsoft.Data.SqlClient.SqlCommand sqlCommand2;
+        private Panel pnlChartHost;
+        private DataGridViewTextBoxColumn colMonth;
+        private DataGridViewTextBoxColumn colReservations;
+        private DataGridViewTextBoxColumn colRevenue;
+        private DataGridViewTextBoxColumn colOccupancy;
     }
 }

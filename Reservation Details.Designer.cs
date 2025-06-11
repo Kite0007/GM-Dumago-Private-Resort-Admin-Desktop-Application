@@ -1,6 +1,6 @@
 ﻿namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
 {
-    partial class CustomerDetailsForm
+    partial class ReservationDetailsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,21 +29,16 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerDetailsForm));
-            CustomerTimer = new System.Windows.Forms.Timer(components);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReservationDetailsForm));
             sidebarTimer = new System.Windows.Forms.Timer(components);
-            imageList1 = new ImageList(components);
-            label2 = new Label();
             SignOut = new Button();
             panel9 = new Panel();
             Reports = new Button();
             panel6 = new Panel();
             SukiCard = new Button();
             panel5 = new Panel();
-            CustomerArrow = new PictureBox();
             Customer = new Button();
             panel13 = new Panel();
-            ReservationsTimer = new System.Windows.Forms.Timer(components);
             CustomerDetails = new Button();
             CustomerContainer = new Panel();
             panel12 = new Panel();
@@ -57,12 +52,34 @@
             panel10 = new Panel();
             ReservationsDetails = new Button();
             panel3 = new Panel();
-            ReservationsArrow = new PictureBox();
             Reservations = new Button();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            lblTotalReservationsCount = new Label();
+            txtReservationID = new TextBox();
+            txtCustomerName = new TextBox();
+            dtpCheckInDate = new DateTimePicker();
+            dtpCheckOutDate = new DateTimePicker();
+            a = new Label();
+            label6 = new Label();
+            label5 = new Label();
+            label7 = new Label();
+            label8 = new Label();
+            label9 = new Label();
+            label10 = new Label();
+            btnSaveReservation = new Button();
+            btnCancelEdit = new Button();
+            nudNumAdults = new NumericUpDown();
+            nudNumKids = new NumericUpDown();
+            cboRoomType = new ComboBox();
+            txtTotalAmount = new TextBox();
+            cboPaymentStatus = new ComboBox();
+            cboReservationStatus = new ComboBox();
+            txtNotes = new TextBox();
             panel9.SuspendLayout();
             panel6.SuspendLayout();
             panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)CustomerArrow).BeginInit();
             panel13.SuspendLayout();
             CustomerContainer.SuspendLayout();
             panel12.SuspendLayout();
@@ -73,36 +90,14 @@
             ReservationsContainer.SuspendLayout();
             panel10.SuspendLayout();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)ReservationsArrow).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudNumAdults).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudNumKids).BeginInit();
             SuspendLayout();
-            // 
-            // CustomerTimer
-            // 
-            CustomerTimer.Interval = 10;
-            CustomerTimer.Tick += CustomerTimer_Tick_1;
             // 
             // sidebarTimer
             // 
             sidebarTimer.Interval = 10;
             sidebarTimer.Tick += sidebarTimer_Tick_1;
-            // 
-            // imageList1
-            // 
-            imageList1.ColorDepth = ColorDepth.Depth32Bit;
-            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
-            imageList1.TransparentColor = Color.Transparent;
-            imageList1.Images.SetKeyName(0, "down arrow");
-            imageList1.Images.SetKeyName(1, "up arrow");
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Sitka Small", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(512, 206);
-            label2.Name = "label2";
-            label2.Size = new Size(343, 52);
-            label2.TabIndex = 9;
-            label2.Text = "Customer Details";
             // 
             // SignOut
             // 
@@ -119,6 +114,7 @@
             SignOut.Text = "              Sign Out";
             SignOut.TextAlign = ContentAlignment.MiddleLeft;
             SignOut.UseVisualStyleBackColor = true;
+            SignOut.Click += SignOut_Click;
             // 
             // panel9
             // 
@@ -165,7 +161,7 @@
             SukiCard.Padding = new Padding(30, 0, 0, 0);
             SukiCard.Size = new Size(274, 60);
             SukiCard.TabIndex = 2;
-            SukiCard.Text = "              Suki Card";
+            SukiCard.Text = "              Suki Cards";
             SukiCard.TextAlign = ContentAlignment.MiddleLeft;
             SukiCard.UseVisualStyleBackColor = true;
             SukiCard.Click += SukiCard_Click_1;
@@ -177,17 +173,6 @@
             panel5.Name = "panel5";
             panel5.Size = new Size(242, 44);
             panel5.TabIndex = 4;
-            // 
-            // CustomerArrow
-            // 
-            CustomerArrow.Image = (Image)resources.GetObject("CustomerArrow.Image");
-            CustomerArrow.Location = new Point(200, 11);
-            CustomerArrow.Name = "CustomerArrow";
-            CustomerArrow.Size = new Size(28, 26);
-            CustomerArrow.SizeMode = PictureBoxSizeMode.CenterImage;
-            CustomerArrow.TabIndex = 3;
-            CustomerArrow.TabStop = false;
-            CustomerArrow.Click += CustomerArrow_Click_1;
             // 
             // Customer
             // 
@@ -201,24 +186,18 @@
             Customer.Padding = new Padding(30, 0, 0, 0);
             Customer.Size = new Size(274, 60);
             Customer.TabIndex = 2;
-            Customer.Text = "              Customer";
+            Customer.Text = "              Customers";
             Customer.TextAlign = ContentAlignment.MiddleLeft;
             Customer.UseVisualStyleBackColor = true;
             Customer.Click += Customer_Click_1;
             // 
             // panel13
             // 
-            panel13.Controls.Add(CustomerArrow);
             panel13.Controls.Add(Customer);
             panel13.Location = new Point(0, 3);
             panel13.Name = "panel13";
             panel13.Size = new Size(242, 44);
             panel13.TabIndex = 2;
-            // 
-            // ReservationsTimer
-            // 
-            ReservationsTimer.Interval = 10;
-            ReservationsTimer.Tick += ReservationsTimer_Tick_1;
             // 
             // CustomerDetails
             // 
@@ -236,7 +215,6 @@
             CustomerDetails.Text = "              Customer Details";
             CustomerDetails.TextAlign = ContentAlignment.MiddleLeft;
             CustomerDetails.UseVisualStyleBackColor = false;
-            CustomerDetails.Click += CustomerDetails_Click;
             // 
             // CustomerContainer
             // 
@@ -368,27 +346,14 @@
             ReservationsDetails.Text = "              Reservations Details";
             ReservationsDetails.TextAlign = ContentAlignment.MiddleLeft;
             ReservationsDetails.UseVisualStyleBackColor = false;
-            ReservationsDetails.Click += ReservationsDetails_Click_1;
             // 
             // panel3
             // 
-            panel3.Controls.Add(ReservationsArrow);
             panel3.Controls.Add(Reservations);
             panel3.Location = new Point(0, 3);
             panel3.Name = "panel3";
             panel3.Size = new Size(242, 44);
             panel3.TabIndex = 2;
-            // 
-            // ReservationsArrow
-            // 
-            ReservationsArrow.Image = (Image)resources.GetObject("ReservationsArrow.Image");
-            ReservationsArrow.Location = new Point(200, 10);
-            ReservationsArrow.Name = "ReservationsArrow";
-            ReservationsArrow.Size = new Size(28, 26);
-            ReservationsArrow.SizeMode = PictureBoxSizeMode.CenterImage;
-            ReservationsArrow.TabIndex = 2;
-            ReservationsArrow.TabStop = false;
-            ReservationsArrow.Click += ReservationsArrow_Click_1;
             // 
             // Reservations
             // 
@@ -407,22 +372,263 @@
             Reservations.UseVisualStyleBackColor = true;
             Reservations.Click += Reservations_Click_1;
             // 
-            // CustomerDetailsForm
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Location = new Point(134, 65);
+            label4.Name = "label4";
+            label4.Size = new Size(119, 20);
+            label4.TabIndex = 18;
+            label4.Text = "Customer Name:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(134, 112);
+            label3.Name = "label3";
+            label3.Size = new Size(105, 20);
+            label3.TabIndex = 17;
+            label3.Text = "Check-in Date:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(134, 145);
+            label2.Name = "label2";
+            label2.Size = new Size(115, 20);
+            label2.TabIndex = 16;
+            label2.Text = "Check-out Date:";
+            // 
+            // lblTotalReservationsCount
+            // 
+            lblTotalReservationsCount.AutoSize = true;
+            lblTotalReservationsCount.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTotalReservationsCount.Location = new Point(134, 33);
+            lblTotalReservationsCount.Name = "lblTotalReservationsCount";
+            lblTotalReservationsCount.Size = new Size(108, 20);
+            lblTotalReservationsCount.TabIndex = 15;
+            lblTotalReservationsCount.Text = "Reservation ID:";
+            // 
+            // txtReservationID
+            // 
+            txtReservationID.Location = new Point(273, 34);
+            txtReservationID.Name = "txtReservationID";
+            txtReservationID.Size = new Size(222, 23);
+            txtReservationID.TabIndex = 19;
+            // 
+            // txtCustomerName
+            // 
+            txtCustomerName.Location = new Point(273, 63);
+            txtCustomerName.Name = "txtCustomerName";
+            txtCustomerName.Size = new Size(222, 23);
+            txtCustomerName.TabIndex = 20;
+            // 
+            // dtpCheckInDate
+            // 
+            dtpCheckInDate.Location = new Point(273, 112);
+            dtpCheckInDate.Name = "dtpCheckInDate";
+            dtpCheckInDate.Size = new Size(222, 23);
+            dtpCheckInDate.TabIndex = 21;
+            // 
+            // dtpCheckOutDate
+            // 
+            dtpCheckOutDate.Location = new Point(273, 145);
+            dtpCheckOutDate.Name = "dtpCheckOutDate";
+            dtpCheckOutDate.Size = new Size(222, 23);
+            dtpCheckOutDate.TabIndex = 22;
+            // 
+            // a
+            // 
+            a.AutoSize = true;
+            a.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            a.Location = new Point(134, 215);
+            a.Name = "a";
+            a.Size = new Size(54, 20);
+            a.TabIndex = 23;
+            a.Text = "Adults:";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(329, 217);
+            label6.Name = "label6";
+            label6.Size = new Size(40, 20);
+            label6.TabIndex = 25;
+            label6.Text = "Kids:";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(134, 273);
+            label5.Name = "label5";
+            label5.Size = new Size(87, 20);
+            label5.TabIndex = 26;
+            label5.Text = "Room Type:";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Location = new Point(134, 304);
+            label7.Name = "label7";
+            label7.Size = new Size(102, 20);
+            label7.TabIndex = 27;
+            label7.Text = "Total Amount:";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.Location = new Point(134, 398);
+            label8.Name = "label8";
+            label8.Size = new Size(133, 20);
+            label8.TabIndex = 29;
+            label8.Text = "Reservation Status:";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.Location = new Point(134, 367);
+            label9.Name = "label9";
+            label9.Size = new Size(112, 20);
+            label9.TabIndex = 28;
+            label9.Text = "Payment Status:";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label10.Location = new Point(548, 37);
+            label10.Name = "label10";
+            label10.Size = new Size(51, 20);
+            label10.TabIndex = 30;
+            label10.Text = "Notes:";
+            // 
+            // btnSaveReservation
+            // 
+            btnSaveReservation.BackColor = Color.FromArgb(20, 200, 120);
+            btnSaveReservation.FlatAppearance.BorderSize = 0;
+            btnSaveReservation.FlatStyle = FlatStyle.Flat;
+            btnSaveReservation.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSaveReservation.ForeColor = Color.White;
+            btnSaveReservation.Location = new Point(524, 412);
+            btnSaveReservation.Name = "btnSaveReservation";
+            btnSaveReservation.Size = new Size(232, 37);
+            btnSaveReservation.TabIndex = 35;
+            btnSaveReservation.Text = "Save Changes";
+            btnSaveReservation.UseVisualStyleBackColor = false;
+            // 
+            // btnCancelEdit
+            // 
+            btnCancelEdit.BackColor = Color.FromArgb(20, 200, 120);
+            btnCancelEdit.FlatAppearance.BorderSize = 0;
+            btnCancelEdit.FlatStyle = FlatStyle.Flat;
+            btnCancelEdit.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCancelEdit.ForeColor = Color.White;
+            btnCancelEdit.Location = new Point(791, 412);
+            btnCancelEdit.Name = "btnCancelEdit";
+            btnCancelEdit.Size = new Size(232, 37);
+            btnCancelEdit.TabIndex = 36;
+            btnCancelEdit.Text = "Cancel";
+            btnCancelEdit.UseVisualStyleBackColor = false;
+            // 
+            // nudNumAdults
+            // 
+            nudNumAdults.Location = new Point(198, 215);
+            nudNumAdults.Name = "nudNumAdults";
+            nudNumAdults.Size = new Size(120, 23);
+            nudNumAdults.TabIndex = 37;
+            // 
+            // nudNumKids
+            // 
+            nudNumKids.Location = new Point(375, 217);
+            nudNumKids.Name = "nudNumKids";
+            nudNumKids.Size = new Size(120, 23);
+            nudNumKids.TabIndex = 38;
+            // 
+            // cboRoomType
+            // 
+            cboRoomType.FormattingEnabled = true;
+            cboRoomType.Location = new Point(273, 273);
+            cboRoomType.Name = "cboRoomType";
+            cboRoomType.Size = new Size(222, 23);
+            cboRoomType.TabIndex = 39;
+            // 
+            // txtTotalAmount
+            // 
+            txtTotalAmount.Location = new Point(273, 305);
+            txtTotalAmount.Name = "txtTotalAmount";
+            txtTotalAmount.Size = new Size(222, 23);
+            txtTotalAmount.TabIndex = 40;
+            // 
+            // cboPaymentStatus
+            // 
+            cboPaymentStatus.FormattingEnabled = true;
+            cboPaymentStatus.Location = new Point(273, 368);
+            cboPaymentStatus.Name = "cboPaymentStatus";
+            cboPaymentStatus.Size = new Size(222, 23);
+            cboPaymentStatus.TabIndex = 41;
+            // 
+            // cboReservationStatus
+            // 
+            cboReservationStatus.FormattingEnabled = true;
+            cboReservationStatus.Location = new Point(273, 399);
+            cboReservationStatus.Name = "cboReservationStatus";
+            cboReservationStatus.Size = new Size(222, 23);
+            cboReservationStatus.TabIndex = 42;
+            // 
+            // txtNotes
+            // 
+            txtNotes.Location = new Point(623, 37);
+            txtNotes.Multiline = true;
+            txtNotes.Name = "txtNotes";
+            txtNotes.Size = new Size(312, 321);
+            txtNotes.TabIndex = 43;
+            // 
+            // ReservationDetailsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1070, 533);
-            Controls.Add(label2);
             Controls.Add(sidebar);
+            Controls.Add(txtNotes);
+            Controls.Add(cboReservationStatus);
+            Controls.Add(cboPaymentStatus);
+            Controls.Add(txtTotalAmount);
+            Controls.Add(cboRoomType);
+            Controls.Add(nudNumKids);
+            Controls.Add(nudNumAdults);
+            Controls.Add(btnCancelEdit);
+            Controls.Add(btnSaveReservation);
+            Controls.Add(label10);
+            Controls.Add(label8);
+            Controls.Add(label9);
+            Controls.Add(label7);
+            Controls.Add(label5);
+            Controls.Add(label6);
+            Controls.Add(a);
+            Controls.Add(dtpCheckOutDate);
+            Controls.Add(dtpCheckInDate);
+            Controls.Add(txtCustomerName);
+            Controls.Add(txtReservationID);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(lblTotalReservationsCount);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "CustomerDetailsForm";
+            Name = "ReservationDetailsForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form7";
-            Load += CustomerDetailsForm_Load;
+            Text = "Form5";
+            Load += ReservationDetailsForm_Load;
             panel9.ResumeLayout(false);
             panel6.ResumeLayout(false);
             panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)CustomerArrow).EndInit();
             panel13.ResumeLayout(false);
             CustomerContainer.ResumeLayout(false);
             panel12.ResumeLayout(false);
@@ -434,27 +640,22 @@
             ReservationsContainer.ResumeLayout(false);
             panel10.ResumeLayout(false);
             panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)ReservationsArrow).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudNumAdults).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudNumKids).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private System.Windows.Forms.Timer CustomerTimer;
         private System.Windows.Forms.Timer sidebarTimer;
-        private ImageList imageList1;
-        private Label label2;
         private Button SignOut;
         private Panel panel9;
         private Button Reports;
         private Panel panel6;
         private Button SukiCard;
         private Panel panel5;
-        private PictureBox CustomerArrow;
         private Button Customer;
         private Panel panel13;
-        private System.Windows.Forms.Timer ReservationsTimer;
         private Button CustomerDetails;
         private Panel CustomerContainer;
         private Panel panel12;
@@ -468,7 +669,30 @@
         private Panel panel10;
         private Button ReservationsDetails;
         private Panel panel3;
-        private PictureBox ReservationsArrow;
         private Button Reservations;
+        private Label label4;
+        private Label label3;
+        private Label label2;
+        private Label lblTotalReservationsCount;
+        private TextBox txtReservationID;
+        private TextBox txtCustomerName;
+        private DateTimePicker dtpCheckInDate;
+        private DateTimePicker dtpCheckOutDate;
+        private Label a;
+        private Label label6;
+        private Label label5;
+        private Label label7;
+        private Label label8;
+        private Label label9;
+        private Label label10;
+        private Button btnSaveReservation;
+        private Button btnCancelEdit;
+        private NumericUpDown nudNumAdults;
+        private NumericUpDown nudNumKids;
+        private ComboBox cboRoomType;
+        private TextBox txtTotalAmount;
+        private ComboBox cboPaymentStatus;
+        private ComboBox cboReservationStatus;
+        private TextBox txtNotes;
     }
 }

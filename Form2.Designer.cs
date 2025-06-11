@@ -1,6 +1,6 @@
 ﻿namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
 {
-    partial class Form2
+    partial class SignUpForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,55 +28,58 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            label2 = new Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignUpForm));
+            txtConfirmPassword = new TextBox();
+            txtNewPassword = new TextBox();
+            btnGoToLogin = new Label();
             label1 = new Label();
-            button2 = new Button();
-            textBox1 = new TextBox();
+            btnCreateAccount = new Button();
+            txtNewUsername = new TextBox();
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // textBox3
+            // txtConfirmPassword
             // 
-            textBox3.BackColor = Color.FromArgb(60, 65, 70);
-            textBox3.BorderStyle = BorderStyle.FixedSingle;
-            textBox3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox3.ForeColor = Color.White;
-            textBox3.Location = new Point(619, 244);
-            textBox3.Name = "textBox3";
-            textBox3.RightToLeft = RightToLeft.No;
-            textBox3.Size = new Size(232, 25);
-            textBox3.TabIndex = 46;
-            textBox3.Text = "  Confirm Password";
+            txtConfirmPassword.BackColor = Color.FromArgb(60, 65, 70);
+            txtConfirmPassword.BorderStyle = BorderStyle.FixedSingle;
+            txtConfirmPassword.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtConfirmPassword.ForeColor = Color.White;
+            txtConfirmPassword.Location = new Point(619, 244);
+            txtConfirmPassword.Name = "txtConfirmPassword";
+            txtConfirmPassword.RightToLeft = RightToLeft.No;
+            txtConfirmPassword.Size = new Size(232, 25);
+            txtConfirmPassword.TabIndex = 46;
+            txtConfirmPassword.Text = "  Confirm Password";
+            txtConfirmPassword.TextChanged += txtConfirmPassword_TextChanged;
             // 
-            // textBox2
+            // txtNewPassword
             // 
-            textBox2.BackColor = Color.FromArgb(60, 65, 70);
-            textBox2.BorderStyle = BorderStyle.FixedSingle;
-            textBox2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.ForeColor = Color.White;
-            textBox2.Location = new Point(619, 203);
-            textBox2.Name = "textBox2";
-            textBox2.RightToLeft = RightToLeft.No;
-            textBox2.Size = new Size(232, 25);
-            textBox2.TabIndex = 45;
-            textBox2.Text = "  Password";
+            txtNewPassword.BackColor = Color.FromArgb(60, 65, 70);
+            txtNewPassword.BorderStyle = BorderStyle.FixedSingle;
+            txtNewPassword.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtNewPassword.ForeColor = Color.White;
+            txtNewPassword.Location = new Point(619, 203);
+            txtNewPassword.Name = "txtNewPassword";
+            txtNewPassword.RightToLeft = RightToLeft.No;
+            txtNewPassword.Size = new Size(232, 25);
+            txtNewPassword.TabIndex = 45;
+            txtNewPassword.Text = "  Password";
+            txtNewPassword.TextChanged += txtNewPassword_TextChanged;
             // 
-            // label2
+            // btnGoToLogin
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.DarkBlue;
-            label2.Location = new Point(765, 375);
-            label2.Name = "label2";
-            label2.Size = new Size(68, 15);
-            label2.TabIndex = 44;
-            label2.Text = "Login Here";
+            btnGoToLogin.AutoSize = true;
+            btnGoToLogin.Font = new Font("Arial", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnGoToLogin.ForeColor = Color.DarkBlue;
+            btnGoToLogin.Location = new Point(765, 375);
+            btnGoToLogin.Name = "btnGoToLogin";
+            btnGoToLogin.Size = new Size(68, 15);
+            btnGoToLogin.TabIndex = 44;
+            btnGoToLogin.Text = "Login Here";
+            btnGoToLogin.Click += btnGoToLogin_Click;
             // 
             // label1
             // 
@@ -89,32 +92,34 @@
             label1.TabIndex = 43;
             label1.Text = "Already have an account?";
             // 
-            // button2
+            // btnCreateAccount
             // 
-            button2.BackColor = Color.FromArgb(20, 200, 120);
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(619, 308);
-            button2.Name = "button2";
-            button2.Size = new Size(232, 37);
-            button2.TabIndex = 42;
-            button2.Text = "CREATE ACCOUNT";
-            button2.UseVisualStyleBackColor = false;
+            btnCreateAccount.BackColor = Color.FromArgb(20, 200, 120);
+            btnCreateAccount.FlatAppearance.BorderSize = 0;
+            btnCreateAccount.FlatStyle = FlatStyle.Flat;
+            btnCreateAccount.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCreateAccount.ForeColor = Color.White;
+            btnCreateAccount.Location = new Point(619, 308);
+            btnCreateAccount.Name = "btnCreateAccount";
+            btnCreateAccount.Size = new Size(232, 37);
+            btnCreateAccount.TabIndex = 42;
+            btnCreateAccount.Text = "CREATE ACCOUNT";
+            btnCreateAccount.UseVisualStyleBackColor = false;
+            btnCreateAccount.Click += btnCreateAccount_Click;
             // 
-            // textBox1
+            // txtNewUsername
             // 
-            textBox1.BackColor = Color.FromArgb(60, 65, 70);
-            textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.ForeColor = Color.White;
-            textBox1.Location = new Point(619, 160);
-            textBox1.Name = "textBox1";
-            textBox1.RightToLeft = RightToLeft.No;
-            textBox1.Size = new Size(232, 25);
-            textBox1.TabIndex = 41;
-            textBox1.Text = "  Username";
+            txtNewUsername.BackColor = Color.FromArgb(60, 65, 70);
+            txtNewUsername.BorderStyle = BorderStyle.FixedSingle;
+            txtNewUsername.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtNewUsername.ForeColor = Color.White;
+            txtNewUsername.Location = new Point(619, 160);
+            txtNewUsername.Name = "txtNewUsername";
+            txtNewUsername.RightToLeft = RightToLeft.No;
+            txtNewUsername.Size = new Size(232, 25);
+            txtNewUsername.TabIndex = 41;
+            txtNewUsername.Text = "  Username";
+            txtNewUsername.TextChanged += txtNewUsername_TextChanged;
             // 
             // pictureBox2
             // 
@@ -136,24 +141,25 @@
             pictureBox1.TabIndex = 39;
             pictureBox1.TabStop = false;
             // 
-            // Form2
+            // SignUpForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(60, 65, 70);
             ClientSize = new Size(1070, 533);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(label2);
+            Controls.Add(txtConfirmPassword);
+            Controls.Add(txtNewPassword);
+            Controls.Add(btnGoToLogin);
             Controls.Add(label1);
-            Controls.Add(button2);
-            Controls.Add(textBox1);
+            Controls.Add(btnCreateAccount);
+            Controls.Add(txtNewUsername);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Form2";
+            Name = "SignUpForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form2";
+            Load += SignUpForm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
@@ -162,12 +168,12 @@
 
         #endregion
 
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private Label label2;
+        private TextBox txtConfirmPassword;
+        private TextBox txtNewPassword;
+        private Label btnGoToLogin;
         private Label label1;
-        private Button button2;
-        private TextBox textBox1;
+        private Button btnCreateAccount;
+        private TextBox txtNewUsername;
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
     }

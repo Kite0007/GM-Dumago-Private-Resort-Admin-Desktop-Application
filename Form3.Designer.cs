@@ -39,14 +39,12 @@
             panel10 = new Panel();
             ReservationsDetails = new Button();
             panel3 = new Panel();
-            ReservationsArrow = new PictureBox();
             Reservations = new Button();
             sidebar = new FlowLayoutPanel();
             CustomerContainer = new Panel();
             panel12 = new Panel();
             CustomerDetails = new Button();
             panel13 = new Panel();
-            CustomerArrow = new PictureBox();
             Customer = new Button();
             panel5 = new Panel();
             SukiCard = new Button();
@@ -54,23 +52,24 @@
             Reports = new Button();
             panel9 = new Panel();
             SignOut = new Button();
-            label2 = new Label();
-            imageList1 = new ImageList(components);
             sidebarTimer = new System.Windows.Forms.Timer(components);
-            ReservationsTimer = new System.Windows.Forms.Timer(components);
-            CustomerTimer = new System.Windows.Forms.Timer(components);
+            label3 = new Label();
+            lblTotalReservationsCount = new Label();
+            lblPendingReservationsCount = new Label();
+            lblMonthlyRevenueAmount = new Label();
+            lblConfirmedReservationsCount = new Label();
+            lblMonthlyReservationsTrend = new Label();
+            pnlChartHost = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)menuButton).BeginInit();
             panel2.SuspendLayout();
             ReservationsContainer.SuspendLayout();
             panel10.SuspendLayout();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)ReservationsArrow).BeginInit();
             sidebar.SuspendLayout();
             CustomerContainer.SuspendLayout();
             panel12.SuspendLayout();
             panel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)CustomerArrow).BeginInit();
             panel5.SuspendLayout();
             panel6.SuspendLayout();
             panel9.SuspendLayout();
@@ -167,27 +166,14 @@
             ReservationsDetails.Text = "              Reservations Details";
             ReservationsDetails.TextAlign = ContentAlignment.MiddleLeft;
             ReservationsDetails.UseVisualStyleBackColor = false;
-            ReservationsDetails.Click += ReservationsDetails_Click;
             // 
             // panel3
             // 
-            panel3.Controls.Add(ReservationsArrow);
             panel3.Controls.Add(Reservations);
             panel3.Location = new Point(0, 3);
             panel3.Name = "panel3";
             panel3.Size = new Size(242, 44);
             panel3.TabIndex = 2;
-            // 
-            // ReservationsArrow
-            // 
-            ReservationsArrow.Image = (Image)resources.GetObject("ReservationsArrow.Image");
-            ReservationsArrow.Location = new Point(200, 10);
-            ReservationsArrow.Name = "ReservationsArrow";
-            ReservationsArrow.Size = new Size(28, 26);
-            ReservationsArrow.SizeMode = PictureBoxSizeMode.CenterImage;
-            ReservationsArrow.TabIndex = 2;
-            ReservationsArrow.TabStop = false;
-            ReservationsArrow.Click += ReservationsArrow_Click;
             // 
             // Reservations
             // 
@@ -261,27 +247,14 @@
             CustomerDetails.Text = "              Customer Details";
             CustomerDetails.TextAlign = ContentAlignment.MiddleLeft;
             CustomerDetails.UseVisualStyleBackColor = false;
-            CustomerDetails.Click += CustomerDetails_Click_1;
             // 
             // panel13
             // 
-            panel13.Controls.Add(CustomerArrow);
             panel13.Controls.Add(Customer);
             panel13.Location = new Point(0, 3);
             panel13.Name = "panel13";
             panel13.Size = new Size(242, 44);
             panel13.TabIndex = 2;
-            // 
-            // CustomerArrow
-            // 
-            CustomerArrow.Image = (Image)resources.GetObject("CustomerArrow.Image");
-            CustomerArrow.Location = new Point(200, 11);
-            CustomerArrow.Name = "CustomerArrow";
-            CustomerArrow.Size = new Size(28, 26);
-            CustomerArrow.SizeMode = PictureBoxSizeMode.CenterImage;
-            CustomerArrow.TabIndex = 3;
-            CustomerArrow.TabStop = false;
-            CustomerArrow.Click += CustomerArrow_Click;
             // 
             // Customer
             // 
@@ -295,7 +268,7 @@
             Customer.Padding = new Padding(30, 0, 0, 0);
             Customer.Size = new Size(274, 60);
             Customer.TabIndex = 2;
-            Customer.Text = "              Customer";
+            Customer.Text = "              Customers";
             Customer.TextAlign = ContentAlignment.MiddleLeft;
             Customer.UseVisualStyleBackColor = true;
             Customer.Click += Customer_Click;
@@ -320,7 +293,7 @@
             SukiCard.Padding = new Padding(30, 0, 0, 0);
             SukiCard.Size = new Size(274, 60);
             SukiCard.TabIndex = 2;
-            SukiCard.Text = "              Suki Card";
+            SukiCard.Text = "              Suki Cards";
             SukiCard.TextAlign = ContentAlignment.MiddleLeft;
             SukiCard.UseVisualStyleBackColor = true;
             SukiCard.Click += SukiCard_Click;
@@ -373,39 +346,80 @@
             SignOut.Text = "              Sign Out";
             SignOut.TextAlign = ContentAlignment.MiddleLeft;
             SignOut.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Sitka Small", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(517, 209);
-            label2.Name = "label2";
-            label2.Size = new Size(330, 52);
-            label2.TabIndex = 7;
-            label2.Text = "Main Dashboard";
-            // 
-            // imageList1
-            // 
-            imageList1.ColorDepth = ColorDepth.Depth32Bit;
-            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
-            imageList1.TransparentColor = Color.Transparent;
-            imageList1.Images.SetKeyName(0, "down arrow");
-            imageList1.Images.SetKeyName(1, "up arrow");
+            SignOut.Click += SignOut_Click;
             // 
             // sidebarTimer
             // 
             sidebarTimer.Interval = 10;
             sidebarTimer.Tick += sidebarTimer_Tick;
             // 
-            // ReservationsTimer
+            // label3
             // 
-            ReservationsTimer.Interval = 10;
-            ReservationsTimer.Tick += ReservationsTimer_Tick;
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(100, 72);
+            label3.Name = "label3";
+            label3.Size = new Size(251, 30);
+            label3.TabIndex = 8;
+            label3.Text = "Welcome, [Admin Name]!";
             // 
-            // CustomerTimer
+            // lblTotalReservationsCount
             // 
-            CustomerTimer.Interval = 10;
-            CustomerTimer.Tick += CustomerTimer_Tick;
+            lblTotalReservationsCount.AutoSize = true;
+            lblTotalReservationsCount.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTotalReservationsCount.Location = new Point(129, 191);
+            lblTotalReservationsCount.Name = "lblTotalReservationsCount";
+            lblTotalReservationsCount.Size = new Size(132, 20);
+            lblTotalReservationsCount.TabIndex = 9;
+            lblTotalReservationsCount.Text = "Total Reservations:";
+            // 
+            // lblPendingReservationsCount
+            // 
+            lblPendingReservationsCount.AutoSize = true;
+            lblPendingReservationsCount.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblPendingReservationsCount.Location = new Point(129, 234);
+            lblPendingReservationsCount.Name = "lblPendingReservationsCount";
+            lblPendingReservationsCount.Size = new Size(152, 20);
+            lblPendingReservationsCount.TabIndex = 10;
+            lblPendingReservationsCount.Text = "Pending Reservations:";
+            // 
+            // lblMonthlyRevenueAmount
+            // 
+            lblMonthlyRevenueAmount.AutoSize = true;
+            lblMonthlyRevenueAmount.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblMonthlyRevenueAmount.Location = new Point(129, 321);
+            lblMonthlyRevenueAmount.Name = "lblMonthlyRevenueAmount";
+            lblMonthlyRevenueAmount.Size = new Size(162, 20);
+            lblMonthlyRevenueAmount.TabIndex = 12;
+            lblMonthlyRevenueAmount.Text = "Total Revenue (Month):";
+            // 
+            // lblConfirmedReservationsCount
+            // 
+            lblConfirmedReservationsCount.AutoSize = true;
+            lblConfirmedReservationsCount.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblConfirmedReservationsCount.Location = new Point(129, 278);
+            lblConfirmedReservationsCount.Name = "lblConfirmedReservationsCount";
+            lblConfirmedReservationsCount.Size = new Size(169, 20);
+            lblConfirmedReservationsCount.TabIndex = 11;
+            lblConfirmedReservationsCount.Text = "Confirmed Reservations:";
+            // 
+            // lblMonthlyReservationsTrend
+            // 
+            lblMonthlyReservationsTrend.AutoSize = true;
+            lblMonthlyReservationsTrend.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblMonthlyReservationsTrend.Location = new Point(406, 72);
+            lblMonthlyReservationsTrend.Name = "lblMonthlyReservationsTrend";
+            lblMonthlyReservationsTrend.Size = new Size(194, 20);
+            lblMonthlyReservationsTrend.TabIndex = 13;
+            lblMonthlyReservationsTrend.Text = "Monthly Reservations Trend:";
+            // 
+            // pnlChartHost
+            // 
+            pnlChartHost.Location = new Point(411, 98);
+            pnlChartHost.Name = "pnlChartHost";
+            pnlChartHost.Size = new Size(606, 345);
+            pnlChartHost.TabIndex = 14;
+            pnlChartHost.Paint += pnlChartHost_Paint;
             // 
             // DashboardForm
             // 
@@ -413,7 +427,13 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1070, 533);
             Controls.Add(sidebar);
-            Controls.Add(label2);
+            Controls.Add(pnlChartHost);
+            Controls.Add(lblMonthlyReservationsTrend);
+            Controls.Add(lblMonthlyRevenueAmount);
+            Controls.Add(lblConfirmedReservationsCount);
+            Controls.Add(lblPendingReservationsCount);
+            Controls.Add(lblTotalReservationsCount);
+            Controls.Add(label3);
             FormBorderStyle = FormBorderStyle.None;
             Name = "DashboardForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -425,12 +445,10 @@
             ReservationsContainer.ResumeLayout(false);
             panel10.ResumeLayout(false);
             panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)ReservationsArrow).EndInit();
             sidebar.ResumeLayout(false);
             CustomerContainer.ResumeLayout(false);
             panel12.ResumeLayout(false);
             panel13.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)CustomerArrow).EndInit();
             panel5.ResumeLayout(false);
             panel6.ResumeLayout(false);
             panel9.ResumeLayout(false);
@@ -449,14 +467,12 @@
         private Panel panel10;
         private Button ReservationsDetails;
         private Panel panel3;
-        private PictureBox ReservationsArrow;
         private Button Reservations;
         private FlowLayoutPanel sidebar;
         private Panel CustomerContainer;
         private Panel panel12;
         private Button CustomerDetails;
         private Panel panel13;
-        private PictureBox CustomerArrow;
         private Button Customer;
         private Panel panel5;
         private Button SukiCard;
@@ -464,10 +480,13 @@
         private Button Reports;
         private Panel panel9;
         private Button SignOut;
-        private Label label2;
-        private ImageList imageList1;
         private System.Windows.Forms.Timer sidebarTimer;
-        private System.Windows.Forms.Timer ReservationsTimer;
-        private System.Windows.Forms.Timer CustomerTimer;
+        private Label label3;
+        private Label lblTotalReservationsCount;
+        private Label lblPendingReservationsCount;
+        private Label lblMonthlyRevenueAmount;
+        private Label lblConfirmedReservationsCount;
+        private Label lblMonthlyReservationsTrend;
+        private Panel pnlChartHost;
     }
 }

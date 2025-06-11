@@ -1,6 +1,6 @@
 ﻿namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
 {
-    partial class ReservationDetailsForm
+    partial class CustomerDetailsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,21 +29,16 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReservationDetailsForm));
-            CustomerTimer = new System.Windows.Forms.Timer(components);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerDetailsForm));
             sidebarTimer = new System.Windows.Forms.Timer(components);
-            imageList1 = new ImageList(components);
-            ff = new Label();
             SignOut = new Button();
             panel9 = new Panel();
             Reports = new Button();
             panel6 = new Panel();
             SukiCard = new Button();
             panel5 = new Panel();
-            CustomerArrow = new PictureBox();
             Customer = new Button();
             panel13 = new Panel();
-            ReservationsTimer = new System.Windows.Forms.Timer(components);
             CustomerDetails = new Button();
             CustomerContainer = new Panel();
             panel12 = new Panel();
@@ -57,12 +52,28 @@
             panel10 = new Panel();
             ReservationsDetails = new Button();
             panel3 = new Panel();
-            ReservationsArrow = new PictureBox();
             Reservations = new Button();
+            label4 = new Label();
+            lblTotalReservationsCount = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label5 = new Label();
+            label6 = new Label();
+            label7 = new Label();
+            btnAddPoints = new Button();
+            btnSaveCustomer = new Button();
+            txtCustomerID = new TextBox();
+            txtName = new TextBox();
+            txtEmail = new TextBox();
+            txtPhone = new TextBox();
+            txtCurrentPoints = new TextBox();
+            txtSukiCardID = new TextBox();
+            nudPointsAdjustment = new NumericUpDown();
+            btnDeductPoints = new Button();
+            btnCancelCustomerEdit = new Button();
             panel9.SuspendLayout();
             panel6.SuspendLayout();
             panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)CustomerArrow).BeginInit();
             panel13.SuspendLayout();
             CustomerContainer.SuspendLayout();
             panel12.SuspendLayout();
@@ -73,36 +84,13 @@
             ReservationsContainer.SuspendLayout();
             panel10.SuspendLayout();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)ReservationsArrow).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudPointsAdjustment).BeginInit();
             SuspendLayout();
-            // 
-            // CustomerTimer
-            // 
-            CustomerTimer.Interval = 10;
-            CustomerTimer.Tick += CustomerTimer_Tick_1;
             // 
             // sidebarTimer
             // 
             sidebarTimer.Interval = 10;
             sidebarTimer.Tick += sidebarTimer_Tick_1;
-            // 
-            // imageList1
-            // 
-            imageList1.ColorDepth = ColorDepth.Depth32Bit;
-            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
-            imageList1.TransparentColor = Color.Transparent;
-            imageList1.Images.SetKeyName(0, "down arrow");
-            imageList1.Images.SetKeyName(1, "up arrow");
-            // 
-            // ff
-            // 
-            ff.AutoSize = true;
-            ff.Font = new Font("Sitka Small", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            ff.Location = new Point(501, 209);
-            ff.Name = "ff";
-            ff.Size = new Size(388, 52);
-            ff.TabIndex = 9;
-            ff.Text = "Reservation Details";
             // 
             // SignOut
             // 
@@ -119,6 +107,7 @@
             SignOut.Text = "              Sign Out";
             SignOut.TextAlign = ContentAlignment.MiddleLeft;
             SignOut.UseVisualStyleBackColor = true;
+            SignOut.Click += SignOut_Click;
             // 
             // panel9
             // 
@@ -165,7 +154,7 @@
             SukiCard.Padding = new Padding(30, 0, 0, 0);
             SukiCard.Size = new Size(274, 60);
             SukiCard.TabIndex = 2;
-            SukiCard.Text = "              Suki Card";
+            SukiCard.Text = "              Suki Cards";
             SukiCard.TextAlign = ContentAlignment.MiddleLeft;
             SukiCard.UseVisualStyleBackColor = true;
             SukiCard.Click += SukiCard_Click_1;
@@ -177,17 +166,6 @@
             panel5.Name = "panel5";
             panel5.Size = new Size(242, 44);
             panel5.TabIndex = 4;
-            // 
-            // CustomerArrow
-            // 
-            CustomerArrow.Image = (Image)resources.GetObject("CustomerArrow.Image");
-            CustomerArrow.Location = new Point(200, 11);
-            CustomerArrow.Name = "CustomerArrow";
-            CustomerArrow.Size = new Size(28, 26);
-            CustomerArrow.SizeMode = PictureBoxSizeMode.CenterImage;
-            CustomerArrow.TabIndex = 3;
-            CustomerArrow.TabStop = false;
-            CustomerArrow.Click += CustomerArrow_Click_1;
             // 
             // Customer
             // 
@@ -201,24 +179,18 @@
             Customer.Padding = new Padding(30, 0, 0, 0);
             Customer.Size = new Size(274, 60);
             Customer.TabIndex = 2;
-            Customer.Text = "              Customer";
+            Customer.Text = "              Customers";
             Customer.TextAlign = ContentAlignment.MiddleLeft;
             Customer.UseVisualStyleBackColor = true;
             Customer.Click += Customer_Click_1;
             // 
             // panel13
             // 
-            panel13.Controls.Add(CustomerArrow);
             panel13.Controls.Add(Customer);
             panel13.Location = new Point(0, 3);
             panel13.Name = "panel13";
             panel13.Size = new Size(242, 44);
             panel13.TabIndex = 2;
-            // 
-            // ReservationsTimer
-            // 
-            ReservationsTimer.Interval = 10;
-            ReservationsTimer.Tick += ReservationsTimer_Tick_1;
             // 
             // CustomerDetails
             // 
@@ -236,7 +208,6 @@
             CustomerDetails.Text = "              Customer Details";
             CustomerDetails.TextAlign = ContentAlignment.MiddleLeft;
             CustomerDetails.UseVisualStyleBackColor = false;
-            CustomerDetails.Click += CustomerDetails_Click;
             // 
             // CustomerContainer
             // 
@@ -368,27 +339,14 @@
             ReservationsDetails.Text = "              Reservations Details";
             ReservationsDetails.TextAlign = ContentAlignment.MiddleLeft;
             ReservationsDetails.UseVisualStyleBackColor = false;
-            ReservationsDetails.Click += ReservationsDetails_Click_1;
             // 
             // panel3
             // 
-            panel3.Controls.Add(ReservationsArrow);
             panel3.Controls.Add(Reservations);
             panel3.Location = new Point(0, 3);
             panel3.Name = "panel3";
             panel3.Size = new Size(242, 44);
             panel3.TabIndex = 2;
-            // 
-            // ReservationsArrow
-            // 
-            ReservationsArrow.Image = (Image)resources.GetObject("ReservationsArrow.Image");
-            ReservationsArrow.Location = new Point(200, 10);
-            ReservationsArrow.Name = "ReservationsArrow";
-            ReservationsArrow.Size = new Size(28, 26);
-            ReservationsArrow.SizeMode = PictureBoxSizeMode.CenterImage;
-            ReservationsArrow.TabIndex = 2;
-            ReservationsArrow.TabStop = false;
-            ReservationsArrow.Click += ReservationsArrow_Click_1;
             // 
             // Reservations
             // 
@@ -407,22 +365,213 @@
             Reservations.UseVisualStyleBackColor = true;
             Reservations.Click += Reservations_Click_1;
             // 
-            // ReservationDetailsForm
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Location = new Point(370, 92);
+            label4.Name = "label4";
+            label4.Size = new Size(52, 20);
+            label4.TabIndex = 20;
+            label4.Text = "Name:";
+            // 
+            // lblTotalReservationsCount
+            // 
+            lblTotalReservationsCount.AutoSize = true;
+            lblTotalReservationsCount.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTotalReservationsCount.Location = new Point(370, 60);
+            lblTotalReservationsCount.Name = "lblTotalReservationsCount";
+            lblTotalReservationsCount.Size = new Size(94, 20);
+            lblTotalReservationsCount.TabIndex = 19;
+            lblTotalReservationsCount.Text = "Customer ID:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(370, 156);
+            label2.Name = "label2";
+            label2.Size = new Size(53, 20);
+            label2.TabIndex = 22;
+            label2.Text = "Phone:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(370, 124);
+            label3.Name = "label3";
+            label3.Size = new Size(49, 20);
+            label3.TabIndex = 21;
+            label3.Text = "Email:";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(370, 246);
+            label5.Name = "label5";
+            label5.Size = new Size(103, 20);
+            label5.TabIndex = 24;
+            label5.Text = "Current Points:";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(370, 214);
+            label6.Name = "label6";
+            label6.Size = new Size(93, 20);
+            label6.TabIndex = 23;
+            label6.Text = "Suki Card ID:";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Location = new Point(370, 308);
+            label7.Name = "label7";
+            label7.Size = new Size(97, 20);
+            label7.TabIndex = 25;
+            label7.Text = "Adjust Points:";
+            // 
+            // btnAddPoints
+            // 
+            btnAddPoints.BackColor = Color.FromArgb(20, 200, 120);
+            btnAddPoints.FlatAppearance.BorderSize = 0;
+            btnAddPoints.FlatStyle = FlatStyle.Flat;
+            btnAddPoints.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAddPoints.ForeColor = Color.White;
+            btnAddPoints.Location = new Point(636, 308);
+            btnAddPoints.Name = "btnAddPoints";
+            btnAddPoints.Size = new Size(90, 28);
+            btnAddPoints.TabIndex = 36;
+            btnAddPoints.Text = "Add Points";
+            btnAddPoints.UseVisualStyleBackColor = false;
+            // 
+            // btnSaveCustomer
+            // 
+            btnSaveCustomer.BackColor = Color.FromArgb(20, 200, 120);
+            btnSaveCustomer.FlatAppearance.BorderSize = 0;
+            btnSaveCustomer.FlatStyle = FlatStyle.Flat;
+            btnSaveCustomer.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSaveCustomer.ForeColor = Color.White;
+            btnSaveCustomer.Location = new Point(308, 411);
+            btnSaveCustomer.Name = "btnSaveCustomer";
+            btnSaveCustomer.Size = new Size(232, 37);
+            btnSaveCustomer.TabIndex = 37;
+            btnSaveCustomer.Text = "Save Changes";
+            btnSaveCustomer.UseVisualStyleBackColor = false;
+            // 
+            // txtCustomerID
+            // 
+            txtCustomerID.Location = new Point(526, 59);
+            txtCustomerID.Name = "txtCustomerID";
+            txtCustomerID.Size = new Size(219, 23);
+            txtCustomerID.TabIndex = 38;
+            // 
+            // txtName
+            // 
+            txtName.Location = new Point(526, 92);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(219, 23);
+            txtName.TabIndex = 39;
+            // 
+            // txtEmail
+            // 
+            txtEmail.Location = new Point(526, 124);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(219, 23);
+            txtEmail.TabIndex = 40;
+            // 
+            // txtPhone
+            // 
+            txtPhone.Location = new Point(526, 157);
+            txtPhone.Name = "txtPhone";
+            txtPhone.Size = new Size(219, 23);
+            txtPhone.TabIndex = 41;
+            // 
+            // txtCurrentPoints
+            // 
+            txtCurrentPoints.Location = new Point(526, 244);
+            txtCurrentPoints.Name = "txtCurrentPoints";
+            txtCurrentPoints.Size = new Size(219, 23);
+            txtCurrentPoints.TabIndex = 43;
+            // 
+            // txtSukiCardID
+            // 
+            txtSukiCardID.Location = new Point(526, 211);
+            txtSukiCardID.Name = "txtSukiCardID";
+            txtSukiCardID.Size = new Size(219, 23);
+            txtSukiCardID.TabIndex = 42;
+            // 
+            // nudPointsAdjustment
+            // 
+            nudPointsAdjustment.Location = new Point(526, 310);
+            nudPointsAdjustment.Name = "nudPointsAdjustment";
+            nudPointsAdjustment.Size = new Size(104, 23);
+            nudPointsAdjustment.TabIndex = 44;
+            // 
+            // btnDeductPoints
+            // 
+            btnDeductPoints.BackColor = Color.FromArgb(20, 200, 120);
+            btnDeductPoints.FlatAppearance.BorderSize = 0;
+            btnDeductPoints.FlatStyle = FlatStyle.Flat;
+            btnDeductPoints.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDeductPoints.ForeColor = Color.White;
+            btnDeductPoints.Location = new Point(732, 308);
+            btnDeductPoints.Name = "btnDeductPoints";
+            btnDeductPoints.Size = new Size(102, 28);
+            btnDeductPoints.TabIndex = 45;
+            btnDeductPoints.Text = "Deduct Points";
+            btnDeductPoints.UseVisualStyleBackColor = false;
+            // 
+            // btnCancelCustomerEdit
+            // 
+            btnCancelCustomerEdit.BackColor = Color.FromArgb(20, 200, 120);
+            btnCancelCustomerEdit.FlatAppearance.BorderSize = 0;
+            btnCancelCustomerEdit.FlatStyle = FlatStyle.Flat;
+            btnCancelCustomerEdit.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCancelCustomerEdit.ForeColor = Color.White;
+            btnCancelCustomerEdit.Location = new Point(562, 411);
+            btnCancelCustomerEdit.Name = "btnCancelCustomerEdit";
+            btnCancelCustomerEdit.Size = new Size(232, 37);
+            btnCancelCustomerEdit.TabIndex = 46;
+            btnCancelCustomerEdit.Text = "Cancel";
+            btnCancelCustomerEdit.UseVisualStyleBackColor = false;
+            // 
+            // CustomerDetailsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1070, 533);
-            Controls.Add(ff);
+            Controls.Add(btnCancelCustomerEdit);
+            Controls.Add(btnDeductPoints);
+            Controls.Add(nudPointsAdjustment);
+            Controls.Add(txtCurrentPoints);
+            Controls.Add(txtSukiCardID);
+            Controls.Add(txtPhone);
+            Controls.Add(txtEmail);
+            Controls.Add(txtName);
+            Controls.Add(txtCustomerID);
+            Controls.Add(btnSaveCustomer);
+            Controls.Add(btnAddPoints);
+            Controls.Add(label7);
+            Controls.Add(label5);
+            Controls.Add(label6);
+            Controls.Add(label2);
+            Controls.Add(label3);
+            Controls.Add(label4);
+            Controls.Add(lblTotalReservationsCount);
             Controls.Add(sidebar);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "ReservationDetailsForm";
+            Name = "CustomerDetailsForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form5";
-            Load += ReservationDetailsForm_Load;
+            Text = "Form7";
+            Load += CustomerDetailsForm_Load;
             panel9.ResumeLayout(false);
             panel6.ResumeLayout(false);
             panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)CustomerArrow).EndInit();
             panel13.ResumeLayout(false);
             CustomerContainer.ResumeLayout(false);
             panel12.ResumeLayout(false);
@@ -434,27 +583,21 @@
             ReservationsContainer.ResumeLayout(false);
             panel10.ResumeLayout(false);
             panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)ReservationsArrow).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudPointsAdjustment).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private System.Windows.Forms.Timer CustomerTimer;
         private System.Windows.Forms.Timer sidebarTimer;
-        private ImageList imageList1;
-        private Label ff;
         private Button SignOut;
         private Panel panel9;
         private Button Reports;
         private Panel panel6;
         private Button SukiCard;
         private Panel panel5;
-        private PictureBox CustomerArrow;
         private Button Customer;
         private Panel panel13;
-        private System.Windows.Forms.Timer ReservationsTimer;
         private Button CustomerDetails;
         private Panel CustomerContainer;
         private Panel panel12;
@@ -468,7 +611,24 @@
         private Panel panel10;
         private Button ReservationsDetails;
         private Panel panel3;
-        private PictureBox ReservationsArrow;
         private Button Reservations;
+        private Label label4;
+        private Label lblTotalReservationsCount;
+        private Label label2;
+        private Label label3;
+        private Label label5;
+        private Label label6;
+        private Label label7;
+        private Button btnAddPoints;
+        private Button btnSaveCustomer;
+        private TextBox txtCustomerID;
+        private TextBox txtName;
+        private TextBox txtEmail;
+        private TextBox txtPhone;
+        private TextBox txtCurrentPoints;
+        private TextBox txtSukiCardID;
+        private NumericUpDown nudPointsAdjustment;
+        private Button btnDeductPoints;
+        private Button btnCancelCustomerEdit;
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
 {
@@ -24,17 +25,36 @@ namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
             CustomerContainer.Height = CustomerContainer.MinimumSize.Height;
             customerCollapse = true;
 
-            // Set initial images for both arrows
-            if (imageList1 != null && imageList1.Images.Count > 1)
+            this.Load += new System.EventHandler(this.DashboardForm_Load);
+        }
+
+        private void DashboardForm_Load(object sender, EventArgs e)
+        {
+            if (pnlChartHost != null)
             {
-                if (ReservationsArrow != null)
-                {
-                    ReservationsArrow.Image = imageList1.Images[0]; // Down arrow
-                }
-                if (CustomerArrow != null)
-                {
-                    CustomerArrow.Image = imageList1.Images[0]; // Down arrow
-                }
+                var myChart = new Chart();
+                myChart.Name = "chartMonthlyReservations";
+                myChart.Dock = DockStyle.Fill;
+                myChart.ChartAreas.Add(new ChartArea("MainChartArea"));
+                var series = myChart.Series.Add("Monthly Reservations");
+                series.ChartType = SeriesChartType.Column;
+
+                series.Points.AddXY("Jan", 50);
+                series.Points.AddXY("Feb", 75);
+                series.Points.AddXY("Mar", 120);
+                series.Points.AddXY("Apr", 90);
+                series.Points.AddXY("May", 150);
+                series.Points.AddXY("Jun", 110);
+
+                ChartArea chartArea = myChart.ChartAreas["MainChartArea"];
+                chartArea.AxisX.MajorGrid.Enabled = false;
+                chartArea.AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dot;
+                chartArea.AxisY.Title = "Reservations";
+                chartArea.BackColor = Color.Transparent;
+
+                series.Color = Color.SteelBlue;
+
+                pnlChartHost.Controls.Add(myChart);
             }
         }
 
@@ -72,90 +92,6 @@ namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
             }
         }
 
-        private void ReservationsTimer_Tick(object sender, EventArgs e)
-        {
-            if (ReservationsContainer == null || ReservationsTimer == null) return;
-
-            if (homeCollapse)
-            {
-                ReservationsContainer.Height += 10;
-                if (ReservationsContainer.Height >= ReservationsContainer.MaximumSize.Height)
-                {
-                    ReservationsContainer.Height = ReservationsContainer.MaximumSize.Height;
-                    homeCollapse = false;
-                    ReservationsTimer.Stop();
-                }
-            }
-            else
-            {
-                ReservationsContainer.Height -= 10;
-                if (ReservationsContainer.Height <= ReservationsContainer.MinimumSize.Height)
-                {
-                    ReservationsContainer.Height = ReservationsContainer.MinimumSize.Height;
-                    homeCollapse = true;
-                    ReservationsTimer.Stop();
-                }
-            }
-        }
-
-        private void CustomerTimer_Tick(object sender, EventArgs e)
-        {
-            if (CustomerContainer == null || CustomerTimer == null) return;
-
-            if (customerCollapse)
-            {
-                CustomerContainer.Height += 10;
-                if (CustomerContainer.Height >= CustomerContainer.MaximumSize.Height)
-                {
-                    CustomerContainer.Height = CustomerContainer.MaximumSize.Height;
-                    customerCollapse = false;
-                    CustomerTimer.Stop();
-                }
-            }
-            else
-            {
-                CustomerContainer.Height -= 10;
-                if (CustomerContainer.Height <= CustomerContainer.MinimumSize.Height)
-                {
-                    CustomerContainer.Height = CustomerContainer.MinimumSize.Height;
-                    customerCollapse = true;
-                    CustomerTimer.Stop();
-                }
-            }
-        }
-
-        private void ReservationsArrow_Click(object sender, EventArgs e)
-        {
-            if (ReservationsTimer != null)
-            {
-                if (homeCollapse)
-                {
-                    ReservationsArrow.Image = imageList1.Images[1]; // Set to 'Up' arrow
-                }
-                else
-                {
-                    ReservationsArrow.Image = imageList1.Images[0]; // Set to 'Down' arrow
-                }
-                ReservationsTimer.Start();
-            }
-        }
-
-        private void CustomerArrow_Click(object sender, EventArgs e)
-        {
-            if (CustomerTimer != null)
-            {
-                if (customerCollapse)
-                {
-                    CustomerArrow.Image = imageList1.Images[1]; // Set to 'Up' arrow
-                }
-                else
-                {
-                    CustomerArrow.Image = imageList1.Images[0]; // Set to 'Down' arrow
-                }
-                CustomerTimer.Start();
-            }
-        }
-
         private void Dashboard_Click(object sender, EventArgs e)
         {
             DashboardForm dashboard = new DashboardForm();
@@ -172,27 +108,11 @@ namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
             this.Hide();
         }
 
-        private void ReservationsDetails_Click(object sender, EventArgs e)
-        {
-            ReservationDetailsForm resevationdetails = new ReservationDetailsForm();
-            resevationdetails.FormClosed += (s, args) => this.Close();
-            resevationdetails.Show();
-            this.Hide();
-        }
-
         private void Customer_Click(object sender, EventArgs e)
         {
             CustomerManagenentForm customermanagement = new CustomerManagenentForm();
             customermanagement.FormClosed += (s, args) => this.Close();
             customermanagement.Show();
-            this.Hide();
-        }
-
-        private void CustomerDetails_Click_1(object sender, EventArgs e)
-        {
-            CustomerDetailsForm customerdetails = new CustomerDetailsForm();
-            customerdetails.FormClosed += (s, args) => this.Close();
-            customerdetails.Show();
             this.Hide();
         }
 
@@ -210,6 +130,28 @@ namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
             reports.FormClosed += (s, args) => this.Close();
             reports.Show();
             this.Hide();
+        }
+
+        private void pnlChartHost_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void SignOut_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Are you sure you want to sign out?", 
+                "Confirm Sign Out",                 
+                MessageBoxButtons.YesNo,             
+                MessageBoxIcon.Question              
+            );
+            if (result == DialogResult.Yes)
+            {
+                LoginForm login = new LoginForm();
+                login.FormClosed += (s, args) => this.Close();
+                login.Show();
+                this.Hide();
+            }
         }
     }
 }

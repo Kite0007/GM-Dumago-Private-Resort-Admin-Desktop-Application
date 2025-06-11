@@ -30,20 +30,15 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SukiCardForm));
-            CustomerTimer = new System.Windows.Forms.Timer(components);
             sidebarTimer = new System.Windows.Forms.Timer(components);
-            imageList1 = new ImageList(components);
-            label2 = new Label();
             SignOut = new Button();
             panel9 = new Panel();
             Reports = new Button();
             panel6 = new Panel();
             SukiCard = new Button();
             panel5 = new Panel();
-            CustomerArrow = new PictureBox();
             Customer = new Button();
             panel13 = new Panel();
-            ReservationsTimer = new System.Windows.Forms.Timer(components);
             CustomerDetails = new Button();
             CustomerContainer = new Panel();
             panel12 = new Panel();
@@ -57,12 +52,26 @@
             panel10 = new Panel();
             ReservationsDetails = new Button();
             panel3 = new Panel();
-            ReservationsArrow = new PictureBox();
             Reservations = new Button();
+            btnRegisterNewSukiCard = new Button();
+            btnLoadCard = new Button();
+            txtSukiCardRFID = new TextBox();
+            lblTotalReservationsCount = new Label();
+            lblCurrentPoints = new Label();
+            lblSukiCustomerName = new Label();
+            label2 = new Label();
+            nudPointsAmount = new NumericUpDown();
+            btnDeductPointsDirect = new Button();
+            btnAddPointsDirect = new Button();
+            label3 = new Label();
+            dgvPointsHistory = new DataGridView();
+            colDate = new DataGridViewTextBoxColumn();
+            colType = new DataGridViewTextBoxColumn();
+            colPointsChange = new DataGridViewTextBoxColumn();
+            colDescription = new DataGridViewTextBoxColumn();
             panel9.SuspendLayout();
             panel6.SuspendLayout();
             panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)CustomerArrow).BeginInit();
             panel13.SuspendLayout();
             CustomerContainer.SuspendLayout();
             panel12.SuspendLayout();
@@ -73,36 +82,14 @@
             ReservationsContainer.SuspendLayout();
             panel10.SuspendLayout();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)ReservationsArrow).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudPointsAmount).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPointsHistory).BeginInit();
             SuspendLayout();
-            // 
-            // CustomerTimer
-            // 
-            CustomerTimer.Interval = 10;
-            CustomerTimer.Tick += CustomerTimer_Tick_1;
             // 
             // sidebarTimer
             // 
             sidebarTimer.Interval = 10;
             sidebarTimer.Tick += sidebarTimer_Tick_1;
-            // 
-            // imageList1
-            // 
-            imageList1.ColorDepth = ColorDepth.Depth32Bit;
-            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
-            imageList1.TransparentColor = Color.Transparent;
-            imageList1.Images.SetKeyName(0, "down arrow");
-            imageList1.Images.SetKeyName(1, "up arrow");
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Sitka Small", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(381, 201);
-            label2.Name = "label2";
-            label2.Size = new Size(596, 52);
-            label2.TabIndex = 9;
-            label2.Text = "Suki Card & Points Management";
             // 
             // SignOut
             // 
@@ -119,6 +106,7 @@
             SignOut.Text = "              Sign Out";
             SignOut.TextAlign = ContentAlignment.MiddleLeft;
             SignOut.UseVisualStyleBackColor = true;
+            SignOut.Click += SignOut_Click;
             // 
             // panel9
             // 
@@ -165,7 +153,7 @@
             SukiCard.Padding = new Padding(30, 0, 0, 0);
             SukiCard.Size = new Size(274, 60);
             SukiCard.TabIndex = 2;
-            SukiCard.Text = "              Suki Card";
+            SukiCard.Text = "              Suki Cards";
             SukiCard.TextAlign = ContentAlignment.MiddleLeft;
             SukiCard.UseVisualStyleBackColor = true;
             SukiCard.Click += SukiCard_Click_1;
@@ -177,17 +165,6 @@
             panel5.Name = "panel5";
             panel5.Size = new Size(242, 44);
             panel5.TabIndex = 4;
-            // 
-            // CustomerArrow
-            // 
-            CustomerArrow.Image = (Image)resources.GetObject("CustomerArrow.Image");
-            CustomerArrow.Location = new Point(200, 11);
-            CustomerArrow.Name = "CustomerArrow";
-            CustomerArrow.Size = new Size(28, 26);
-            CustomerArrow.SizeMode = PictureBoxSizeMode.CenterImage;
-            CustomerArrow.TabIndex = 3;
-            CustomerArrow.TabStop = false;
-            CustomerArrow.Click += CustomerArrow_Click_1;
             // 
             // Customer
             // 
@@ -201,24 +178,18 @@
             Customer.Padding = new Padding(30, 0, 0, 0);
             Customer.Size = new Size(274, 60);
             Customer.TabIndex = 2;
-            Customer.Text = "              Customer";
+            Customer.Text = "              Customers";
             Customer.TextAlign = ContentAlignment.MiddleLeft;
             Customer.UseVisualStyleBackColor = true;
             Customer.Click += Customer_Click_1;
             // 
             // panel13
             // 
-            panel13.Controls.Add(CustomerArrow);
             panel13.Controls.Add(Customer);
             panel13.Location = new Point(0, 3);
             panel13.Name = "panel13";
             panel13.Size = new Size(242, 44);
             panel13.TabIndex = 2;
-            // 
-            // ReservationsTimer
-            // 
-            ReservationsTimer.Interval = 10;
-            ReservationsTimer.Tick += ReservationsTimer_Tick_1;
             // 
             // CustomerDetails
             // 
@@ -236,7 +207,6 @@
             CustomerDetails.Text = "              Customer Details";
             CustomerDetails.TextAlign = ContentAlignment.MiddleLeft;
             CustomerDetails.UseVisualStyleBackColor = false;
-            CustomerDetails.Click += CustomerDetails_Click;
             // 
             // CustomerContainer
             // 
@@ -368,27 +338,14 @@
             ReservationsDetails.Text = "              Reservations Details";
             ReservationsDetails.TextAlign = ContentAlignment.MiddleLeft;
             ReservationsDetails.UseVisualStyleBackColor = false;
-            ReservationsDetails.Click += ReservationsDetails_Click_1;
             // 
             // panel3
             // 
-            panel3.Controls.Add(ReservationsArrow);
             panel3.Controls.Add(Reservations);
             panel3.Location = new Point(0, 3);
             panel3.Name = "panel3";
             panel3.Size = new Size(242, 44);
             panel3.TabIndex = 2;
-            // 
-            // ReservationsArrow
-            // 
-            ReservationsArrow.Image = (Image)resources.GetObject("ReservationsArrow.Image");
-            ReservationsArrow.Location = new Point(200, 10);
-            ReservationsArrow.Name = "ReservationsArrow";
-            ReservationsArrow.Size = new Size(28, 26);
-            ReservationsArrow.SizeMode = PictureBoxSizeMode.CenterImage;
-            ReservationsArrow.TabIndex = 2;
-            ReservationsArrow.TabStop = false;
-            ReservationsArrow.Click += ReservationsArrow_Click_1;
             // 
             // Reservations
             // 
@@ -407,12 +364,167 @@
             Reservations.UseVisualStyleBackColor = true;
             Reservations.Click += Reservations_Click_1;
             // 
+            // btnRegisterNewSukiCard
+            // 
+            btnRegisterNewSukiCard.Location = new Point(591, 32);
+            btnRegisterNewSukiCard.Name = "btnRegisterNewSukiCard";
+            btnRegisterNewSukiCard.Size = new Size(129, 23);
+            btnRegisterNewSukiCard.TabIndex = 23;
+            btnRegisterNewSukiCard.Text = "Register New Card";
+            btnRegisterNewSukiCard.UseVisualStyleBackColor = true;
+            // 
+            // btnLoadCard
+            // 
+            btnLoadCard.Location = new Point(494, 32);
+            btnLoadCard.Name = "btnLoadCard";
+            btnLoadCard.Size = new Size(75, 23);
+            btnLoadCard.TabIndex = 22;
+            btnLoadCard.Text = "Load Card";
+            btnLoadCard.UseVisualStyleBackColor = true;
+            // 
+            // txtSukiCardRFID
+            // 
+            txtSukiCardRFID.Location = new Point(260, 32);
+            txtSukiCardRFID.Name = "txtSukiCardRFID";
+            txtSukiCardRFID.Size = new Size(193, 23);
+            txtSukiCardRFID.TabIndex = 21;
+            // 
+            // lblTotalReservationsCount
+            // 
+            lblTotalReservationsCount.AutoSize = true;
+            lblTotalReservationsCount.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTotalReservationsCount.Location = new Point(137, 33);
+            lblTotalReservationsCount.Name = "lblTotalReservationsCount";
+            lblTotalReservationsCount.Size = new Size(109, 20);
+            lblTotalReservationsCount.TabIndex = 20;
+            lblTotalReservationsCount.Text = "Suki Card RFID:";
+            // 
+            // lblCurrentPoints
+            // 
+            lblCurrentPoints.AutoSize = true;
+            lblCurrentPoints.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblCurrentPoints.Location = new Point(137, 115);
+            lblCurrentPoints.Name = "lblCurrentPoints";
+            lblCurrentPoints.Size = new Size(103, 20);
+            lblCurrentPoints.TabIndex = 25;
+            lblCurrentPoints.Text = "Current Points:";
+            // 
+            // lblSukiCustomerName
+            // 
+            lblSukiCustomerName.AutoSize = true;
+            lblSukiCustomerName.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblSukiCustomerName.Location = new Point(137, 83);
+            lblSukiCustomerName.Name = "lblSukiCustomerName";
+            lblSukiCustomerName.Size = new Size(119, 20);
+            lblSukiCustomerName.TabIndex = 24;
+            lblSukiCustomerName.Text = "Customer Name:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(137, 158);
+            label2.Name = "label2";
+            label2.Size = new Size(115, 20);
+            label2.TabIndex = 26;
+            label2.Text = "Points to Adjust:";
+            // 
+            // nudPointsAmount
+            // 
+            nudPointsAmount.Location = new Point(266, 158);
+            nudPointsAmount.Name = "nudPointsAmount";
+            nudPointsAmount.Size = new Size(120, 23);
+            nudPointsAmount.TabIndex = 27;
+            // 
+            // btnDeductPointsDirect
+            // 
+            btnDeductPointsDirect.BackColor = Color.FromArgb(20, 200, 120);
+            btnDeductPointsDirect.FlatAppearance.BorderSize = 0;
+            btnDeductPointsDirect.FlatStyle = FlatStyle.Flat;
+            btnDeductPointsDirect.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDeductPointsDirect.ForeColor = Color.White;
+            btnDeductPointsDirect.Location = new Point(501, 155);
+            btnDeductPointsDirect.Name = "btnDeductPointsDirect";
+            btnDeductPointsDirect.Size = new Size(102, 28);
+            btnDeductPointsDirect.TabIndex = 47;
+            btnDeductPointsDirect.Text = "Deduct Points";
+            btnDeductPointsDirect.UseVisualStyleBackColor = false;
+            // 
+            // btnAddPointsDirect
+            // 
+            btnAddPointsDirect.BackColor = Color.FromArgb(20, 200, 120);
+            btnAddPointsDirect.FlatAppearance.BorderSize = 0;
+            btnAddPointsDirect.FlatStyle = FlatStyle.Flat;
+            btnAddPointsDirect.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAddPointsDirect.ForeColor = Color.White;
+            btnAddPointsDirect.Location = new Point(405, 155);
+            btnAddPointsDirect.Name = "btnAddPointsDirect";
+            btnAddPointsDirect.Size = new Size(90, 28);
+            btnAddPointsDirect.TabIndex = 46;
+            btnAddPointsDirect.Text = "Add Points";
+            btnAddPointsDirect.UseVisualStyleBackColor = false;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(137, 233);
+            label3.Name = "label3";
+            label3.Size = new Size(181, 20);
+            label3.TabIndex = 48;
+            label3.Text = "Points Transaction History:";
+            // 
+            // dgvPointsHistory
+            // 
+            dgvPointsHistory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvPointsHistory.Columns.AddRange(new DataGridViewColumn[] { colDate, colType, colPointsChange, colDescription });
+            dgvPointsHistory.Location = new Point(99, 271);
+            dgvPointsHistory.Name = "dgvPointsHistory";
+            dgvPointsHistory.Size = new Size(943, 235);
+            dgvPointsHistory.TabIndex = 49;
+            dgvPointsHistory.CellContentClick += dgvPointsHistory_CellContentClick;
+            // 
+            // colDate
+            // 
+            colDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colDate.HeaderText = "Date";
+            colDate.Name = "colDate";
+            // 
+            // colType
+            // 
+            colType.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colType.HeaderText = "Type";
+            colType.Name = "colType";
+            // 
+            // colPointsChange
+            // 
+            colPointsChange.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colPointsChange.HeaderText = "Points Change";
+            colPointsChange.Name = "colPointsChange";
+            // 
+            // colDescription
+            // 
+            colDescription.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colDescription.HeaderText = "Description";
+            colDescription.Name = "colDescription";
+            // 
             // SukiCardForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1070, 533);
+            Controls.Add(dgvPointsHistory);
+            Controls.Add(label3);
+            Controls.Add(btnDeductPointsDirect);
+            Controls.Add(btnAddPointsDirect);
+            Controls.Add(nudPointsAmount);
             Controls.Add(label2);
+            Controls.Add(lblCurrentPoints);
+            Controls.Add(lblSukiCustomerName);
+            Controls.Add(btnRegisterNewSukiCard);
+            Controls.Add(btnLoadCard);
+            Controls.Add(txtSukiCardRFID);
+            Controls.Add(lblTotalReservationsCount);
             Controls.Add(sidebar);
             FormBorderStyle = FormBorderStyle.None;
             Name = "SukiCardForm";
@@ -422,7 +534,6 @@
             panel9.ResumeLayout(false);
             panel6.ResumeLayout(false);
             panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)CustomerArrow).EndInit();
             panel13.ResumeLayout(false);
             CustomerContainer.ResumeLayout(false);
             panel12.ResumeLayout(false);
@@ -434,27 +545,22 @@
             ReservationsContainer.ResumeLayout(false);
             panel10.ResumeLayout(false);
             panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)ReservationsArrow).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudPointsAmount).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPointsHistory).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private System.Windows.Forms.Timer CustomerTimer;
         private System.Windows.Forms.Timer sidebarTimer;
-        private ImageList imageList1;
-        private Label label2;
         private Button SignOut;
         private Panel panel9;
         private Button Reports;
         private Panel panel6;
         private Button SukiCard;
         private Panel panel5;
-        private PictureBox CustomerArrow;
         private Button Customer;
         private Panel panel13;
-        private System.Windows.Forms.Timer ReservationsTimer;
         private Button CustomerDetails;
         private Panel CustomerContainer;
         private Panel panel12;
@@ -468,7 +574,23 @@
         private Panel panel10;
         private Button ReservationsDetails;
         private Panel panel3;
-        private PictureBox ReservationsArrow;
         private Button Reservations;
+        private Button btnAddNewCustomer;
+        private Button btnRegisterNewSukiCard;
+        private Button btnLoadCard;
+        private TextBox txtSukiCardRFID;
+        private Label lblTotalReservationsCount;
+        private Label lblCurrentPoints;
+        private Label lblSukiCustomerName;
+        private Label label2;
+        private NumericUpDown nudPointsAmount;
+        private Button btnDeductPointsDirect;
+        private Button btnAddPointsDirect;
+        private Label label3;
+        private DataGridView dgvPointsHistory;
+        private DataGridViewTextBoxColumn colDate;
+        private DataGridViewTextBoxColumn colType;
+        private DataGridViewTextBoxColumn colPointsChange;
+        private DataGridViewTextBoxColumn colDescription;
     }
 }

@@ -117,37 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="CustomerTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>274, 12</value>
-  </metadata>
   <metadata name="sidebarTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>12, 10</value>
   </metadata>
-  <metadata name="imageList1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>410, 12</value>
-  </metadata>
-  <data name="imageList1.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAEZTeXN0ZW0uV2luZG93cy5Gb3JtcywgQ3VsdHVyZT1uZXV0cmFs
-        LCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAmU3lzdGVtLldpbmRvd3MuRm9ybXMu
-        SW1hZ2VMaXN0U3RyZWFtZXIBAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAagMAAAJNU0Z0AUkBTAIBAQIB
-        AAGwAQABsAEAARABAAEQAQAE/wEhAQAI/wFCAU0BNgcAATYDAAEoAwABQAMAARADAAEBAQABIAYAARD/
-        AP8A/wAxAAMCAQMEAiAAAwQBBQQBKAAEAQMDAQScAAMdASgDRQF8A0MBdQMaASQYAAMGAQcDUQGfAzAB
-        SwMJAQwgAAMMAQ8DMwFRA04BlQMFAQaUAAMdASgDSwGMA1oBvQNaAb0DSAGEAxoBJBQAAwMBBANKAYkD
-        WAG4AzMBUgMLAQ4YAAMNAREDNgRXAbUDSAGEAwMBBJAAAxsBJQNLAYsDVAGpAz8BbANBAXADVAGoA0kB
-        hQMaASQUAAMaASQDTAGPA1YBsAM0AVQDDAEQEAADDgESAzYBWANVAa0DSwGLAxoBJJAAAxoBIwNKAYkD
-        VQGqAzkBXgMQARUDEQEWAzsBYgNUAakDSQGFAxoBIxQAAxwBJwNNAZEDVQGqAzUBVQMNAREIAAMPARMD
-        NgFZA1QBqANLAY0DHAEnkAADGAEhA0kBhwNVAa8DOQFdAw8BFAgAAxABFQM6AWEDVQGtA0gBhAMYASEU
-        AAMdASgDTQGSA1MBpwM1AVYDDgESAw8BEwM2AVkDVAGmA0sBjQMdASiQAAMXAR8DSQGFA1oBtwM4AVwD
-        DgESEAADDwEUAzoBYANYAbMDRwGCAxcBHxQAAx0BKQNOAZQDVAGmAzsBYgM8AWUDVAGmA0sBjQMdASmQ
-        AAMCAQMDRwGAA1sBwAM3AVoDDAEQGAADDwETAzkBXwNaAb0DRQF8AwIBAxQAAx8BLANOAZUDWgG9A1oB
-        vwNLAY0DHQEolAADBgEIA1YBrgM0AVQDCgENIAADDQERAzgBWwNSAaMDBgEHGAADHwEsA0kBiANHAYED
-        HQEonAADBQEGBAEoAAQBAwUBBiAAAwIBAwMCAQP/AP8A/wCfAAFCAU0BPgcAAT4DAAEoAwABQAMAARAD
-        AAEBAQABAQUAAYAXAAP/AQAE/wQABP8EAAT/BAAB/gF/AZ8B+QQAAfwBPwEPAfAEAAH4AR8BBwHgBAAB
-        8AEPAYMBwQQAAeABBwHBAYMEAAHBAYMB4AEHBAABgwHBAfABDwQAAQcB4AH4AR8EAAEPAfAB/AE/BAAB
-        nwH5Af4BfwQABP8EAAT/BAAE/wQACw==
-</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="SignOut.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -185,14 +157,6 @@
         1dxlWe6I6an3aj6Dt0+We+RBofANUU6x+vNAy/AAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="CustomerArrow.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAHdJREFUOE9jGMLg/v/7HFAmUeDR/0ecYMbTp0+5Xn989eX1xxcxYAECAKQOpB6k
-        Dyzw6sOr8FcfXv588/FlHFgAB8CpjpABBC3ApYBYl2EoJFojDIACBaTh1ceXM0A0sYEJB+BQ/fDqO8ka
-        YeD///9sUObwAQwMACBGhqOO4MNDAAAAAElFTkSuQmCC
-</value>
-  </data>
   <data name="Customer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -208,9 +172,6 @@
         vwE0TIo5YoLH0wAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="ReservationsTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>133, 12</value>
-  </metadata>
   <data name="CustomerDetails.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -261,14 +222,6 @@
         d/pcUj1Y/NbM6RUJ3w+8GUwwmK8SeghUKjf51tuZetE70gAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="ReservationsArrow.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAHdJREFUOE9jGMLg/v/7HFAmUeDR/0ecYMbTp0+5Xn989eX1xxcxYAECAKQOpB6k
-        Dyzw6sOr8FcfXv588/FlHFgAB8CpjpABBC3ApYBYl2EoJFojDIACBaTh1ceXM0A0sYEJB+BQ/fDqO8ka
-        YeD///9sUObwAQwMACBGhqOO4MNDAAAAAElFTkSuQmCC
-</value>
-  </data>
   <data name="Reservations.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -282,4 +235,7 @@
         RK5CYII=
 </value>
   </data>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>25</value>
+  </metadata>
 </root>
