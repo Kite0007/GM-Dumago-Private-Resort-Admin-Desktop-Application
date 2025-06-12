@@ -71,6 +71,7 @@
             nudPointsAdjustment = new NumericUpDown();
             btnDeductPoints = new Button();
             btnCancelCustomerEdit = new Button();
+            panel4 = new Panel();
             panel9.SuspendLayout();
             panel6.SuspendLayout();
             panel5.SuspendLayout();
@@ -245,7 +246,7 @@
             sidebar.MaximumSize = new Size(245, 533);
             sidebar.MinimumSize = new Size(70, 533);
             sidebar.Name = "sidebar";
-            sidebar.Size = new Size(70, 533);
+            sidebar.Size = new Size(245, 533);
             sidebar.TabIndex = 8;
             // 
             // panel1
@@ -369,7 +370,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(370, 92);
+            label4.Location = new Point(347, 90);
             label4.Name = "label4";
             label4.Size = new Size(52, 20);
             label4.TabIndex = 20;
@@ -379,7 +380,7 @@
             // 
             lblTotalReservationsCount.AutoSize = true;
             lblTotalReservationsCount.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTotalReservationsCount.Location = new Point(370, 60);
+            lblTotalReservationsCount.Location = new Point(347, 58);
             lblTotalReservationsCount.Name = "lblTotalReservationsCount";
             lblTotalReservationsCount.Size = new Size(94, 20);
             lblTotalReservationsCount.TabIndex = 19;
@@ -389,7 +390,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(370, 156);
+            label2.Location = new Point(347, 154);
             label2.Name = "label2";
             label2.Size = new Size(53, 20);
             label2.TabIndex = 22;
@@ -399,7 +400,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(370, 124);
+            label3.Location = new Point(347, 122);
             label3.Name = "label3";
             label3.Size = new Size(49, 20);
             label3.TabIndex = 21;
@@ -409,7 +410,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(370, 246);
+            label5.Location = new Point(347, 244);
             label5.Name = "label5";
             label5.Size = new Size(103, 20);
             label5.TabIndex = 24;
@@ -419,7 +420,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(370, 214);
+            label6.Location = new Point(347, 212);
             label6.Name = "label6";
             label6.Size = new Size(93, 20);
             label6.TabIndex = 23;
@@ -429,7 +430,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(370, 308);
+            label7.Location = new Point(347, 306);
             label7.Name = "label7";
             label7.Size = new Size(97, 20);
             label7.TabIndex = 25;
@@ -437,23 +438,23 @@
             // 
             // btnAddPoints
             // 
-            btnAddPoints.BackColor = Color.FromArgb(20, 200, 120);
+            btnAddPoints.BackColor = Color.FromArgb(35, 40, 45);
             btnAddPoints.FlatAppearance.BorderSize = 0;
-            btnAddPoints.FlatStyle = FlatStyle.Flat;
-            btnAddPoints.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAddPoints.FlatStyle = FlatStyle.Popup;
+            btnAddPoints.Font = new Font("Arial", 9.75F);
             btnAddPoints.ForeColor = Color.White;
-            btnAddPoints.Location = new Point(636, 308);
+            btnAddPoints.Location = new Point(569, 306);
             btnAddPoints.Name = "btnAddPoints";
-            btnAddPoints.Size = new Size(90, 28);
+            btnAddPoints.Size = new Size(86, 28);
             btnAddPoints.TabIndex = 36;
             btnAddPoints.Text = "Add Points";
             btnAddPoints.UseVisualStyleBackColor = false;
             // 
             // btnSaveCustomer
             // 
-            btnSaveCustomer.BackColor = Color.FromArgb(20, 200, 120);
+            btnSaveCustomer.BackColor = Color.FromArgb(35, 40, 45);
             btnSaveCustomer.FlatAppearance.BorderSize = 0;
-            btnSaveCustomer.FlatStyle = FlatStyle.Flat;
+            btnSaveCustomer.FlatStyle = FlatStyle.Popup;
             btnSaveCustomer.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSaveCustomer.ForeColor = Color.White;
             btnSaveCustomer.Location = new Point(308, 411);
@@ -465,72 +466,79 @@
             // 
             // txtCustomerID
             // 
-            txtCustomerID.Location = new Point(526, 59);
+            txtCustomerID.Font = new Font("Segoe UI", 9.75F);
+            txtCustomerID.Location = new Point(503, 57);
             txtCustomerID.Name = "txtCustomerID";
-            txtCustomerID.Size = new Size(219, 23);
+            txtCustomerID.Size = new Size(256, 25);
             txtCustomerID.TabIndex = 38;
             // 
             // txtName
             // 
-            txtName.Location = new Point(526, 92);
+            txtName.Font = new Font("Segoe UI", 9.75F);
+            txtName.Location = new Point(503, 90);
             txtName.Name = "txtName";
-            txtName.Size = new Size(219, 23);
+            txtName.Size = new Size(256, 25);
             txtName.TabIndex = 39;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(526, 124);
+            txtEmail.Font = new Font("Segoe UI", 9.75F);
+            txtEmail.Location = new Point(503, 122);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(219, 23);
+            txtEmail.Size = new Size(256, 25);
             txtEmail.TabIndex = 40;
             // 
             // txtPhone
             // 
-            txtPhone.Location = new Point(526, 157);
+            txtPhone.Font = new Font("Segoe UI", 9.75F);
+            txtPhone.Location = new Point(503, 155);
             txtPhone.Name = "txtPhone";
-            txtPhone.Size = new Size(219, 23);
+            txtPhone.Size = new Size(256, 25);
             txtPhone.TabIndex = 41;
             // 
             // txtCurrentPoints
             // 
-            txtCurrentPoints.Location = new Point(526, 244);
+            txtCurrentPoints.Font = new Font("Segoe UI", 9.75F);
+            txtCurrentPoints.Location = new Point(503, 242);
             txtCurrentPoints.Name = "txtCurrentPoints";
-            txtCurrentPoints.Size = new Size(219, 23);
+            txtCurrentPoints.Size = new Size(256, 25);
             txtCurrentPoints.TabIndex = 43;
             // 
             // txtSukiCardID
             // 
-            txtSukiCardID.Location = new Point(526, 211);
+            txtSukiCardID.Font = new Font("Segoe UI", 9.75F);
+            txtSukiCardID.Location = new Point(503, 209);
             txtSukiCardID.Name = "txtSukiCardID";
-            txtSukiCardID.Size = new Size(219, 23);
+            txtSukiCardID.Size = new Size(256, 25);
             txtSukiCardID.TabIndex = 42;
             // 
             // nudPointsAdjustment
             // 
-            nudPointsAdjustment.Location = new Point(526, 310);
+            nudPointsAdjustment.Font = new Font("Segoe UI", 9.75F);
+            nudPointsAdjustment.Location = new Point(503, 308);
             nudPointsAdjustment.Name = "nudPointsAdjustment";
-            nudPointsAdjustment.Size = new Size(104, 23);
+            nudPointsAdjustment.Size = new Size(62, 25);
             nudPointsAdjustment.TabIndex = 44;
             // 
             // btnDeductPoints
             // 
-            btnDeductPoints.BackColor = Color.FromArgb(20, 200, 120);
+            btnDeductPoints.BackColor = Color.FromArgb(35, 40, 45);
             btnDeductPoints.FlatAppearance.BorderSize = 0;
-            btnDeductPoints.FlatStyle = FlatStyle.Flat;
-            btnDeductPoints.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDeductPoints.FlatStyle = FlatStyle.Popup;
+            btnDeductPoints.Font = new Font("Arial", 9.75F);
             btnDeductPoints.ForeColor = Color.White;
-            btnDeductPoints.Location = new Point(732, 308);
+            btnDeductPoints.Location = new Point(661, 306);
             btnDeductPoints.Name = "btnDeductPoints";
-            btnDeductPoints.Size = new Size(102, 28);
+            btnDeductPoints.Size = new Size(98, 28);
             btnDeductPoints.TabIndex = 45;
             btnDeductPoints.Text = "Deduct Points";
             btnDeductPoints.UseVisualStyleBackColor = false;
             // 
             // btnCancelCustomerEdit
             // 
-            btnCancelCustomerEdit.BackColor = Color.FromArgb(20, 200, 120);
+            btnCancelCustomerEdit.BackColor = Color.FromArgb(35, 40, 45);
             btnCancelCustomerEdit.FlatAppearance.BorderSize = 0;
-            btnCancelCustomerEdit.FlatStyle = FlatStyle.Flat;
+            btnCancelCustomerEdit.FlatStyle = FlatStyle.Popup;
             btnCancelCustomerEdit.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCancelCustomerEdit.ForeColor = Color.White;
             btnCancelCustomerEdit.Location = new Point(562, 411);
@@ -539,6 +547,13 @@
             btnCancelCustomerEdit.TabIndex = 46;
             btnCancelCustomerEdit.Text = "Cancel";
             btnCancelCustomerEdit.UseVisualStyleBackColor = false;
+            // 
+            // panel4
+            // 
+            panel4.Location = new Point(287, 33);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(531, 430);
+            panel4.TabIndex = 47;
             // 
             // CustomerDetailsForm
             // 
@@ -564,6 +579,7 @@
             Controls.Add(label4);
             Controls.Add(lblTotalReservationsCount);
             Controls.Add(sidebar);
+            Controls.Add(panel4);
             FormBorderStyle = FormBorderStyle.None;
             Name = "CustomerDetailsForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -630,5 +646,6 @@
         private NumericUpDown nudPointsAdjustment;
         private Button btnDeductPoints;
         private Button btnCancelCustomerEdit;
+        private Panel panel4;
     }
 }

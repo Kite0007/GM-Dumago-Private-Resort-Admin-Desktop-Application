@@ -69,6 +69,7 @@
             colStatus = new DataGridViewTextBoxColumn();
             colViewEdit = new DataGridViewButtonColumn();
             colCancel = new DataGridViewButtonColumn();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             panel9.SuspendLayout();
             panel6.SuspendLayout();
             panel5.SuspendLayout();
@@ -252,7 +253,7 @@
             sidebar.MaximumSize = new Size(245, 533);
             sidebar.MinimumSize = new Size(70, 533);
             sidebar.Name = "sidebar";
-            sidebar.Size = new Size(70, 533);
+            sidebar.Size = new Size(245, 533);
             sidebar.TabIndex = 8;
             // 
             // panel1
@@ -384,37 +385,47 @@
             // 
             // txtReservationSearch
             // 
+            txtReservationSearch.Font = new Font("Segoe UI", 9.75F);
             txtReservationSearch.Location = new Point(215, 33);
             txtReservationSearch.Name = "txtReservationSearch";
-            txtReservationSearch.Size = new Size(193, 23);
+            txtReservationSearch.Size = new Size(193, 25);
             txtReservationSearch.TabIndex = 11;
             // 
             // btnSearch
             // 
+            btnSearch.BackColor = Color.FromArgb(35, 40, 45);
+            btnSearch.FlatStyle = FlatStyle.Popup;
+            btnSearch.ForeColor = Color.White;
             btnSearch.Location = new Point(449, 33);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(75, 23);
             btnSearch.TabIndex = 12;
             btnSearch.Text = "Search";
-            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.UseVisualStyleBackColor = false;
             // 
             // btnRefresh
             // 
+            btnRefresh.BackColor = Color.FromArgb(35, 40, 45);
+            btnRefresh.FlatStyle = FlatStyle.Popup;
+            btnRefresh.ForeColor = Color.White;
             btnRefresh.Location = new Point(546, 33);
             btnRefresh.Name = "btnRefresh";
             btnRefresh.Size = new Size(75, 23);
             btnRefresh.TabIndex = 13;
             btnRefresh.Text = "Refresh";
-            btnRefresh.UseVisualStyleBackColor = true;
+            btnRefresh.UseVisualStyleBackColor = false;
             // 
             // btnAddNewReservation
             // 
+            btnAddNewReservation.BackColor = Color.FromArgb(35, 40, 45);
+            btnAddNewReservation.FlatStyle = FlatStyle.Popup;
+            btnAddNewReservation.ForeColor = Color.White;
             btnAddNewReservation.Location = new Point(642, 33);
             btnAddNewReservation.Name = "btnAddNewReservation";
             btnAddNewReservation.Size = new Size(143, 23);
             btnAddNewReservation.TabIndex = 14;
             btnAddNewReservation.Text = "Add New Reservation";
-            btnAddNewReservation.UseVisualStyleBackColor = true;
+            btnAddNewReservation.UseVisualStyleBackColor = false;
             // 
             // label3
             // 
@@ -435,10 +446,12 @@
             // 
             // cboReservationStatus
             // 
+            cboReservationStatus.Font = new Font("Segoe UI", 9.75F);
             cboReservationStatus.FormattingEnabled = true;
+            cboReservationStatus.Items.AddRange(new object[] { "All", "Pending", "Confirmed", "Paid", "Cancelled" });
             cboReservationStatus.Location = new Point(215, 77);
             cboReservationStatus.Name = "cboReservationStatus";
-            cboReservationStatus.Size = new Size(193, 23);
+            cboReservationStatus.Size = new Size(193, 25);
             cboReservationStatus.TabIndex = 16;
             // 
             // dgvReservations
@@ -572,5 +585,6 @@
         private DataGridViewTextBoxColumn colStatus;
         private DataGridViewButtonColumn colViewEdit;
         private DataGridViewButtonColumn colCancel;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

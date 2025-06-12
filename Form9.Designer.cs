@@ -240,7 +240,7 @@
             sidebar.MaximumSize = new Size(245, 533);
             sidebar.MinimumSize = new Size(70, 533);
             sidebar.Name = "sidebar";
-            sidebar.Size = new Size(70, 533);
+            sidebar.Size = new Size(245, 533);
             sidebar.TabIndex = 8;
             // 
             // panel1
@@ -371,7 +371,7 @@
             // 
             lblTotalReservationsCount.AutoSize = true;
             lblTotalReservationsCount.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTotalReservationsCount.Location = new Point(145, 39);
+            lblTotalReservationsCount.Location = new Point(158, 41);
             lblTotalReservationsCount.Name = "lblTotalReservationsCount";
             lblTotalReservationsCount.Size = new Size(84, 20);
             lblTotalReservationsCount.TabIndex = 17;
@@ -381,7 +381,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(548, 40);
+            label2.Location = new Point(158, 74);
             label2.Name = "label2";
             label2.Size = new Size(92, 20);
             label2.TabIndex = 19;
@@ -389,30 +389,34 @@
             // 
             // cboReportYear
             // 
+            cboReportYear.Font = new Font("Segoe UI", 9.75F);
             cboReportYear.FormattingEnabled = true;
-            cboReportYear.Location = new Point(234, 39);
+            cboReportYear.Items.AddRange(new object[] { "2023", "2024", "2025" });
+            cboReportYear.Location = new Point(262, 40);
             cboReportYear.Name = "cboReportYear";
-            cboReportYear.Size = new Size(249, 23);
+            cboReportYear.Size = new Size(249, 25);
             cboReportYear.TabIndex = 20;
             // 
             // cboReportType
             // 
+            cboReportType.Font = new Font("Segoe UI", 9.75F);
             cboReportType.FormattingEnabled = true;
-            cboReportType.Location = new Point(647, 39);
+            cboReportType.Items.AddRange(new object[] { "Monthly Reservations", "Revenue by Month", "Room Occupancy" });
+            cboReportType.Location = new Point(262, 74);
             cboReportType.Name = "cboReportType";
-            cboReportType.Size = new Size(249, 23);
+            cboReportType.Size = new Size(249, 25);
             cboReportType.TabIndex = 21;
             // 
             // btnGenerateReport
             // 
-            btnGenerateReport.BackColor = Color.FromArgb(20, 200, 120);
+            btnGenerateReport.BackColor = Color.FromArgb(35, 40, 45);
             btnGenerateReport.FlatAppearance.BorderSize = 0;
-            btnGenerateReport.FlatStyle = FlatStyle.Flat;
+            btnGenerateReport.FlatStyle = FlatStyle.Popup;
             btnGenerateReport.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnGenerateReport.ForeColor = Color.White;
-            btnGenerateReport.Location = new Point(145, 82);
+            btnGenerateReport.Location = new Point(522, 40);
             btnGenerateReport.Name = "btnGenerateReport";
-            btnGenerateReport.Size = new Size(153, 32);
+            btnGenerateReport.Size = new Size(88, 57);
             btnGenerateReport.TabIndex = 38;
             btnGenerateReport.Text = "Generate Report";
             btnGenerateReport.UseVisualStyleBackColor = false;
@@ -421,7 +425,7 @@
             // 
             dgvReportDetails.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvReportDetails.Columns.AddRange(new DataGridViewColumn[] { colMonth, colReservations, colRevenue, colOccupancy });
-            dgvReportDetails.Location = new Point(145, 414);
+            dgvReportDetails.Location = new Point(158, 414);
             dgvReportDetails.Name = "dgvReportDetails";
             dgvReportDetails.Size = new Size(832, 109);
             dgvReportDetails.TabIndex = 50;
@@ -461,7 +465,7 @@
             // pnlChartHost
             // 
             pnlChartHost.AutoSize = true;
-            pnlChartHost.Location = new Point(145, 120);
+            pnlChartHost.Location = new Point(158, 120);
             pnlChartHost.Name = "pnlChartHost";
             pnlChartHost.Size = new Size(832, 288);
             pnlChartHost.TabIndex = 51;
@@ -472,6 +476,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1070, 533);
+            Controls.Add(sidebar);
             Controls.Add(pnlChartHost);
             Controls.Add(dgvReportDetails);
             Controls.Add(btnGenerateReport);
@@ -479,7 +484,6 @@
             Controls.Add(cboReportYear);
             Controls.Add(label2);
             Controls.Add(lblTotalReservationsCount);
-            Controls.Add(sidebar);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ReportsForm";
             StartPosition = FormStartPosition.CenterScreen;

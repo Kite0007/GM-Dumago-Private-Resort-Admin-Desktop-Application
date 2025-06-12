@@ -244,7 +244,7 @@
             sidebar.MaximumSize = new Size(245, 533);
             sidebar.MinimumSize = new Size(70, 533);
             sidebar.Name = "sidebar";
-            sidebar.Size = new Size(70, 533);
+            sidebar.Size = new Size(245, 533);
             sidebar.TabIndex = 8;
             // 
             // panel1
@@ -366,27 +366,34 @@
             // 
             // btnRegisterNewSukiCard
             // 
-            btnRegisterNewSukiCard.Location = new Point(591, 32);
+            btnRegisterNewSukiCard.BackColor = Color.FromArgb(35, 40, 45);
+            btnRegisterNewSukiCard.FlatStyle = FlatStyle.Popup;
+            btnRegisterNewSukiCard.ForeColor = Color.White;
+            btnRegisterNewSukiCard.Location = new Point(605, 32);
             btnRegisterNewSukiCard.Name = "btnRegisterNewSukiCard";
             btnRegisterNewSukiCard.Size = new Size(129, 23);
             btnRegisterNewSukiCard.TabIndex = 23;
             btnRegisterNewSukiCard.Text = "Register New Card";
-            btnRegisterNewSukiCard.UseVisualStyleBackColor = true;
+            btnRegisterNewSukiCard.UseVisualStyleBackColor = false;
             // 
             // btnLoadCard
             // 
-            btnLoadCard.Location = new Point(494, 32);
+            btnLoadCard.BackColor = Color.FromArgb(35, 40, 45);
+            btnLoadCard.FlatStyle = FlatStyle.Popup;
+            btnLoadCard.ForeColor = Color.White;
+            btnLoadCard.Location = new Point(525, 32);
             btnLoadCard.Name = "btnLoadCard";
             btnLoadCard.Size = new Size(75, 23);
             btnLoadCard.TabIndex = 22;
             btnLoadCard.Text = "Load Card";
-            btnLoadCard.UseVisualStyleBackColor = true;
+            btnLoadCard.UseVisualStyleBackColor = false;
             // 
             // txtSukiCardRFID
             // 
+            txtSukiCardRFID.Font = new Font("Segoe UI", 9.75F);
             txtSukiCardRFID.Location = new Point(260, 32);
             txtSukiCardRFID.Name = "txtSukiCardRFID";
-            txtSukiCardRFID.Size = new Size(193, 23);
+            txtSukiCardRFID.Size = new Size(259, 25);
             txtSukiCardRFID.TabIndex = 21;
             // 
             // lblTotalReservationsCount
@@ -403,7 +410,7 @@
             // 
             lblCurrentPoints.AutoSize = true;
             lblCurrentPoints.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblCurrentPoints.Location = new Point(137, 115);
+            lblCurrentPoints.Location = new Point(137, 117);
             lblCurrentPoints.Name = "lblCurrentPoints";
             lblCurrentPoints.Size = new Size(103, 20);
             lblCurrentPoints.TabIndex = 25;
@@ -413,7 +420,7 @@
             // 
             lblSukiCustomerName.AutoSize = true;
             lblSukiCustomerName.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblSukiCustomerName.Location = new Point(137, 83);
+            lblSukiCustomerName.Location = new Point(137, 74);
             lblSukiCustomerName.Name = "lblSukiCustomerName";
             lblSukiCustomerName.Size = new Size(119, 20);
             lblSukiCustomerName.TabIndex = 24;
@@ -431,35 +438,36 @@
             // 
             // nudPointsAmount
             // 
+            nudPointsAmount.Font = new Font("Segoe UI", 9.75F);
             nudPointsAmount.Location = new Point(266, 158);
             nudPointsAmount.Name = "nudPointsAmount";
-            nudPointsAmount.Size = new Size(120, 23);
+            nudPointsAmount.Size = new Size(68, 25);
             nudPointsAmount.TabIndex = 27;
             // 
             // btnDeductPointsDirect
             // 
-            btnDeductPointsDirect.BackColor = Color.FromArgb(20, 200, 120);
+            btnDeductPointsDirect.BackColor = Color.FromArgb(35, 40, 45);
             btnDeductPointsDirect.FlatAppearance.BorderSize = 0;
-            btnDeductPointsDirect.FlatStyle = FlatStyle.Flat;
-            btnDeductPointsDirect.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDeductPointsDirect.FlatStyle = FlatStyle.Popup;
+            btnDeductPointsDirect.Font = new Font("Arial", 9F);
             btnDeductPointsDirect.ForeColor = Color.White;
-            btnDeductPointsDirect.Location = new Point(501, 155);
+            btnDeductPointsDirect.Location = new Point(425, 159);
             btnDeductPointsDirect.Name = "btnDeductPointsDirect";
-            btnDeductPointsDirect.Size = new Size(102, 28);
+            btnDeductPointsDirect.Size = new Size(94, 22);
             btnDeductPointsDirect.TabIndex = 47;
             btnDeductPointsDirect.Text = "Deduct Points";
             btnDeductPointsDirect.UseVisualStyleBackColor = false;
             // 
             // btnAddPointsDirect
             // 
-            btnAddPointsDirect.BackColor = Color.FromArgb(20, 200, 120);
+            btnAddPointsDirect.BackColor = Color.FromArgb(35, 40, 45);
             btnAddPointsDirect.FlatAppearance.BorderSize = 0;
-            btnAddPointsDirect.FlatStyle = FlatStyle.Flat;
-            btnAddPointsDirect.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAddPointsDirect.FlatStyle = FlatStyle.Popup;
+            btnAddPointsDirect.Font = new Font("Arial", 9F);
             btnAddPointsDirect.ForeColor = Color.White;
-            btnAddPointsDirect.Location = new Point(405, 155);
+            btnAddPointsDirect.Location = new Point(340, 158);
             btnAddPointsDirect.Name = "btnAddPointsDirect";
-            btnAddPointsDirect.Size = new Size(90, 28);
+            btnAddPointsDirect.Size = new Size(79, 22);
             btnAddPointsDirect.TabIndex = 46;
             btnAddPointsDirect.Text = "Add Points";
             btnAddPointsDirect.UseVisualStyleBackColor = false;
@@ -513,6 +521,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1070, 533);
+            Controls.Add(sidebar);
             Controls.Add(dgvPointsHistory);
             Controls.Add(label3);
             Controls.Add(btnDeductPointsDirect);
@@ -525,7 +534,6 @@
             Controls.Add(btnLoadCard);
             Controls.Add(txtSukiCardRFID);
             Controls.Add(lblTotalReservationsCount);
-            Controls.Add(sidebar);
             FormBorderStyle = FormBorderStyle.None;
             Name = "SukiCardForm";
             StartPosition = FormStartPosition.CenterScreen;

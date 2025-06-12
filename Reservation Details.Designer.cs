@@ -252,7 +252,7 @@
             sidebar.MaximumSize = new Size(245, 533);
             sidebar.MinimumSize = new Size(70, 533);
             sidebar.Name = "sidebar";
-            sidebar.Size = new Size(70, 533);
+            sidebar.Size = new Size(245, 533);
             sidebar.TabIndex = 8;
             // 
             // panel1
@@ -414,30 +414,34 @@
             // 
             // txtReservationID
             // 
+            txtReservationID.Font = new Font("Segoe UI", 9.75F);
             txtReservationID.Location = new Point(273, 34);
             txtReservationID.Name = "txtReservationID";
-            txtReservationID.Size = new Size(222, 23);
+            txtReservationID.Size = new Size(222, 25);
             txtReservationID.TabIndex = 19;
             // 
             // txtCustomerName
             // 
+            txtCustomerName.Font = new Font("Segoe UI", 9.75F);
             txtCustomerName.Location = new Point(273, 63);
             txtCustomerName.Name = "txtCustomerName";
-            txtCustomerName.Size = new Size(222, 23);
+            txtCustomerName.Size = new Size(222, 25);
             txtCustomerName.TabIndex = 20;
             // 
             // dtpCheckInDate
             // 
+            dtpCheckInDate.Font = new Font("Segoe UI", 9.75F);
             dtpCheckInDate.Location = new Point(273, 112);
             dtpCheckInDate.Name = "dtpCheckInDate";
-            dtpCheckInDate.Size = new Size(222, 23);
+            dtpCheckInDate.Size = new Size(222, 25);
             dtpCheckInDate.TabIndex = 21;
             // 
             // dtpCheckOutDate
             // 
+            dtpCheckOutDate.Font = new Font("Segoe UI", 9.75F);
             dtpCheckOutDate.Location = new Point(273, 145);
             dtpCheckOutDate.Name = "dtpCheckOutDate";
-            dtpCheckOutDate.Size = new Size(222, 23);
+            dtpCheckOutDate.Size = new Size(222, 25);
             dtpCheckOutDate.TabIndex = 22;
             // 
             // a
@@ -512,9 +516,9 @@
             // 
             // btnSaveReservation
             // 
-            btnSaveReservation.BackColor = Color.FromArgb(20, 200, 120);
+            btnSaveReservation.BackColor = Color.FromArgb(35, 40, 45);
             btnSaveReservation.FlatAppearance.BorderSize = 0;
-            btnSaveReservation.FlatStyle = FlatStyle.Flat;
+            btnSaveReservation.FlatStyle = FlatStyle.Popup;
             btnSaveReservation.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSaveReservation.ForeColor = Color.White;
             btnSaveReservation.Location = new Point(524, 412);
@@ -526,9 +530,9 @@
             // 
             // btnCancelEdit
             // 
-            btnCancelEdit.BackColor = Color.FromArgb(20, 200, 120);
+            btnCancelEdit.BackColor = Color.FromArgb(35, 40, 45);
             btnCancelEdit.FlatAppearance.BorderSize = 0;
-            btnCancelEdit.FlatStyle = FlatStyle.Flat;
+            btnCancelEdit.FlatStyle = FlatStyle.Popup;
             btnCancelEdit.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCancelEdit.ForeColor = Color.White;
             btnCancelEdit.Location = new Point(791, 412);
@@ -540,51 +544,61 @@
             // 
             // nudNumAdults
             // 
+            nudNumAdults.Font = new Font("Segoe UI", 9.75F);
             nudNumAdults.Location = new Point(198, 215);
             nudNumAdults.Name = "nudNumAdults";
-            nudNumAdults.Size = new Size(120, 23);
+            nudNumAdults.Size = new Size(120, 25);
             nudNumAdults.TabIndex = 37;
             // 
             // nudNumKids
             // 
+            nudNumKids.Font = new Font("Segoe UI", 9.75F);
             nudNumKids.Location = new Point(375, 217);
             nudNumKids.Name = "nudNumKids";
-            nudNumKids.Size = new Size(120, 23);
+            nudNumKids.Size = new Size(120, 25);
             nudNumKids.TabIndex = 38;
             // 
             // cboRoomType
             // 
+            cboRoomType.Font = new Font("Segoe UI", 9.75F);
             cboRoomType.FormattingEnabled = true;
+            cboRoomType.Items.AddRange(new object[] { "Standard Room", "Deluxe Room", "Family Suite" });
             cboRoomType.Location = new Point(273, 273);
             cboRoomType.Name = "cboRoomType";
-            cboRoomType.Size = new Size(222, 23);
+            cboRoomType.Size = new Size(222, 25);
             cboRoomType.TabIndex = 39;
             // 
             // txtTotalAmount
             // 
+            txtTotalAmount.Font = new Font("Segoe UI", 9.75F);
             txtTotalAmount.Location = new Point(273, 305);
             txtTotalAmount.Name = "txtTotalAmount";
-            txtTotalAmount.Size = new Size(222, 23);
+            txtTotalAmount.Size = new Size(222, 25);
             txtTotalAmount.TabIndex = 40;
             // 
             // cboPaymentStatus
             // 
+            cboPaymentStatus.Font = new Font("Segoe UI", 9.75F);
             cboPaymentStatus.FormattingEnabled = true;
+            cboPaymentStatus.Items.AddRange(new object[] { "Pending", "Paid", "Refunded" });
             cboPaymentStatus.Location = new Point(273, 368);
             cboPaymentStatus.Name = "cboPaymentStatus";
-            cboPaymentStatus.Size = new Size(222, 23);
+            cboPaymentStatus.Size = new Size(222, 25);
             cboPaymentStatus.TabIndex = 41;
             // 
             // cboReservationStatus
             // 
+            cboReservationStatus.Font = new Font("Segoe UI", 9.75F);
             cboReservationStatus.FormattingEnabled = true;
+            cboReservationStatus.Items.AddRange(new object[] { "Pending", "Confirmed", "Cancelled" });
             cboReservationStatus.Location = new Point(273, 399);
             cboReservationStatus.Name = "cboReservationStatus";
-            cboReservationStatus.Size = new Size(222, 23);
+            cboReservationStatus.Size = new Size(222, 25);
             cboReservationStatus.TabIndex = 42;
             // 
             // txtNotes
             // 
+            txtNotes.Font = new Font("Segoe UI", 9.75F);
             txtNotes.Location = new Point(623, 37);
             txtNotes.Multiline = true;
             txtNotes.Name = "txtNotes";

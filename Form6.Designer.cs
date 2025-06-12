@@ -239,7 +239,7 @@
             sidebar.MaximumSize = new Size(245, 533);
             sidebar.MinimumSize = new Size(70, 533);
             sidebar.Name = "sidebar";
-            sidebar.Size = new Size(70, 533);
+            sidebar.Size = new Size(245, 533);
             sidebar.TabIndex = 8;
             // 
             // panel1
@@ -361,43 +361,53 @@
             // 
             // btnAddNewCustomer
             // 
-            btnAddNewCustomer.Location = new Point(632, 56);
+            btnAddNewCustomer.BackColor = Color.FromArgb(35, 40, 45);
+            btnAddNewCustomer.FlatStyle = FlatStyle.Popup;
+            btnAddNewCustomer.ForeColor = Color.White;
+            btnAddNewCustomer.Location = new Point(587, 21);
             btnAddNewCustomer.Name = "btnAddNewCustomer";
             btnAddNewCustomer.Size = new Size(143, 23);
             btnAddNewCustomer.TabIndex = 19;
             btnAddNewCustomer.Text = "Add New Customer";
-            btnAddNewCustomer.UseVisualStyleBackColor = true;
+            btnAddNewCustomer.UseVisualStyleBackColor = false;
             // 
             // btnRefresh
             // 
-            btnRefresh.Location = new Point(536, 56);
+            btnRefresh.BackColor = Color.FromArgb(35, 40, 45);
+            btnRefresh.FlatStyle = FlatStyle.Popup;
+            btnRefresh.ForeColor = Color.White;
+            btnRefresh.Location = new Point(491, 21);
             btnRefresh.Name = "btnRefresh";
             btnRefresh.Size = new Size(75, 23);
             btnRefresh.TabIndex = 18;
             btnRefresh.Text = "Refresh";
-            btnRefresh.UseVisualStyleBackColor = true;
+            btnRefresh.UseVisualStyleBackColor = false;
             // 
             // btnSearch
             // 
-            btnSearch.Location = new Point(439, 56);
+            btnSearch.BackColor = Color.FromArgb(35, 40, 45);
+            btnSearch.FlatStyle = FlatStyle.Popup;
+            btnSearch.ForeColor = Color.White;
+            btnSearch.Location = new Point(394, 21);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(75, 23);
             btnSearch.TabIndex = 17;
             btnSearch.Text = "Search";
-            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.UseVisualStyleBackColor = false;
             // 
             // txtCustomerSearch
             // 
-            txtCustomerSearch.Location = new Point(205, 56);
+            txtCustomerSearch.Font = new Font("Segoe UI", 9.75F);
+            txtCustomerSearch.Location = new Point(160, 21);
             txtCustomerSearch.Name = "txtCustomerSearch";
-            txtCustomerSearch.Size = new Size(193, 23);
+            txtCustomerSearch.Size = new Size(193, 25);
             txtCustomerSearch.TabIndex = 16;
             // 
             // lblTotalReservationsCount
             // 
             lblTotalReservationsCount.AutoSize = true;
             lblTotalReservationsCount.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTotalReservationsCount.Location = new Point(143, 56);
+            lblTotalReservationsCount.Location = new Point(98, 21);
             lblTotalReservationsCount.Name = "lblTotalReservationsCount";
             lblTotalReservationsCount.Size = new Size(56, 20);
             lblTotalReservationsCount.TabIndex = 15;
@@ -407,9 +417,9 @@
             // 
             dgvCustomers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCustomers.Columns.AddRange(new DataGridViewColumn[] { colCustID, colName, colEmail, colSukiCard, colViewEdit, colDelete });
-            dgvCustomers.Location = new Point(99, 142);
+            dgvCustomers.Location = new Point(99, 61);
             dgvCustomers.Name = "dgvCustomers";
-            dgvCustomers.Size = new Size(943, 324);
+            dgvCustomers.Size = new Size(943, 449);
             dgvCustomers.TabIndex = 20;
             dgvCustomers.CellContentClick += dgvCustomers_CellContentClick;
             // 

@@ -208,7 +208,7 @@
             sidebar.MaximumSize = new Size(245, 533);
             sidebar.MinimumSize = new Size(70, 533);
             sidebar.Name = "sidebar";
-            sidebar.Size = new Size(70, 533);
+            sidebar.Size = new Size(245, 533);
             sidebar.TabIndex = 6;
             // 
             // CustomerContainer
@@ -357,7 +357,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(100, 72);
+            label3.Location = new Point(104, 65);
             label3.Name = "label3";
             label3.Size = new Size(251, 30);
             label3.TabIndex = 8;
