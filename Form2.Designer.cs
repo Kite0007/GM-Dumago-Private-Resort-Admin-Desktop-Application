@@ -37,6 +37,9 @@
             txtNewUsername = new TextBox();
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
+            lblUsername = new Label();
+            lblPassword = new Label();
+            lblConfirmPassword = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -52,7 +55,7 @@
             txtConfirmPassword.RightToLeft = RightToLeft.No;
             txtConfirmPassword.Size = new Size(232, 25);
             txtConfirmPassword.TabIndex = 46;
-            txtConfirmPassword.Text = "  Confirm Password";
+            txtConfirmPassword.UseSystemPasswordChar = true;
             txtConfirmPassword.TextChanged += txtConfirmPassword_TextChanged;
             // 
             // txtNewPassword
@@ -66,7 +69,7 @@
             txtNewPassword.RightToLeft = RightToLeft.No;
             txtNewPassword.Size = new Size(232, 25);
             txtNewPassword.TabIndex = 45;
-            txtNewPassword.Text = "  Password";
+            txtNewPassword.UseSystemPasswordChar = true;
             txtNewPassword.TextChanged += txtNewPassword_TextChanged;
             // 
             // btnGoToLogin
@@ -118,7 +121,6 @@
             txtNewUsername.RightToLeft = RightToLeft.No;
             txtNewUsername.Size = new Size(232, 25);
             txtNewUsername.TabIndex = 41;
-            txtNewUsername.Text = "  Username";
             txtNewUsername.TextChanged += txtNewUsername_TextChanged;
             // 
             // pictureBox2
@@ -141,12 +143,51 @@
             pictureBox1.TabIndex = 39;
             pictureBox1.TabStop = false;
             // 
+            // lblUsername
+            // 
+            lblUsername.AutoSize = true;
+            lblUsername.Font = new Font("Segoe UI", 9.75F);
+            lblUsername.ForeColor = Color.White;
+            lblUsername.Location = new Point(624, 163);
+            lblUsername.Name = "lblUsername";
+            lblUsername.Size = new Size(223, 17);
+            lblUsername.TabIndex = 47;
+            lblUsername.Text = "Username                                       ";
+            lblUsername.Click += lblUsername_Click;
+            // 
+            // lblPassword
+            // 
+            lblPassword.AutoSize = true;
+            lblPassword.Font = new Font("Segoe UI", 9.75F);
+            lblPassword.ForeColor = Color.White;
+            lblPassword.Location = new Point(624, 206);
+            lblPassword.Name = "lblPassword";
+            lblPassword.Size = new Size(224, 17);
+            lblPassword.TabIndex = 48;
+            lblPassword.Text = "Password                                        ";
+            lblPassword.Click += lblPassword_Click;
+            // 
+            // lblConfirmPassword
+            // 
+            lblConfirmPassword.AutoSize = true;
+            lblConfirmPassword.Font = new Font("Segoe UI", 9.75F);
+            lblConfirmPassword.ForeColor = Color.White;
+            lblConfirmPassword.Location = new Point(624, 247);
+            lblConfirmPassword.Name = "lblConfirmPassword";
+            lblConfirmPassword.Size = new Size(222, 17);
+            lblConfirmPassword.TabIndex = 49;
+            lblConfirmPassword.Text = "Confirm Password                           ";
+            lblConfirmPassword.Click += lblConfirmPassword_Click;
+            // 
             // SignUpForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(60, 65, 70);
             ClientSize = new Size(1070, 533);
+            Controls.Add(lblConfirmPassword);
+            Controls.Add(lblPassword);
+            Controls.Add(lblUsername);
             Controls.Add(txtConfirmPassword);
             Controls.Add(txtNewPassword);
             Controls.Add(btnGoToLogin);
@@ -176,5 +217,8 @@
         private TextBox txtNewUsername;
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
+        private Label lblUsername;
+        private Label lblPassword;
+        private Label lblConfirmPassword;
     }
 }

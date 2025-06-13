@@ -37,6 +37,8 @@
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
             sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
+            label3 = new Label();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -52,7 +54,7 @@
             txtPassword.RightToLeft = RightToLeft.No;
             txtPassword.Size = new Size(232, 25);
             txtPassword.TabIndex = 37;
-            txtPassword.Text = "  Password";
+            txtPassword.UseSystemPasswordChar = true;
             txtPassword.TextChanged += txtPassword_TextChanged;
             // 
             // btnGoToSignUp
@@ -104,7 +106,6 @@
             txtUsername.RightToLeft = RightToLeft.No;
             txtUsername.Size = new Size(232, 25);
             txtUsername.TabIndex = 33;
-            txtUsername.Text = "  Email@gmail.com";
             txtUsername.TextChanged += txtUsername_TextChanged;
             // 
             // pictureBox2
@@ -134,12 +135,38 @@
             sqlCommand1.Notification = null;
             sqlCommand1.Transaction = null;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9.75F);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(624, 216);
+            label3.Name = "label3";
+            label3.Size = new Size(224, 17);
+            label3.TabIndex = 53;
+            label3.Text = "Password                                        ";
+            label3.Click += label3_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9.75F);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(623, 173);
+            label2.Name = "label2";
+            label2.Size = new Size(223, 17);
+            label2.TabIndex = 52;
+            label2.Text = "Email@gmail.com                            \r\n";
+            label2.Click += label2_Click;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(60, 65, 70);
             ClientSize = new Size(1070, 533);
+            Controls.Add(label3);
+            Controls.Add(label2);
             Controls.Add(txtPassword);
             Controls.Add(btnGoToSignUp);
             Controls.Add(label1);
@@ -166,5 +193,7 @@
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
         private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
+        private Label label3;
+        private Label label2;
     }
 }
