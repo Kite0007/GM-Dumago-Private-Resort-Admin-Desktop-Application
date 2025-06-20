@@ -15,12 +15,19 @@ namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
         {
             try
             {
-                var client = new MongoClient("mongodb://localhost:27017");
+                const string connectionUri = "mongodb+srv://OCIREJ7:Jitsu%4007%402003@cluster0.kfezasu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+                // const string connectionUri = "mongodb://localhost:27017";
+
+                var settings = MongoClientSettings.FromConnectionString(connectionUri);
+                settings.ServerApi = new ServerApi(ServerApiVersion.V1);
+
+                var client = new MongoClient(settings);
+
                 database = client.GetDatabase("ResortDB");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed to connect to MongoDB. Please ensure it is running.\n\nError: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Failed to connect to the database. Please check your connection string and internet connection.\n\nError: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
             }
         }

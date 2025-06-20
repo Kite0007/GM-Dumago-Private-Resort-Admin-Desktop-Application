@@ -116,14 +116,6 @@ namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
             this.Hide();
         }
 
-        private void SukiCard_Click(object sender, EventArgs e)
-        {
-            SukiCardForm sukicard = new SukiCardForm();
-            sukicard.FormClosed += (s, args) => this.Close();
-            sukicard.Show();
-            this.Hide();
-        }
-
         private void Reports_Click(object sender, EventArgs e)
         {
             ReportsForm reports = new ReportsForm();
@@ -140,10 +132,10 @@ namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
         private void SignOut_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(
-                "Are you sure you want to sign out?", 
-                "Confirm Sign Out",                 
-                MessageBoxButtons.YesNo,             
-                MessageBoxIcon.Question              
+                "Are you sure you want to sign out?",
+                "Confirm Sign Out",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
             );
             if (result == DialogResult.Yes)
             {
@@ -152,6 +144,11 @@ namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
                 login.Show();
                 this.Hide();
             }
+        }
+
+        private void DashboardForm_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -61,7 +61,10 @@ namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
 
         private void CustomerDetailsForm_Load(object sender, EventArgs e)
         {
-            // You can add any code you need to run when the form loads here.
+            dgvCustomerPointsHistory.Rows.Clear();
+            dgvCustomerPointsHistory.Rows.Add("2023-10-20", "Earn", "+100", "Reservation #RES-001");
+            dgvCustomerPointsHistory.Rows.Add("2023-09-15", "Redeem", "-50", "Discount usage");
+            dgvCustomerPointsHistory.Rows.Add("2023-08-01", "Earn", "+250", "Reservation #RES-000");
         }
 
         // --- Sidebar Navigation Click Events ---
@@ -89,14 +92,6 @@ namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
             this.Hide();
         }
 
-        private void SukiCard_Click_1(object sender, EventArgs e)
-        {
-            SukiCardForm sukicard = new SukiCardForm();
-            sukicard.FormClosed += (s, args) => this.Close();
-            sukicard.Show();
-            this.Hide();
-        }
-
         private void Reports_Click_1(object sender, EventArgs e)
         {
             ReportsForm reports = new ReportsForm();
@@ -120,6 +115,16 @@ namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
                 login.Show();
                 this.Hide();
             }
+        }
+
+        private void nudPointsAdjustment_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvCustomerPointsHistory_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+                
         }
     }
 }

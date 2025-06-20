@@ -91,14 +91,6 @@ namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
             this.Hide();
         }
 
-        private void SukiCard_Click(object sender, EventArgs e)
-        {
-            SukiCardForm sukicard = new SukiCardForm();
-            sukicard.FormClosed += (s, args) => this.Close();
-            sukicard.Show();
-            this.Hide();
-        }
-
         private void Reports_Click(object sender, EventArgs e)
         {
             ReportsForm reports = new ReportsForm();

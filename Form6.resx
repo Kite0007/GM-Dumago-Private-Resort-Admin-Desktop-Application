@@ -144,19 +144,6 @@
         zFAB0H8nfS7XuuyDgQn15at3ZwNjXvOBvdPqoTJ86p9L/A2MPQHGmWjoNG/tGwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="SukiCard.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAatJREFUSEvtlb1KA0EUhaOiIAo2omhjYa+gb+ATCNqIvoeWPoFgYatvkEK0s1MR
-        bWws/EHEQLJ778BmNqv4U7ieSa6buJmsu2Tt8sGBZO49504ms0mhh/LdDaXVurz9H7jKC6zpqy68luX8
-        UZoPlM9hXZr3ZTlfyrXyOMLfWga9O4EzIeX8UJq2oiHRMNqUcj6EYTiA4Kf4IPbp2dSkrTsQNMSa1+JD
-        fmRqpkfa/4Y8mmef92As4vxPcbNusWPPFm6T6TWehpeLJsv13DmJb4LzPrIFdCMMPpT4JqqqllAM4s1d
-        KDCZEv8b81FxBCWLKZs0VfDrsSixdtSrmkbzdZs5pfD93HheZUbikiGiUezq2BaUJFyAE8/zxiQmHbiy
-        g9jdhS3QJtNrPGLPBgIe4oEdpelebNlwA3fSGpggfuEpsaeHqrRqC0sSPCtiTw+OYscWBj2K2mvwiD09
-        eJ6uWkPwlH8gaNdxnJFSWBpWPm3/+tswPT5dij0djR9S+oxCcNVJ06yUI8yaqUWD4Ml089Dcj92eI+RO
-        1dxlWe6I6an3aj6Dt0+We+RBofANUU6x+vNAy/AAAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="Customer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -244,7 +231,7 @@
   <metadata name="colEmail.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="colSukiCard.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="colPoints.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="colViewEdit.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

@@ -36,8 +36,6 @@
             panel9 = new Panel();
             Reports = new Button();
             panel6 = new Panel();
-            SukiCard = new Button();
-            panel5 = new Panel();
             Customer = new Button();
             panel13 = new Panel();
             CustomerDetails = new Button();
@@ -54,6 +52,7 @@
             ReservationsDetails = new Button();
             panel3 = new Panel();
             Reservations = new Button();
+            panel5 = new Panel();
             lblTotalReservationsCount = new Label();
             txtReservationSearch = new TextBox();
             btnSearch = new Button();
@@ -72,7 +71,6 @@
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             panel9.SuspendLayout();
             panel6.SuspendLayout();
-            panel5.SuspendLayout();
             panel13.SuspendLayout();
             CustomerContainer_1.SuspendLayout();
             panel12.SuspendLayout();
@@ -120,7 +118,7 @@
             // panel9
             // 
             panel9.Controls.Add(SignOut);
-            panel9.Location = new Point(3, 356);
+            panel9.Location = new Point(3, 486);
             panel9.Name = "panel9";
             panel9.Size = new Size(242, 44);
             panel9.TabIndex = 8;
@@ -145,35 +143,10 @@
             // panel6
             // 
             panel6.Controls.Add(Reports);
-            panel6.Location = new Point(3, 306);
+            panel6.Location = new Point(3, 256);
             panel6.Name = "panel6";
             panel6.Size = new Size(242, 44);
             panel6.TabIndex = 5;
-            // 
-            // SukiCard
-            // 
-            SukiCard.FlatStyle = FlatStyle.Flat;
-            SukiCard.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            SukiCard.ForeColor = Color.White;
-            SukiCard.Image = (Image)resources.GetObject("SukiCard.Image");
-            SukiCard.ImageAlign = ContentAlignment.MiddleLeft;
-            SukiCard.Location = new Point(-16, -8);
-            SukiCard.Name = "SukiCard";
-            SukiCard.Padding = new Padding(30, 0, 0, 0);
-            SukiCard.Size = new Size(274, 60);
-            SukiCard.TabIndex = 2;
-            SukiCard.Text = "              Suki Card";
-            SukiCard.TextAlign = ContentAlignment.MiddleLeft;
-            SukiCard.UseVisualStyleBackColor = true;
-            SukiCard.Click += SukiCard_Click_1;
-            // 
-            // panel5
-            // 
-            panel5.Controls.Add(SukiCard);
-            panel5.Location = new Point(3, 256);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(242, 44);
-            panel5.TabIndex = 4;
             // 
             // Customer
             // 
@@ -244,8 +217,8 @@
             sidebar.Controls.Add(panel2);
             sidebar.Controls.Add(ReservationsContainer_1);
             sidebar.Controls.Add(CustomerContainer_1);
-            sidebar.Controls.Add(panel5);
             sidebar.Controls.Add(panel6);
+            sidebar.Controls.Add(panel5);
             sidebar.Controls.Add(panel9);
             sidebar.Dock = DockStyle.Left;
             sidebar.ForeColor = SystemColors.ControlLightLight;
@@ -372,6 +345,13 @@
             Reservations.TextAlign = ContentAlignment.MiddleLeft;
             Reservations.UseVisualStyleBackColor = true;
             Reservations.Click += Reservations_Click;
+            // 
+            // panel5
+            // 
+            panel5.Location = new Point(3, 306);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(242, 174);
+            panel5.TabIndex = 12;
             // 
             // lblTotalReservationsCount
             // 
@@ -528,7 +508,6 @@
             Load += ReservationManagementForm_Load;
             panel9.ResumeLayout(false);
             panel6.ResumeLayout(false);
-            panel5.ResumeLayout(false);
             panel13.ResumeLayout(false);
             CustomerContainer_1.ResumeLayout(false);
             panel12.ResumeLayout(false);
@@ -552,8 +531,6 @@
         private Panel panel9;
         private Button Reports;
         private Panel panel6;
-        private Button SukiCard;
-        private Panel panel5;
         private Button Customer;
         private Panel panel13;
         private Button CustomerDetails;
@@ -586,5 +563,6 @@
         private DataGridViewButtonColumn colViewEdit;
         private DataGridViewButtonColumn colCancel;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private Panel panel5;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
 {
-    partial class SukiCardForm
+    partial class ReportsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,13 +29,12 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SukiCardForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportsForm));
             sidebarTimer = new System.Windows.Forms.Timer(components);
             SignOut = new Button();
             panel9 = new Panel();
             Reports = new Button();
             panel6 = new Panel();
-            SukiCard = new Button();
             panel5 = new Panel();
             Customer = new Button();
             panel13 = new Panel();
@@ -53,25 +52,21 @@
             ReservationsDetails = new Button();
             panel3 = new Panel();
             Reservations = new Button();
-            btnRegisterNewSukiCard = new Button();
-            btnLoadCard = new Button();
-            txtSukiCardRFID = new TextBox();
+            sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             lblTotalReservationsCount = new Label();
-            lblCurrentPoints = new Label();
-            lblSukiCustomerName = new Label();
             label2 = new Label();
-            nudPointsAmount = new NumericUpDown();
-            btnDeductPointsDirect = new Button();
-            btnAddPointsDirect = new Button();
-            label3 = new Label();
-            dgvPointsHistory = new DataGridView();
-            colDate = new DataGridViewTextBoxColumn();
-            colType = new DataGridViewTextBoxColumn();
-            colPointsChange = new DataGridViewTextBoxColumn();
-            colDescription = new DataGridViewTextBoxColumn();
+            cboReportYear = new ComboBox();
+            cboReportType = new ComboBox();
+            btnGenerateReport = new Button();
+            dgvReportDetails = new DataGridView();
+            colMonth = new DataGridViewTextBoxColumn();
+            colReservations = new DataGridViewTextBoxColumn();
+            colRevenue = new DataGridViewTextBoxColumn();
+            colOccupancy = new DataGridViewTextBoxColumn();
+            sqlCommand2 = new Microsoft.Data.SqlClient.SqlCommand();
+            pnlChartHost = new Panel();
             panel9.SuspendLayout();
             panel6.SuspendLayout();
-            panel5.SuspendLayout();
             panel13.SuspendLayout();
             CustomerContainer.SuspendLayout();
             panel12.SuspendLayout();
@@ -82,8 +77,7 @@
             ReservationsContainer.SuspendLayout();
             panel10.SuspendLayout();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)nudPointsAmount).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgvPointsHistory).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvReportDetails).BeginInit();
             SuspendLayout();
             // 
             // sidebarTimer
@@ -111,7 +105,7 @@
             // panel9
             // 
             panel9.Controls.Add(SignOut);
-            panel9.Location = new Point(3, 356);
+            panel9.Location = new Point(3, 486);
             panel9.Name = "panel9";
             panel9.Size = new Size(242, 44);
             panel9.TabIndex = 8;
@@ -136,34 +130,16 @@
             // panel6
             // 
             panel6.Controls.Add(Reports);
-            panel6.Location = new Point(3, 306);
+            panel6.Location = new Point(3, 256);
             panel6.Name = "panel6";
             panel6.Size = new Size(242, 44);
             panel6.TabIndex = 5;
             // 
-            // SukiCard
-            // 
-            SukiCard.FlatStyle = FlatStyle.Flat;
-            SukiCard.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            SukiCard.ForeColor = Color.White;
-            SukiCard.Image = (Image)resources.GetObject("SukiCard.Image");
-            SukiCard.ImageAlign = ContentAlignment.MiddleLeft;
-            SukiCard.Location = new Point(-16, -8);
-            SukiCard.Name = "SukiCard";
-            SukiCard.Padding = new Padding(30, 0, 0, 0);
-            SukiCard.Size = new Size(274, 60);
-            SukiCard.TabIndex = 2;
-            SukiCard.Text = "              Suki Cards";
-            SukiCard.TextAlign = ContentAlignment.MiddleLeft;
-            SukiCard.UseVisualStyleBackColor = true;
-            SukiCard.Click += SukiCard_Click_1;
-            // 
             // panel5
             // 
-            panel5.Controls.Add(SukiCard);
-            panel5.Location = new Point(3, 256);
+            panel5.Location = new Point(3, 306);
             panel5.Name = "panel5";
-            panel5.Size = new Size(242, 44);
+            panel5.Size = new Size(242, 174);
             panel5.TabIndex = 4;
             // 
             // Customer
@@ -235,8 +211,8 @@
             sidebar.Controls.Add(panel2);
             sidebar.Controls.Add(ReservationsContainer);
             sidebar.Controls.Add(CustomerContainer);
-            sidebar.Controls.Add(panel5);
             sidebar.Controls.Add(panel6);
+            sidebar.Controls.Add(panel5);
             sidebar.Controls.Add(panel9);
             sidebar.Dock = DockStyle.Left;
             sidebar.ForeColor = SystemColors.ControlLightLight;
@@ -364,184 +340,137 @@
             Reservations.UseVisualStyleBackColor = true;
             Reservations.Click += Reservations_Click_1;
             // 
-            // btnRegisterNewSukiCard
+            // sqlCommand1
             // 
-            btnRegisterNewSukiCard.BackColor = Color.FromArgb(35, 40, 45);
-            btnRegisterNewSukiCard.FlatStyle = FlatStyle.Popup;
-            btnRegisterNewSukiCard.ForeColor = Color.White;
-            btnRegisterNewSukiCard.Location = new Point(605, 32);
-            btnRegisterNewSukiCard.Name = "btnRegisterNewSukiCard";
-            btnRegisterNewSukiCard.Size = new Size(129, 23);
-            btnRegisterNewSukiCard.TabIndex = 23;
-            btnRegisterNewSukiCard.Text = "Register New Card";
-            btnRegisterNewSukiCard.UseVisualStyleBackColor = false;
-            // 
-            // btnLoadCard
-            // 
-            btnLoadCard.BackColor = Color.FromArgb(35, 40, 45);
-            btnLoadCard.FlatStyle = FlatStyle.Popup;
-            btnLoadCard.ForeColor = Color.White;
-            btnLoadCard.Location = new Point(525, 32);
-            btnLoadCard.Name = "btnLoadCard";
-            btnLoadCard.Size = new Size(75, 23);
-            btnLoadCard.TabIndex = 22;
-            btnLoadCard.Text = "Load Card";
-            btnLoadCard.UseVisualStyleBackColor = false;
-            // 
-            // txtSukiCardRFID
-            // 
-            txtSukiCardRFID.Font = new Font("Segoe UI", 9.75F);
-            txtSukiCardRFID.Location = new Point(260, 32);
-            txtSukiCardRFID.Name = "txtSukiCardRFID";
-            txtSukiCardRFID.Size = new Size(259, 25);
-            txtSukiCardRFID.TabIndex = 21;
+            sqlCommand1.CommandTimeout = 30;
+            sqlCommand1.Connection = null;
+            sqlCommand1.Notification = null;
+            sqlCommand1.Transaction = null;
             // 
             // lblTotalReservationsCount
             // 
             lblTotalReservationsCount.AutoSize = true;
             lblTotalReservationsCount.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTotalReservationsCount.Location = new Point(137, 33);
+            lblTotalReservationsCount.Location = new Point(158, 41);
             lblTotalReservationsCount.Name = "lblTotalReservationsCount";
-            lblTotalReservationsCount.Size = new Size(109, 20);
-            lblTotalReservationsCount.TabIndex = 20;
-            lblTotalReservationsCount.Text = "Suki Card RFID:";
-            // 
-            // lblCurrentPoints
-            // 
-            lblCurrentPoints.AutoSize = true;
-            lblCurrentPoints.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblCurrentPoints.Location = new Point(137, 117);
-            lblCurrentPoints.Name = "lblCurrentPoints";
-            lblCurrentPoints.Size = new Size(103, 20);
-            lblCurrentPoints.TabIndex = 25;
-            lblCurrentPoints.Text = "Current Points:";
-            // 
-            // lblSukiCustomerName
-            // 
-            lblSukiCustomerName.AutoSize = true;
-            lblSukiCustomerName.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblSukiCustomerName.Location = new Point(137, 74);
-            lblSukiCustomerName.Name = "lblSukiCustomerName";
-            lblSukiCustomerName.Size = new Size(119, 20);
-            lblSukiCustomerName.TabIndex = 24;
-            lblSukiCustomerName.Text = "Customer Name:";
+            lblTotalReservationsCount.Size = new Size(84, 20);
+            lblTotalReservationsCount.TabIndex = 17;
+            lblTotalReservationsCount.Text = "Select Year:";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(137, 158);
+            label2.Location = new Point(158, 74);
             label2.Name = "label2";
-            label2.Size = new Size(115, 20);
-            label2.TabIndex = 26;
-            label2.Text = "Points to Adjust:";
+            label2.Size = new Size(92, 20);
+            label2.TabIndex = 19;
+            label2.Text = "Report Type:";
             // 
-            // nudPointsAmount
+            // cboReportYear
             // 
-            nudPointsAmount.Font = new Font("Segoe UI", 9.75F);
-            nudPointsAmount.Location = new Point(266, 158);
-            nudPointsAmount.Name = "nudPointsAmount";
-            nudPointsAmount.Size = new Size(68, 25);
-            nudPointsAmount.TabIndex = 27;
+            cboReportYear.Font = new Font("Segoe UI", 9.75F);
+            cboReportYear.FormattingEnabled = true;
+            cboReportYear.Items.AddRange(new object[] { "2023", "2024", "2025" });
+            cboReportYear.Location = new Point(262, 40);
+            cboReportYear.Name = "cboReportYear";
+            cboReportYear.Size = new Size(249, 25);
+            cboReportYear.TabIndex = 20;
             // 
-            // btnDeductPointsDirect
+            // cboReportType
             // 
-            btnDeductPointsDirect.BackColor = Color.FromArgb(35, 40, 45);
-            btnDeductPointsDirect.FlatAppearance.BorderSize = 0;
-            btnDeductPointsDirect.FlatStyle = FlatStyle.Popup;
-            btnDeductPointsDirect.Font = new Font("Arial", 9F);
-            btnDeductPointsDirect.ForeColor = Color.White;
-            btnDeductPointsDirect.Location = new Point(425, 159);
-            btnDeductPointsDirect.Name = "btnDeductPointsDirect";
-            btnDeductPointsDirect.Size = new Size(94, 22);
-            btnDeductPointsDirect.TabIndex = 47;
-            btnDeductPointsDirect.Text = "Deduct Points";
-            btnDeductPointsDirect.UseVisualStyleBackColor = false;
+            cboReportType.Font = new Font("Segoe UI", 9.75F);
+            cboReportType.FormattingEnabled = true;
+            cboReportType.Items.AddRange(new object[] { "Monthly Reservations", "Revenue by Month", "Room Occupancy" });
+            cboReportType.Location = new Point(262, 74);
+            cboReportType.Name = "cboReportType";
+            cboReportType.Size = new Size(249, 25);
+            cboReportType.TabIndex = 21;
             // 
-            // btnAddPointsDirect
+            // btnGenerateReport
             // 
-            btnAddPointsDirect.BackColor = Color.FromArgb(35, 40, 45);
-            btnAddPointsDirect.FlatAppearance.BorderSize = 0;
-            btnAddPointsDirect.FlatStyle = FlatStyle.Popup;
-            btnAddPointsDirect.Font = new Font("Arial", 9F);
-            btnAddPointsDirect.ForeColor = Color.White;
-            btnAddPointsDirect.Location = new Point(340, 158);
-            btnAddPointsDirect.Name = "btnAddPointsDirect";
-            btnAddPointsDirect.Size = new Size(79, 22);
-            btnAddPointsDirect.TabIndex = 46;
-            btnAddPointsDirect.Text = "Add Points";
-            btnAddPointsDirect.UseVisualStyleBackColor = false;
+            btnGenerateReport.BackColor = Color.FromArgb(35, 40, 45);
+            btnGenerateReport.FlatAppearance.BorderSize = 0;
+            btnGenerateReport.FlatStyle = FlatStyle.Popup;
+            btnGenerateReport.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnGenerateReport.ForeColor = Color.White;
+            btnGenerateReport.Location = new Point(522, 40);
+            btnGenerateReport.Name = "btnGenerateReport";
+            btnGenerateReport.Size = new Size(88, 57);
+            btnGenerateReport.TabIndex = 38;
+            btnGenerateReport.Text = "Generate Report";
+            btnGenerateReport.UseVisualStyleBackColor = false;
             // 
-            // label3
+            // dgvReportDetails
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(137, 233);
-            label3.Name = "label3";
-            label3.Size = new Size(181, 20);
-            label3.TabIndex = 48;
-            label3.Text = "Points Transaction History:";
+            dgvReportDetails.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvReportDetails.Columns.AddRange(new DataGridViewColumn[] { colMonth, colReservations, colRevenue, colOccupancy });
+            dgvReportDetails.Location = new Point(158, 414);
+            dgvReportDetails.Name = "dgvReportDetails";
+            dgvReportDetails.Size = new Size(832, 109);
+            dgvReportDetails.TabIndex = 50;
+            dgvReportDetails.CellContentClick += dgvReportDetails_CellContentClick;
             // 
-            // dgvPointsHistory
+            // colMonth
             // 
-            dgvPointsHistory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPointsHistory.Columns.AddRange(new DataGridViewColumn[] { colDate, colType, colPointsChange, colDescription });
-            dgvPointsHistory.Location = new Point(99, 271);
-            dgvPointsHistory.Name = "dgvPointsHistory";
-            dgvPointsHistory.Size = new Size(943, 235);
-            dgvPointsHistory.TabIndex = 49;
-            dgvPointsHistory.CellContentClick += dgvPointsHistory_CellContentClick;
+            colMonth.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colMonth.HeaderText = "Month";
+            colMonth.Name = "colMonth";
             // 
-            // colDate
+            // colReservations
             // 
-            colDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colDate.HeaderText = "Date";
-            colDate.Name = "colDate";
+            colReservations.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colReservations.HeaderText = "Reservations";
+            colReservations.Name = "colReservations";
             // 
-            // colType
+            // colRevenue
             // 
-            colType.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colType.HeaderText = "Type";
-            colType.Name = "colType";
+            colRevenue.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colRevenue.HeaderText = "Revenue (₱)";
+            colRevenue.Name = "colRevenue";
             // 
-            // colPointsChange
+            // colOccupancy
             // 
-            colPointsChange.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colPointsChange.HeaderText = "Points Change";
-            colPointsChange.Name = "colPointsChange";
+            colOccupancy.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            colOccupancy.HeaderText = "Occupancy (%)";
+            colOccupancy.Name = "colOccupancy";
             // 
-            // colDescription
+            // sqlCommand2
             // 
-            colDescription.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            colDescription.HeaderText = "Description";
-            colDescription.Name = "colDescription";
+            sqlCommand2.CommandTimeout = 30;
+            sqlCommand2.Connection = null;
+            sqlCommand2.Notification = null;
+            sqlCommand2.Transaction = null;
             // 
-            // SukiCardForm
+            // pnlChartHost
+            // 
+            pnlChartHost.AutoSize = true;
+            pnlChartHost.Location = new Point(158, 120);
+            pnlChartHost.Name = "pnlChartHost";
+            pnlChartHost.Size = new Size(832, 288);
+            pnlChartHost.TabIndex = 51;
+            pnlChartHost.Paint += pnlChartHost_Paint;
+            // 
+            // ReportsForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1070, 533);
             Controls.Add(sidebar);
-            Controls.Add(dgvPointsHistory);
-            Controls.Add(label3);
-            Controls.Add(btnDeductPointsDirect);
-            Controls.Add(btnAddPointsDirect);
-            Controls.Add(nudPointsAmount);
+            Controls.Add(pnlChartHost);
+            Controls.Add(dgvReportDetails);
+            Controls.Add(btnGenerateReport);
+            Controls.Add(cboReportType);
+            Controls.Add(cboReportYear);
             Controls.Add(label2);
-            Controls.Add(lblCurrentPoints);
-            Controls.Add(lblSukiCustomerName);
-            Controls.Add(btnRegisterNewSukiCard);
-            Controls.Add(btnLoadCard);
-            Controls.Add(txtSukiCardRFID);
             Controls.Add(lblTotalReservationsCount);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "SukiCardForm";
+            Name = "ReportsForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form8";
-            Load += SukiCardForm_Load;
+            Text = "Form9";
+            Load += ReportsForm_Load;
             panel9.ResumeLayout(false);
             panel6.ResumeLayout(false);
-            panel5.ResumeLayout(false);
             panel13.ResumeLayout(false);
             CustomerContainer.ResumeLayout(false);
             panel12.ResumeLayout(false);
@@ -553,8 +482,7 @@
             ReservationsContainer.ResumeLayout(false);
             panel10.ResumeLayout(false);
             panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)nudPointsAmount).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgvPointsHistory).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvReportDetails).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -565,7 +493,6 @@
         private Panel panel9;
         private Button Reports;
         private Panel panel6;
-        private Button SukiCard;
         private Panel panel5;
         private Button Customer;
         private Panel panel13;
@@ -583,22 +510,18 @@
         private Button ReservationsDetails;
         private Panel panel3;
         private Button Reservations;
-        private Button btnAddNewCustomer;
-        private Button btnRegisterNewSukiCard;
-        private Button btnLoadCard;
-        private TextBox txtSukiCardRFID;
+        private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
         private Label lblTotalReservationsCount;
-        private Label lblCurrentPoints;
-        private Label lblSukiCustomerName;
         private Label label2;
-        private NumericUpDown nudPointsAmount;
-        private Button btnDeductPointsDirect;
-        private Button btnAddPointsDirect;
-        private Label label3;
-        private DataGridView dgvPointsHistory;
-        private DataGridViewTextBoxColumn colDate;
-        private DataGridViewTextBoxColumn colType;
-        private DataGridViewTextBoxColumn colPointsChange;
-        private DataGridViewTextBoxColumn colDescription;
+        private ComboBox cboReportYear;
+        private ComboBox cboReportType;
+        private Button btnGenerateReport;
+        private DataGridView dgvReportDetails;
+        private Microsoft.Data.SqlClient.SqlCommand sqlCommand2;
+        private Panel pnlChartHost;
+        private DataGridViewTextBoxColumn colMonth;
+        private DataGridViewTextBoxColumn colReservations;
+        private DataGridViewTextBoxColumn colRevenue;
+        private DataGridViewTextBoxColumn colOccupancy;
     }
 }
