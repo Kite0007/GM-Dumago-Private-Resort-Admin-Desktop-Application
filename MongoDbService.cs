@@ -15,7 +15,7 @@ namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
         {
             try
             {
-                const string connectionUri = "mongodb+srv://OCIREJ7:Jitsu%4007%402003@cluster0.kfezasu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+                const string connectionUri = "mongodb+srv://gmdpr:realniggas@cl0.n8yyxfo.mongodb.net/";
                 // const string connectionUri = "mongodb://localhost:27017";
 
                 var settings = MongoClientSettings.FromConnectionString(connectionUri);
@@ -23,7 +23,7 @@ namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
 
                 var client = new MongoClient(settings);
 
-                database = client.GetDatabase("ResortDB");
+                database = client.GetDatabase("ResortAdmin");
             }
             catch (Exception ex)
             {
@@ -45,11 +45,6 @@ namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
         public static IMongoCollection<BsonDocument> Reservations
         {
             get { return database.GetCollection<BsonDocument>("reservations"); }
-        }
-
-        public static IMongoCollection<BsonDocument> SukiCards
-        {
-            get { return database.GetCollection<BsonDocument>("sukiCards"); }
         }
 
         public static string HashPassword(string password)
