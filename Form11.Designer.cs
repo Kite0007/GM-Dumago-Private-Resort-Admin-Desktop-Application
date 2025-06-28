@@ -64,6 +64,9 @@
             label2 = new Label();
             txtNoticeTitle = new TextBox();
             label4 = new Label();
+            pictureBox1 = new PictureBox();
+            label3 = new Label();
+            pictureBox2 = new PictureBox();
             panel5.SuspendLayout();
             panel4.SuspendLayout();
             panel7.SuspendLayout();
@@ -80,6 +83,8 @@
             panel6.SuspendLayout();
             panel9.SuspendLayout();
             panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // btnBroadcast
@@ -415,7 +420,7 @@
             // 
             tice.AutoSize = true;
             tice.Font = new Font("Palatino Linotype", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            tice.Location = new Point(101, 17);
+            tice.Location = new Point(100, 55);
             tice.Name = "tice";
             tice.Size = new Size(259, 32);
             tice.TabIndex = 70;
@@ -424,14 +429,15 @@
             // 
             // panel8
             // 
+            panel8.BackColor = Color.White;
             panel8.Controls.Add(btnSendNotice);
             panel8.Controls.Add(txtNoticeDetails);
             panel8.Controls.Add(label2);
             panel8.Controls.Add(txtNoticeTitle);
             panel8.Controls.Add(label4);
-            panel8.Location = new Point(201, 70);
+            panel8.Location = new Point(589, -1);
             panel8.Name = "panel8";
-            panel8.Size = new Size(755, 427);
+            panel8.Size = new Size(481, 534);
             panel8.TabIndex = 71;
             // 
             // btnSendNotice
@@ -441,9 +447,9 @@
             btnSendNotice.FlatStyle = FlatStyle.Popup;
             btnSendNotice.Font = new Font("Arial", 9.75F);
             btnSendNotice.ForeColor = Color.White;
-            btnSendNotice.Location = new Point(36, 378);
+            btnSendNotice.Location = new Point(36, 491);
             btnSendNotice.Name = "btnSendNotice";
-            btnSendNotice.Size = new Size(693, 27);
+            btnSendNotice.Size = new Size(409, 27);
             btnSendNotice.TabIndex = 84;
             btnSendNotice.Text = "Send to All Users";
             btnSendNotice.UseVisualStyleBackColor = false;
@@ -455,16 +461,16 @@
             txtNoticeDetails.Location = new Point(36, 138);
             txtNoticeDetails.Multiline = true;
             txtNoticeDetails.Name = "txtNoticeDetails";
-            txtNoticeDetails.Size = new Size(693, 217);
+            txtNoticeDetails.Size = new Size(409, 334);
             txtNoticeDetails.TabIndex = 79;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(24, 103);
             label2.Name = "label2";
-            label2.Size = new Size(106, 20);
+            label2.Size = new Size(108, 20);
             label2.TabIndex = 78;
             label2.Text = "Notice Details:";
             // 
@@ -474,19 +480,49 @@
             txtNoticeTitle.Font = new Font("Segoe UI", 11.25F);
             txtNoticeTitle.Location = new Point(36, 62);
             txtNoticeTitle.Name = "txtNoticeTitle";
-            txtNoticeTitle.Size = new Size(693, 27);
+            txtNoticeTitle.Size = new Size(409, 27);
             txtNoticeTitle.TabIndex = 77;
             txtNoticeTitle.TextChanged += txtNoticeTitle_TextChanged;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.Location = new Point(24, 27);
             label4.Name = "label4";
-            label4.Size = new Size(89, 20);
+            label4.Size = new Size(91, 20);
             label4.TabIndex = 76;
             label4.Text = "Notice Title:";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(46, 242);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(564, 305);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 72;
+            pictureBox1.TabStop = false;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(100, 118);
+            label3.Name = "label3";
+            label3.Size = new Size(469, 80);
+            label3.TabIndex = 85;
+            label3.Text = resources.GetString("label3.Text");
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(362, 51);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(39, 33);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 86;
+            pictureBox2.TabStop = false;
             // 
             // BroadcastForm
             // 
@@ -494,8 +530,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1070, 533);
             Controls.Add(sidebar);
+            Controls.Add(label3);
             Controls.Add(panel8);
             Controls.Add(tice);
+            Controls.Add(pictureBox1);
+            Controls.Add(pictureBox2);
             FormBorderStyle = FormBorderStyle.None;
             Name = "BroadcastForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -518,6 +557,8 @@
             panel9.ResumeLayout(false);
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -558,5 +599,8 @@
         private Label label2;
         private TextBox txtNoticeTitle;
         private Button btnSendNotice;
+        private PictureBox pictureBox1;
+        private Label label3;
+        private PictureBox pictureBox2;
     }
 }

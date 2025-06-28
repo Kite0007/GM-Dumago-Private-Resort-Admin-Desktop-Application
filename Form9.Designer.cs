@@ -402,7 +402,6 @@
             btnSettings.Text = "              Settings\r\n";
             btnSettings.TextAlign = ContentAlignment.MiddleLeft;
             btnSettings.UseVisualStyleBackColor = true;
-            btnSettings.Click += btnSettings_Click;
             // 
             // panel7
             // 
@@ -727,7 +726,7 @@
             MenuItemDetailspnl.Controls.Add(label17);
             MenuItemDetailspnl.Controls.Add(txtItemName);
             MenuItemDetailspnl.Controls.Add(label18);
-            MenuItemDetailspnl.Location = new Point(1, 2);
+            MenuItemDetailspnl.Location = new Point(3, 0);
             MenuItemDetailspnl.Name = "MenuItemDetailspnl";
             MenuItemDetailspnl.Size = new Size(420, 371);
             MenuItemDetailspnl.TabIndex = 85;

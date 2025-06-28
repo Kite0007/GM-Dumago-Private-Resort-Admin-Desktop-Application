@@ -68,6 +68,10 @@
             textBox1 = new TextBox();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
+            panel8 = new Panel();
+            panel11 = new Panel();
+            panel14 = new Panel();
+            panel15 = new Panel();
             sidebar.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)menuButton).BeginInit();
@@ -85,6 +89,9 @@
             panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            panel11.SuspendLayout();
+            panel14.SuspendLayout();
+            panel15.SuspendLayout();
             SuspendLayout();
             // 
             // sidebar
@@ -335,7 +342,6 @@
             btnChat.Text = "              Chat\r\n";
             btnChat.TextAlign = ContentAlignment.MiddleLeft;
             btnChat.UseVisualStyleBackColor = true;
-            btnChat.Click += btnChat_Click;
             // 
             // panel5
             // 
@@ -461,8 +467,8 @@
             lstConversations.Font = new Font("Segoe UI", 11.25F);
             lstConversations.FormattingEnabled = true;
             lstConversations.ItemHeight = 20;
-            lstConversations.Items.AddRange(new object[] { "  John Doe (New)", "  Jane Smith", "  Bob Johnson" });
-            lstConversations.Location = new Point(117, 106);
+            lstConversations.Items.AddRange(new object[] { "  ", "  John Doe (New)", "", "  Jane Smith", "", "  Bob Johnson" });
+            lstConversations.Location = new Point(121, 100);
             lstConversations.Name = "lstConversations";
             lstConversations.Size = new Size(227, 400);
             lstConversations.TabIndex = 73;
@@ -470,25 +476,24 @@
             // 
             // txtChatHistory
             // 
-            txtChatHistory.BackColor = Color.FromArgb(224, 224, 224);
-            txtChatHistory.BorderStyle = BorderStyle.FixedSingle;
+            txtChatHistory.BackColor = SystemColors.Control;
+            txtChatHistory.BorderStyle = BorderStyle.None;
             txtChatHistory.Font = new Font("Segoe UI", 11.25F);
-            txtChatHistory.Location = new Point(371, 98);
+            txtChatHistory.Location = new Point(27, 18);
             txtChatHistory.Multiline = true;
             txtChatHistory.Name = "txtChatHistory";
-            txtChatHistory.Size = new Size(685, 410);
+            txtChatHistory.Size = new Size(633, 331);
             txtChatHistory.TabIndex = 74;
             txtChatHistory.TextChanged += txtChatHistory_TextChanged;
             // 
             // txtAdminReply
             // 
             txtAdminReply.BackColor = SystemColors.Control;
-            txtAdminReply.BorderStyle = BorderStyle.FixedSingle;
+            txtAdminReply.BorderStyle = BorderStyle.None;
             txtAdminReply.Font = new Font("Segoe UI", 11.25F);
-            txtAdminReply.Location = new Point(392, 459);
-            txtAdminReply.Multiline = true;
+            txtAdminReply.Location = new Point(19, 5);
             txtAdminReply.Name = "txtAdminReply";
-            txtAdminReply.Size = new Size(601, 34);
+            txtAdminReply.Size = new Size(563, 20);
             txtAdminReply.TabIndex = 75;
             txtAdminReply.TextChanged += txtAdminReply_TextChanged;
             // 
@@ -500,7 +505,7 @@
             btnSend.Font = new Font("Arial", 9.75F);
             btnSend.ForeColor = Color.White;
             btnSend.Image = (Image)resources.GetObject("btnSend.Image");
-            btnSend.Location = new Point(1002, 459);
+            btnSend.Location = new Point(-1, -1);
             btnSend.Name = "btnSend";
             btnSend.Size = new Size(35, 34);
             btnSend.TabIndex = 85;
@@ -510,11 +515,11 @@
             // textBox1
             // 
             textBox1.BackColor = SystemColors.Control;
+            textBox1.BorderStyle = BorderStyle.None;
             textBox1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(117, 44);
-            textBox1.Multiline = true;
+            textBox1.Location = new Point(162, 52);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(242, 37);
+            textBox1.Size = new Size(197, 20);
             textBox1.TabIndex = 86;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
@@ -531,30 +536,74 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(409, 34);
+            pictureBox2.Location = new Point(409, 33);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(61, 55);
+            pictureBox2.Size = new Size(61, 61);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 88;
             pictureBox2.TabStop = false;
+            // 
+            // panel8
+            // 
+            panel8.BorderStyle = BorderStyle.FixedSingle;
+            panel8.Location = new Point(121, 42);
+            panel8.Name = "panel8";
+            panel8.Padding = new Padding(2);
+            panel8.Size = new Size(245, 39);
+            panel8.TabIndex = 89;
+            panel8.Paint += panel8_Paint_1;
+            // 
+            // panel11
+            // 
+            panel11.BorderStyle = BorderStyle.FixedSingle;
+            panel11.Controls.Add(panel14);
+            panel11.Controls.Add(txtChatHistory);
+            panel11.Location = new Point(371, 98);
+            panel11.Name = "panel11";
+            panel11.Padding = new Padding(2);
+            panel11.Size = new Size(685, 410);
+            panel11.TabIndex = 90;
+            panel11.Paint += panel11_Paint;
+            // 
+            // panel14
+            // 
+            panel14.BorderStyle = BorderStyle.FixedSingle;
+            panel14.Controls.Add(txtAdminReply);
+            panel14.Location = new Point(18, 362);
+            panel14.Name = "panel14";
+            panel14.Padding = new Padding(2);
+            panel14.Size = new Size(603, 31);
+            panel14.TabIndex = 90;
+            panel14.Paint += panel14_Paint;
+            // 
+            // panel15
+            // 
+            panel15.BorderStyle = BorderStyle.FixedSingle;
+            panel15.Controls.Add(btnSend);
+            panel15.Location = new Point(1007, 459);
+            panel15.Name = "panel15";
+            panel15.Padding = new Padding(2);
+            panel15.Size = new Size(35, 34);
+            panel15.TabIndex = 91;
+            panel15.Paint += panel15_Paint;
             // 
             // ChatForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1070, 533);
+            Controls.Add(panel15);
             Controls.Add(sidebar);
-            Controls.Add(txtAdminReply);
-            Controls.Add(btnSend);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(textBox1);
-            Controls.Add(txtChatHistory);
             Controls.Add(lstConversations);
             Controls.Add(label2);
             Controls.Add(tice);
             Controls.Add(lblChattingWith);
             Controls.Add(lblTotalReservationsCount);
+            Controls.Add(panel8);
+            Controls.Add(panel11);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ChatForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -577,6 +626,11 @@
             panel9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            panel11.ResumeLayout(false);
+            panel11.PerformLayout();
+            panel14.ResumeLayout(false);
+            panel14.PerformLayout();
+            panel15.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -621,5 +675,9 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         public Button btnSend;
+        private Panel panel8;
+        private Panel panel11;
+        private Panel panel14;
+        private Panel panel15;
     }
 }

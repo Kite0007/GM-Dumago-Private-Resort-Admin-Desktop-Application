@@ -115,7 +115,9 @@ namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
         private void btnBroadcast_Click(object sender, EventArgs e)
         {
             BroadcastForm broadcast = new BroadcastForm();
-            broadcast.ShowDialog();
+            broadcast.FormClosed += (s, args) => this.Close();
+            broadcast.Show();
+            this.Hide();
         }
 
         private void SignOut_Click(object sender, EventArgs e)

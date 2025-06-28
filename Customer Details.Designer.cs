@@ -232,7 +232,7 @@
             sidebar.MaximumSize = new Size(245, 533);
             sidebar.MinimumSize = new Size(70, 533);
             sidebar.Name = "sidebar";
-            sidebar.Size = new Size(245, 533);
+            sidebar.Size = new Size(70, 533);
             sidebar.TabIndex = 8;
             // 
             // panel1
