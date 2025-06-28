@@ -1,6 +1,6 @@
 ﻿namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
 {
-    partial class DashboardForm
+    partial class ChatForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChatForm));
+            sidebar = new FlowLayoutPanel();
             panel1 = new Panel();
             label1 = new Label();
             menuButton = new PictureBox();
@@ -40,7 +41,6 @@
             ReservationsDetails = new Button();
             panel3 = new Panel();
             Reservations = new Button();
-            sidebar = new FlowLayoutPanel();
             CustomerContainer = new Panel();
             panel12 = new Panel();
             CustomerDetails = new Button();
@@ -57,20 +57,24 @@
             panel9 = new Panel();
             SignOut = new Button();
             sidebarTimer = new System.Windows.Forms.Timer(components);
-            label3 = new Label();
+            lblChattingWith = new Label();
             lblTotalReservationsCount = new Label();
-            lblPendingReservationsCount = new Label();
-            lblMonthlyRevenueAmount = new Label();
-            lblConfirmedReservationsCount = new Label();
-            lblMonthlyReservationsTrend = new Label();
-            pnlChartHost = new Panel();
+            tice = new Label();
+            label2 = new Label();
+            lstConversations = new ListBox();
+            txtChatHistory = new TextBox();
+            txtAdminReply = new TextBox();
+            btnSend = new Button();
+            textBox1 = new TextBox();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            sidebar.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)menuButton).BeginInit();
             panel2.SuspendLayout();
             ReservationsContainer.SuspendLayout();
             panel10.SuspendLayout();
             panel3.SuspendLayout();
-            sidebar.SuspendLayout();
             CustomerContainer.SuspendLayout();
             panel12.SuspendLayout();
             panel13.SuspendLayout();
@@ -79,7 +83,30 @@
             panel5.SuspendLayout();
             panel7.SuspendLayout();
             panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
+            // 
+            // sidebar
+            // 
+            sidebar.BackColor = Color.FromArgb(35, 40, 45);
+            sidebar.Controls.Add(panel1);
+            sidebar.Controls.Add(panel2);
+            sidebar.Controls.Add(ReservationsContainer);
+            sidebar.Controls.Add(CustomerContainer);
+            sidebar.Controls.Add(panel6);
+            sidebar.Controls.Add(panel4);
+            sidebar.Controls.Add(panel5);
+            sidebar.Controls.Add(panel7);
+            sidebar.Controls.Add(panel9);
+            sidebar.Dock = DockStyle.Left;
+            sidebar.ForeColor = SystemColors.ControlLightLight;
+            sidebar.Location = new Point(0, 0);
+            sidebar.MaximumSize = new Size(245, 533);
+            sidebar.MinimumSize = new Size(70, 533);
+            sidebar.Name = "sidebar";
+            sidebar.Size = new Size(245, 533);
+            sidebar.TabIndex = 48;
             // 
             // panel1
             // 
@@ -134,6 +161,7 @@
             Dashboard.Text = "              Dashboard";
             Dashboard.TextAlign = ContentAlignment.MiddleLeft;
             Dashboard.UseVisualStyleBackColor = true;
+            Dashboard.Click += Dashboard_Click;
             // 
             // ReservationsContainer
             // 
@@ -196,27 +224,6 @@
             Reservations.TextAlign = ContentAlignment.MiddleLeft;
             Reservations.UseVisualStyleBackColor = true;
             Reservations.Click += Reservations_Click;
-            // 
-            // sidebar
-            // 
-            sidebar.BackColor = Color.FromArgb(35, 40, 45);
-            sidebar.Controls.Add(panel1);
-            sidebar.Controls.Add(panel2);
-            sidebar.Controls.Add(ReservationsContainer);
-            sidebar.Controls.Add(CustomerContainer);
-            sidebar.Controls.Add(panel6);
-            sidebar.Controls.Add(panel4);
-            sidebar.Controls.Add(panel5);
-            sidebar.Controls.Add(panel7);
-            sidebar.Controls.Add(panel9);
-            sidebar.Dock = DockStyle.Left;
-            sidebar.ForeColor = SystemColors.ControlLightLight;
-            sidebar.Location = new Point(0, 0);
-            sidebar.MaximumSize = new Size(245, 533);
-            sidebar.MinimumSize = new Size(70, 533);
-            sidebar.Name = "sidebar";
-            sidebar.Size = new Size(70, 533);
-            sidebar.TabIndex = 6;
             // 
             // CustomerContainer
             // 
@@ -311,7 +318,7 @@
             panel4.Location = new Point(3, 306);
             panel4.Name = "panel4";
             panel4.Size = new Size(242, 44);
-            panel4.TabIndex = 12;
+            panel4.TabIndex = 15;
             // 
             // btnChat
             // 
@@ -336,7 +343,7 @@
             panel5.Location = new Point(3, 356);
             panel5.Name = "panel5";
             panel5.Size = new Size(242, 44);
-            panel5.TabIndex = 13;
+            panel5.TabIndex = 16;
             // 
             // btnSettings
             // 
@@ -361,7 +368,7 @@
             panel7.Location = new Point(3, 406);
             panel7.Name = "panel7";
             panel7.Size = new Size(242, 44);
-            panel7.TabIndex = 14;
+            panel7.TabIndex = 17;
             // 
             // btnBroadcast
             // 
@@ -395,7 +402,7 @@
             SignOut.ForeColor = Color.White;
             SignOut.Image = (Image)resources.GetObject("SignOut.Image");
             SignOut.ImageAlign = ContentAlignment.MiddleLeft;
-            SignOut.Location = new Point(-12, -8);
+            SignOut.Location = new Point(-13, -8);
             SignOut.Name = "SignOut";
             SignOut.Padding = new Padding(30, 0, 0, 0);
             SignOut.Size = new Size(274, 60);
@@ -410,92 +417,149 @@
             sidebarTimer.Interval = 10;
             sidebarTimer.Tick += sidebarTimer_Tick;
             // 
-            // label3
+            // lblChattingWith
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(104, 65);
-            label3.Name = "label3";
-            label3.Size = new Size(251, 30);
-            label3.TabIndex = 8;
-            label3.Text = "Welcome, [Admin Name]!";
+            lblChattingWith.AutoSize = true;
+            lblChattingWith.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblChattingWith.Location = new Point(485, 51);
+            lblChattingWith.Name = "lblChattingWith";
+            lblChattingWith.Size = new Size(87, 20);
+            lblChattingWith.TabIndex = 50;
+            lblChattingWith.Text = "User Name";
             // 
             // lblTotalReservationsCount
             // 
             lblTotalReservationsCount.AutoSize = true;
             lblTotalReservationsCount.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTotalReservationsCount.Location = new Point(129, 191);
+            lblTotalReservationsCount.Location = new Point(191, 121);
             lblTotalReservationsCount.Name = "lblTotalReservationsCount";
-            lblTotalReservationsCount.Size = new Size(132, 20);
-            lblTotalReservationsCount.TabIndex = 9;
-            lblTotalReservationsCount.Text = "Total Reservations:";
+            lblTotalReservationsCount.Size = new Size(0, 20);
+            lblTotalReservationsCount.TabIndex = 49;
             // 
-            // lblPendingReservationsCount
+            // tice
             // 
-            lblPendingReservationsCount.AutoSize = true;
-            lblPendingReservationsCount.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblPendingReservationsCount.Location = new Point(129, 234);
-            lblPendingReservationsCount.Name = "lblPendingReservationsCount";
-            lblPendingReservationsCount.Size = new Size(152, 20);
-            lblPendingReservationsCount.TabIndex = 10;
-            lblPendingReservationsCount.Text = "Pending Reservations:";
+            tice.AutoSize = true;
+            tice.Font = new Font("Palatino Linotype", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            tice.Location = new Point(101, 17);
+            tice.Name = "tice";
+            tice.Size = new Size(0, 32);
+            tice.TabIndex = 71;
             // 
-            // lblMonthlyRevenueAmount
+            // label2
             // 
-            lblMonthlyRevenueAmount.AutoSize = true;
-            lblMonthlyRevenueAmount.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblMonthlyRevenueAmount.Location = new Point(129, 321);
-            lblMonthlyRevenueAmount.Name = "lblMonthlyRevenueAmount";
-            lblMonthlyRevenueAmount.Size = new Size(162, 20);
-            lblMonthlyRevenueAmount.TabIndex = 12;
-            lblMonthlyRevenueAmount.Text = "Total Revenue (Month):";
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(133, 61);
+            label2.Name = "label2";
+            label2.Size = new Size(0, 20);
+            label2.TabIndex = 72;
             // 
-            // lblConfirmedReservationsCount
+            // lstConversations
             // 
-            lblConfirmedReservationsCount.AutoSize = true;
-            lblConfirmedReservationsCount.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblConfirmedReservationsCount.Location = new Point(129, 278);
-            lblConfirmedReservationsCount.Name = "lblConfirmedReservationsCount";
-            lblConfirmedReservationsCount.Size = new Size(169, 20);
-            lblConfirmedReservationsCount.TabIndex = 11;
-            lblConfirmedReservationsCount.Text = "Confirmed Reservations:";
+            lstConversations.BackColor = SystemColors.Control;
+            lstConversations.BorderStyle = BorderStyle.None;
+            lstConversations.Font = new Font("Segoe UI", 11.25F);
+            lstConversations.FormattingEnabled = true;
+            lstConversations.ItemHeight = 20;
+            lstConversations.Items.AddRange(new object[] { "  John Doe (New)", "  Jane Smith", "  Bob Johnson" });
+            lstConversations.Location = new Point(117, 106);
+            lstConversations.Name = "lstConversations";
+            lstConversations.Size = new Size(227, 400);
+            lstConversations.TabIndex = 73;
+            lstConversations.SelectedIndexChanged += lstConversations_SelectedIndexChanged;
             // 
-            // lblMonthlyReservationsTrend
+            // txtChatHistory
             // 
-            lblMonthlyReservationsTrend.AutoSize = true;
-            lblMonthlyReservationsTrend.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblMonthlyReservationsTrend.Location = new Point(406, 72);
-            lblMonthlyReservationsTrend.Name = "lblMonthlyReservationsTrend";
-            lblMonthlyReservationsTrend.Size = new Size(194, 20);
-            lblMonthlyReservationsTrend.TabIndex = 13;
-            lblMonthlyReservationsTrend.Text = "Monthly Reservations Trend:";
+            txtChatHistory.BackColor = Color.FromArgb(224, 224, 224);
+            txtChatHistory.BorderStyle = BorderStyle.FixedSingle;
+            txtChatHistory.Font = new Font("Segoe UI", 11.25F);
+            txtChatHistory.Location = new Point(371, 98);
+            txtChatHistory.Multiline = true;
+            txtChatHistory.Name = "txtChatHistory";
+            txtChatHistory.Size = new Size(685, 410);
+            txtChatHistory.TabIndex = 74;
+            txtChatHistory.TextChanged += txtChatHistory_TextChanged;
             // 
-            // pnlChartHost
+            // txtAdminReply
             // 
-            pnlChartHost.Location = new Point(411, 98);
-            pnlChartHost.Name = "pnlChartHost";
-            pnlChartHost.Size = new Size(606, 345);
-            pnlChartHost.TabIndex = 14;
-            pnlChartHost.Paint += pnlChartHost_Paint;
+            txtAdminReply.BackColor = SystemColors.Control;
+            txtAdminReply.BorderStyle = BorderStyle.FixedSingle;
+            txtAdminReply.Font = new Font("Segoe UI", 11.25F);
+            txtAdminReply.Location = new Point(392, 459);
+            txtAdminReply.Multiline = true;
+            txtAdminReply.Name = "txtAdminReply";
+            txtAdminReply.Size = new Size(601, 34);
+            txtAdminReply.TabIndex = 75;
+            txtAdminReply.TextChanged += txtAdminReply_TextChanged;
             // 
-            // DashboardForm
+            // btnSend
+            // 
+            btnSend.BackColor = Color.FromArgb(35, 40, 45);
+            btnSend.FlatAppearance.BorderSize = 0;
+            btnSend.FlatStyle = FlatStyle.Popup;
+            btnSend.Font = new Font("Arial", 9.75F);
+            btnSend.ForeColor = Color.White;
+            btnSend.Image = (Image)resources.GetObject("btnSend.Image");
+            btnSend.Location = new Point(1002, 459);
+            btnSend.Name = "btnSend";
+            btnSend.Size = new Size(35, 34);
+            btnSend.TabIndex = 85;
+            btnSend.UseVisualStyleBackColor = false;
+            btnSend.Click += btnSend_Click;
+            // 
+            // textBox1
+            // 
+            textBox1.BackColor = SystemColors.Control;
+            textBox1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox1.Location = new Point(117, 44);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(242, 37);
+            textBox1.TabIndex = 86;
+            textBox1.TextChanged += textBox1_TextChanged;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(127, 49);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(31, 27);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 87;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(409, 34);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(61, 55);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 88;
+            pictureBox2.TabStop = false;
+            // 
+            // ChatForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1070, 533);
             Controls.Add(sidebar);
-            Controls.Add(pnlChartHost);
-            Controls.Add(lblMonthlyReservationsTrend);
-            Controls.Add(lblMonthlyRevenueAmount);
-            Controls.Add(lblConfirmedReservationsCount);
-            Controls.Add(lblPendingReservationsCount);
+            Controls.Add(txtAdminReply);
+            Controls.Add(btnSend);
+            Controls.Add(pictureBox2);
+            Controls.Add(pictureBox1);
+            Controls.Add(textBox1);
+            Controls.Add(txtChatHistory);
+            Controls.Add(lstConversations);
+            Controls.Add(label2);
+            Controls.Add(tice);
+            Controls.Add(lblChattingWith);
             Controls.Add(lblTotalReservationsCount);
-            Controls.Add(label3);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "DashboardForm";
+            Name = "ChatForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form3";
-            Load += DashboardForm_Load_1;
+            Text = "Form12";
+            sidebar.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)menuButton).EndInit();
@@ -503,7 +567,6 @@
             ReservationsContainer.ResumeLayout(false);
             panel10.ResumeLayout(false);
             panel3.ResumeLayout(false);
-            sidebar.ResumeLayout(false);
             CustomerContainer.ResumeLayout(false);
             panel12.ResumeLayout(false);
             panel13.ResumeLayout(false);
@@ -512,12 +575,15 @@
             panel5.ResumeLayout(false);
             panel7.ResumeLayout(false);
             panel9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
+        private FlowLayoutPanel sidebar;
         private Panel panel1;
         private Label label1;
         private PictureBox menuButton;
@@ -528,7 +594,6 @@
         private Button ReservationsDetails;
         private Panel panel3;
         private Button Reservations;
-        private FlowLayoutPanel sidebar;
         private Panel CustomerContainer;
         private Panel panel12;
         private Button CustomerDetails;
@@ -536,21 +601,25 @@
         private Button Customer;
         private Panel panel6;
         private Button Reports;
-        private Panel panel9;
-        private Button SignOut;
-        private System.Windows.Forms.Timer sidebarTimer;
-        private Label label3;
-        private Label lblTotalReservationsCount;
-        private Label lblPendingReservationsCount;
-        private Label lblMonthlyRevenueAmount;
-        private Label lblConfirmedReservationsCount;
-        private Label lblMonthlyReservationsTrend;
-        private Panel pnlChartHost;
         private Panel panel4;
         private Button btnChat;
         private Panel panel5;
         private Button btnSettings;
         private Panel panel7;
         private Button btnBroadcast;
+        private Panel panel9;
+        private Button SignOut;
+        private System.Windows.Forms.Timer sidebarTimer;
+        private Label lblChattingWith;
+        private Label lblTotalReservationsCount;
+        private Label tice;
+        private Label label2;
+        private ListBox lstConversations;
+        private TextBox txtChatHistory;
+        private TextBox txtAdminReply;
+        private TextBox textBox1;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        public Button btnSend;
     }
 }

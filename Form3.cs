@@ -92,14 +92,6 @@ namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
             }
         }
 
-        private void Dashboard_Click(object sender, EventArgs e)
-        {
-            DashboardForm dashboard = new DashboardForm();
-            dashboard.FormClosed += (s, args) => this.Close();
-            dashboard.Show();
-            this.Hide();
-        }
-
         private void Reservations_Click(object sender, EventArgs e)
         {
             ReservationManagementForm reservationmanagement = new ReservationManagementForm();
@@ -149,6 +141,30 @@ namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
         private void DashboardForm_Load_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnChat_Click(object sender, EventArgs e)
+        {
+            ChatForm chat = new ChatForm();
+            chat.FormClosed += (s, args) => this.Close();
+            chat.Show();
+            this.Hide();
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            SettingsForm settings = new SettingsForm();
+            settings.FormClosed += (s, args) => this.Close();
+            settings.Show();
+            this.Hide();
+        }
+
+        private void btnBroadcast_Click(object sender, EventArgs e)
+        {
+            BroadcastForm broadcast = new BroadcastForm();
+            broadcast.FormClosed += (s, args) => this.Close();
+            broadcast.Show();
+            this.Hide();
         }
     }
 }

@@ -52,7 +52,12 @@
             ReservationsDetails = new Button();
             panel3 = new Panel();
             Reservations = new Button();
+            panel4 = new Panel();
+            btnChat = new Button();
             panel5 = new Panel();
+            btnSettings = new Button();
+            panel7 = new Panel();
+            btnBroadcast = new Button();
             lblTotalReservationsCount = new Label();
             txtReservationSearch = new TextBox();
             btnSearch = new Button();
@@ -81,6 +86,9 @@
             ReservationsContainer_1.SuspendLayout();
             panel10.SuspendLayout();
             panel3.SuspendLayout();
+            panel4.SuspendLayout();
+            panel5.SuspendLayout();
+            panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvReservations).BeginInit();
             SuspendLayout();
             // 
@@ -118,7 +126,7 @@
             // panel9
             // 
             panel9.Controls.Add(SignOut);
-            panel9.Location = new Point(3, 486);
+            panel9.Location = new Point(3, 456);
             panel9.Name = "panel9";
             panel9.Size = new Size(242, 44);
             panel9.TabIndex = 8;
@@ -218,7 +226,9 @@
             sidebar.Controls.Add(ReservationsContainer_1);
             sidebar.Controls.Add(CustomerContainer_1);
             sidebar.Controls.Add(panel6);
+            sidebar.Controls.Add(panel4);
             sidebar.Controls.Add(panel5);
+            sidebar.Controls.Add(panel7);
             sidebar.Controls.Add(panel9);
             sidebar.Dock = DockStyle.Left;
             sidebar.ForeColor = SystemColors.ControlLightLight;
@@ -344,14 +354,81 @@
             Reservations.Text = "              Reservations";
             Reservations.TextAlign = ContentAlignment.MiddleLeft;
             Reservations.UseVisualStyleBackColor = true;
-            Reservations.Click += Reservations_Click;
+            // 
+            // panel4
+            // 
+            panel4.Controls.Add(btnChat);
+            panel4.Location = new Point(3, 306);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(242, 44);
+            panel4.TabIndex = 15;
+            // 
+            // btnChat
+            // 
+            btnChat.FlatStyle = FlatStyle.Flat;
+            btnChat.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnChat.ForeColor = Color.White;
+            btnChat.Image = (Image)resources.GetObject("btnChat.Image");
+            btnChat.ImageAlign = ContentAlignment.MiddleLeft;
+            btnChat.Location = new Point(-16, -8);
+            btnChat.Name = "btnChat";
+            btnChat.Padding = new Padding(30, 0, 0, 0);
+            btnChat.Size = new Size(274, 60);
+            btnChat.TabIndex = 2;
+            btnChat.Text = "              Chat\r\n";
+            btnChat.TextAlign = ContentAlignment.MiddleLeft;
+            btnChat.UseVisualStyleBackColor = true;
+            btnChat.Click += btnChat_Click;
             // 
             // panel5
             // 
-            panel5.Location = new Point(3, 306);
+            panel5.Controls.Add(btnSettings);
+            panel5.Location = new Point(3, 356);
             panel5.Name = "panel5";
-            panel5.Size = new Size(242, 174);
-            panel5.TabIndex = 12;
+            panel5.Size = new Size(242, 44);
+            panel5.TabIndex = 16;
+            // 
+            // btnSettings
+            // 
+            btnSettings.FlatStyle = FlatStyle.Flat;
+            btnSettings.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSettings.ForeColor = Color.White;
+            btnSettings.Image = (Image)resources.GetObject("btnSettings.Image");
+            btnSettings.ImageAlign = ContentAlignment.MiddleLeft;
+            btnSettings.Location = new Point(-16, -8);
+            btnSettings.Name = "btnSettings";
+            btnSettings.Padding = new Padding(30, 0, 0, 0);
+            btnSettings.Size = new Size(274, 60);
+            btnSettings.TabIndex = 2;
+            btnSettings.Text = "              Settings\r\n";
+            btnSettings.TextAlign = ContentAlignment.MiddleLeft;
+            btnSettings.UseVisualStyleBackColor = true;
+            btnSettings.Click += btnSettings_Click;
+            // 
+            // panel7
+            // 
+            panel7.Controls.Add(btnBroadcast);
+            panel7.Location = new Point(3, 406);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(242, 44);
+            panel7.TabIndex = 17;
+            // 
+            // btnBroadcast
+            // 
+            btnBroadcast.FlatStyle = FlatStyle.Flat;
+            btnBroadcast.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnBroadcast.ForeColor = Color.White;
+            btnBroadcast.Image = (Image)resources.GetObject("btnBroadcast.Image");
+            btnBroadcast.ImageAlign = ContentAlignment.MiddleLeft;
+            btnBroadcast.Location = new Point(-16, -8);
+            btnBroadcast.Name = "btnBroadcast";
+            btnBroadcast.Padding = new Padding(30, 0, 0, 0);
+            btnBroadcast.Size = new Size(274, 60);
+            btnBroadcast.TabIndex = 2;
+            btnBroadcast.Text = "              Broadcast\r\n";
+            btnBroadcast.TextAlign = ContentAlignment.MiddleLeft;
+            btnBroadcast.UseVisualStyleBackColor = true;
+            btnBroadcast.Click += btnBroadcast_Click;
             // 
             // lblTotalReservationsCount
             // 
@@ -519,6 +596,9 @@
             ReservationsContainer_1.ResumeLayout(false);
             panel10.ResumeLayout(false);
             panel3.ResumeLayout(false);
+            panel4.ResumeLayout(false);
+            panel5.ResumeLayout(false);
+            panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvReservations).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -563,6 +643,11 @@
         private DataGridViewButtonColumn colViewEdit;
         private DataGridViewButtonColumn colCancel;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private Panel panel4;
+        private Button btnChat;
         private Panel panel5;
+        private Button btnSettings;
+        private Panel panel7;
+        private Button btnBroadcast;
     }
 }

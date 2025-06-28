@@ -76,14 +76,6 @@ namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
             this.Hide();
         }
 
-        private void Reservations_Click(object sender, EventArgs e)
-        {
-            ReservationManagementForm reservationmanagement = new ReservationManagementForm();
-            reservationmanagement.FormClosed += (s, args) => this.Close();
-            reservationmanagement.Show();
-            this.Hide();
-        }
-
         private void Customer_Click_1(object sender, EventArgs e)
         {
             CustomerManagenentForm customermanagement = new CustomerManagenentForm();
@@ -135,6 +127,30 @@ namespace GM_Dumago_Private_Resort_Admin_Desktop_Application
                 login.Show();
                 this.Hide();
             }
+        }
+
+        private void btnChat_Click(object sender, EventArgs e)
+        {
+            ChatForm chat = new ChatForm();
+            chat.FormClosed += (s, args) => this.Close();
+            chat.Show();
+            this.Hide();
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            SettingsForm settings = new SettingsForm();
+            settings.FormClosed += (s, args) => this.Close();
+            settings.Show();
+            this.Hide();
+        }
+
+        private void btnBroadcast_Click(object sender, EventArgs e)
+        {
+            BroadcastForm broadcast = new BroadcastForm();
+            broadcast.FormClosed += (s, args) => this.Close();
+            broadcast.Show();
+            this.Hide();
         }
     }
 }
