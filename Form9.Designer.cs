@@ -402,7 +402,6 @@
             btnSettings.Text = "              Settings\r\n";
             btnSettings.TextAlign = ContentAlignment.MiddleLeft;
             btnSettings.UseVisualStyleBackColor = true;
-            btnSettings.Click += btnSettings_Click;
             // 
             // panel7
             // 
